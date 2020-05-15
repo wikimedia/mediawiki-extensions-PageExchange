@@ -45,7 +45,7 @@ class PXCreatePageJob extends Job {
 		if ( class_exists( 'PageUpdater' ) ) {
 			// MW 1.32+
 			$updater = $wikiPage->newPageUpdater( $user );
-			$updater->setContent( SlotRecord::MAIN, $newContent );
+			$updater->setContent( MediaWiki\Revision\SlotRecord::MAIN, $newContent );
 			$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
 		} else {
 			$wikiPage->doEditContent( $newContent, $editSummary, $flags, false, $user );
