@@ -40,9 +40,9 @@
 		"pageexchange": "pageexchange-logdesc"
 	},
 	"LogActions": {
-		"pageexchange/installpackage": "pageexchange-installpackage",
-		"pageexchange/updatepackage": "pageexchange-updatepackage",
-		"pageexchange/uninstallpackage": "pageexchange-uninstallpackage"
+		"pageexchange/installpackage": "pageexchange-installpackagelog",
+		"pageexchange/updatepackage": "pageexchange-updatepackagelog",
+		"pageexchange/uninstallpackage": "pageexchange-uninstallpackagelog"
 	},
 	"MessagesDirs": {
 		"PageExchange": [

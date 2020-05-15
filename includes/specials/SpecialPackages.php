@@ -90,7 +90,7 @@ class SpecialPackages extends SpecialPage {
 		$dbr = wfGetDb( DB_REPLICA );
 		$res = $dbr->select(
 			'px_packages',
-			[ 'id', 'name', 'package_data' ]
+			[ 'pxp_id', 'pxp_name', 'pxp_package_data' ]
 		);
 		while ( $row = $res->fetchRow() ) {
 			$this->mInstalledPackages[] = PXInstalledPackage::newFromDB( $row );
@@ -150,7 +150,7 @@ class SpecialPackages extends SpecialPage {
 		$dbr = wfGetDb( DB_REPLICA );
 		$res = $dbr->select(
 			'px_packages',
-			'global_id'
+			'pxp_global_id'
 		);
 		$installedPackageIDs = [];
 		while ( $row = $res->fetchRow() ) {
