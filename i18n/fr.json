@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wladek92"
+		]
+	},
+	"packages": "Paquets",
+	"pageexchange-installed": "Installé",
+	"pageexchange-available": "Disponible",
+	"pageexchange-installpackage": "Installer le paquet : $1",
+	"pageexchange-updatepackage": "Mettre à jour le paquet : $1",
+	"pageexchange-uninstallpackage": "Désinstaller le paquet : $1",
+	"pageexchange-installpackagelog": "paquet $2 installé par $3",
+	"pageexchange-updatepackagelog": "paquet $2 mis à jour par $3",
+	"pageexchange-uninstallpackagelog": "paquet $2 désinstallé par $3",
+	"pageexchange-package-website": "Site web :",
+	"pageexchange-package-author": "Auteur :",
+	"pageexchange-package-version": "Version :",
+	"pageexchange-package-pages": "Pages :",
+	"pageexchange-package-language": "Langue :",
+	"pageexchange-package-requiredextensions": "Extensions nécessaires :",
+	"pageexchange-package-requiredpackages": "Paquets nécessaires :",
+	"pageexchange-package-install": "Installer",
+	"pageexchange-package-update": "Mettre à jour",
+	"pageexchange-package-uninstall": "Désinstaller",
+	"pageexchange-package-deleteallpages": "Supprimer toutes les pages wiki associées",
+	"pageexchange-latestvalue": "(dernière valeur : $1)",
+	"pageexchange-packageinstalled": "Ce paquet a été installé.",
+	"pageexchange-packageuninstalled": "Ce paquet a été désinstallé.",
+	"pageexchange-packageupdated": "Ce paquet a été mis à jour."
+}
