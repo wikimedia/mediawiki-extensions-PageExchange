@@ -321,9 +321,9 @@ END;
 	}
 
 	public function install( $user ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 
-		$maxPackageID = $dbr->selectField( 'px_packages', 'MAX(pxp_id)' );
+		$maxPackageID = $dbw->selectField( 'px_packages', 'MAX(pxp_id)' );
 		$packageID = $maxPackageID + 1;
 		$installValues = [
 			'pxp_id' => $packageID,
@@ -333,7 +333,7 @@ END;
 			'pxp_global_id' => $this->mGlobalID,
 			'pxp_package_data' => json_encode( $this->getPackageData() )
 		];
-		$dbr->insert( 'px_packages', $installValues );
+		$dbw->insert( 'px_packages', $installValues );
 
 		foreach ( $this->mPages as $page ) {
 			$page->createOrUpdateWikiPage( $user, $this->mName, true );
