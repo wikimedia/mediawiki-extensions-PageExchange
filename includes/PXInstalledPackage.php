@@ -17,7 +17,6 @@ class PXInstalledPackage extends PXPackage {
 
 		$packageData = json_decode( $dbRow['pxp_package_data'] );
 		$package->populateWithData( $directoryData = null, $packageData );
-		$package->processPages();
 
 		$package->mName = $dbRow['pxp_name'];
 		$package->mID = $dbRow['pxp_id'];
