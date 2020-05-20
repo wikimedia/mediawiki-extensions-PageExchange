@@ -14,11 +14,12 @@ class PXRemotePackage extends PXPackage {
 	private $mUninstallableReasons = [];
 	private $mIsMatch = true;
 
-	public static function newFromData( $fileNum, $fileData, $packageName, $packageData, $installedExtensions, $installedPackages ) {
+	public static function newFromData( $fileNum, $fileData, $packageName, $packageData, $installedExtensions, $installedPackages, $user ) {
 		$package = new PXRemotePackage();
 
 		$package->mName = $packageName;
 		$package->mFileNum = $fileNum;
+		$package->mUser = $user;
 		$package->populateWithData( $fileData, $packageData );
 		$package->checkApplicabilityToSite( $installedExtensions, $installedPackages );
 
@@ -32,12 +33,20 @@ class PXRemotePackage extends PXPackage {
 		if ( count( $this->mPages ) == 0 ) {
 			$this->mUninstallableReasons[] = 'no-pages';
 		}
+		$userCanEditJS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitejs' );
+		$userCanEditCSS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitecss' );
 		foreach ( $this->mPages as $page ) {
 			if ( $page == null ) {
 				continue;
 			}
 			if ( $page->getLocalTitle() == null && !in_array( 'bad-namespace', $this->mUninstallableReasons ) ) {
 				$this->mUninstallableReasons[] = 'bad-namespace';
+			}
+			$contentType = $page->getContentType();
+			if ( $contentType == 'JavaScript' && !$userCanEditJS ) {
+				$this->mUninstallableReasons[] = 'cannot-edit-js';
+			} elseif ( $contentType == 'CSS' && !$userCanEditCSS ) {
+				$this->mUninstallableReasons[] = 'cannot-edit-css';
 			}
 			$pageLink = $page->getLink();
 			if ( $page->localTitleExists() ) {
@@ -124,18 +133,7 @@ END;
 			$packageHTML .= $this->displayWarningMessage( 'Every page in this package is already found on your wiki; perhaps you have already unofficially installed it.' );
 		}
 		if ( $this->isUninstallable() ) {
-			$errorMsg = wfMessage( 'pageexchange-uninstallablepackage' )->parse();
-			$errorMsg .= "\n<ul>";
-			foreach ( $this->mUninstallableReasons as $reason ) {
-				if ( $reason == 'no-pages' ) {
-					$errorMsg .= '<li>No pages are defined</li>';
-				} elseif ( $reason == 'no-identifier' ) {
-					$errorMsg .= '<li>Lacks a unique global ID</li>';
-				} elseif ( $reason == 'bad-namespace' ) {
-					$errorMsg .= '<li>It uses a namespace not defined on your wiki</li>';
-				}
-			}
-			$errorMsg .= '</ul>';
+			$errorMsg = $this->getUninstallableReasonsString();
 			$packageHTML .= $this->displayWarningMessage( $errorMsg );
 		} elseif ( !$this->mIsMatch ) {
 			$packageHTML .= $this->displayWarningMessage( wfMessage( 'pageexchange-inappropriatepackage' )->parse() );
@@ -170,6 +168,26 @@ END;
 		}
 
 		return $packageHTML;
+	}
+
+	public function getUninstallableReasonsString() {
+		$text = wfMessage( 'pageexchange-uninstallablepackage' )->parse();
+		$text .= "\n<ul>";
+		foreach ( $this->mUninstallableReasons as $reason ) {
+			if ( $reason == 'no-pages' ) {
+				$text .= '<li>No pages are defined</li>';
+			} elseif ( $reason == 'no-identifier' ) {
+				$text .= '<li>Lacks a unique global ID</li>';
+			} elseif ( $reason == 'bad-namespace' ) {
+				$text .= '<li>It uses a namespace not defined on this wiki</li>';
+			} elseif ( $reason == 'cannot-edit-js' ) {
+				$text .= '<li>You do not have permission to modify JavaScript pages</li>';
+			} elseif ( $reason == 'cannot-edit-css' ) {
+				$text .= '<li>You do not have permission to modify CSS pages</li>';
+			}
+		}
+		$text .= '</ul>';
+		return $text;
 	}
 
 	public function getRequiredExtensionsString() {
@@ -278,6 +296,11 @@ END;
 		$packageRequiredPackagesString = $this->getRequiredPackagesString();
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-requiredpackages', $packageRequiredPackagesString );
 
+		if ( $this->isUninstallable() ) {
+			$packageHTML .= $this->displayWarningMessage( $this->getUninstallableReasonsString() );
+			return $packageHTML;
+		}
+
 		$installButton = new OOUI\ButtonInputWidget( [
 			'label' => wfMessage( 'pageexchange-package-install' )->parse(),
 			'useInputTag' => true,
@@ -325,12 +348,29 @@ END;
 
 		$maxPackageID = $dbw->selectField( 'px_packages', 'MAX(pxp_id)' );
 		$packageID = $maxPackageID + 1;
+
+		// We do special storage of MediaWiki:XXX.js and .css pages,
+		// because they will then get loaded on every page.
+		$jsPages = [];
+		$cssPages = [];
+		foreach ( $this->mPages as $page ) {
+			$contentType = $page->getContentType();
+			if ( $contentType == 'JavaScript' ) {
+				$jsPages[] = $page->getName();
+			} elseif ( $contentType == 'CSS' ) {
+				$cssPages[] = $page->getName();
+			}
+		}
+		$jsPagesString = ( count( $jsPages ) > 0 ) ? implode( ',', $jsPages ) : null;
+		$cssPagesString = ( count( $cssPages ) > 0 ) ? implode( ',', $cssPages ) : null;
 		$installValues = [
 			'pxp_id' => $packageID,
 			'pxp_date_installed' => 'NOW()',
 			'pxp_installing_user' => $user->getID(),
 			'pxp_name' => $this->mName,
 			'pxp_global_id' => $this->mGlobalID,
+			'pxp_js_pages' => $jsPagesString,
+			'pxp_css_pages' => $cssPagesString,
 			'pxp_package_data' => json_encode( $this->getPackageData() )
 		];
 		$dbw->insert( 'px_packages', $installValues );

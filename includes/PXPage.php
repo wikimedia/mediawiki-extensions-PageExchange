@@ -91,6 +91,19 @@ class PXPage {
 		$this->mURL = $url;
 	}
 
+	public function getContentType() {
+		if ( $this->mNamespace !== NS_MEDIAWIKI ) {
+			return null;
+		}
+		if ( substr( $this->mName, -3 ) == '.js' ) {
+			return 'JavaScript';
+		}
+		if ( substr( $this->mName, -4 ) == '.css' ) {
+			return 'CSS';
+		}
+		return null;
+	}
+
 	public function getRemoteContents() {
 		return PXPackageFile::getWebPageContents( $this->mURL );
 	}
@@ -124,7 +137,8 @@ class PXPage {
 		$params = [
 			'page_url' => $this->mURL,
 			'user_id' => $user->getID(),
-			'edit_summary' => $editSummary
+			'edit_summary' => $editSummary,
+			'content_type' => $this->getContentType()
 		];
 		if ( $this->mNamespace == NS_FILE ) {
 			$params['file_url'] = $this->mFileURL;

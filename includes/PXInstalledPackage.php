@@ -12,7 +12,7 @@ class PXInstalledPackage extends PXPackage {
 	private $mAssociatedRemotePackage;
 	private $mUnmatchedRemotePages = [];
 
-	public static function newFromDB( $dbRow ) {
+	public static function newFromDB( $dbRow, $user ) {
 		$package = new PXInstalledPackage();
 
 		$packageData = json_decode( $dbRow['pxp_package_data'] );
@@ -20,6 +20,7 @@ class PXInstalledPackage extends PXPackage {
 
 		$package->mName = $dbRow['pxp_name'];
 		$package->mID = $dbRow['pxp_id'];
+		$package->mUser = $user;
 
 		return $package;
 	}
@@ -103,6 +104,22 @@ class PXInstalledPackage extends PXPackage {
 		$this->mPagesString = implode( ', ', $pageLinks );
 	}
 
+	private function isUpdateable() {
+                $userCanEditJS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitejs' );
+                $userCanEditCSS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitecss' );
+
+		foreach ( $this->mPages as $page ) {
+			$contentType = $page->getContentType();
+			if ( $contentType == 'JavaScript' && !$userCanEditJS ) {
+				return false;
+			}
+			if ( $contentType == 'CSS' && !$userCanEditCSS ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public function getFullHTML() {
 		$remoteDiffersFromInstalled = false;
 		$packageHTML = '';
@@ -162,6 +179,11 @@ class PXInstalledPackage extends PXPackage {
 				$this->mName !== $remotePackage->mName ||
 				$this->mPublisher !== $remotePackage->mPublisher ||
 				$this->mVersion !== $remotePackage->mVersion;
+		}
+
+		if ( !$this->isUpdateable() ) {
+			$packageHTML .= $this->displayWarningMessage( 'You cannot update or uninstall this package because it contains JavaScript and/or CSS pages, which you lack the permission to edit.' );
+			return $packageHTML;
 		}
 
 		// Normally 'useInputTag' is not supposed to be used for

@@ -1,7 +1,7 @@
 {
 	"name": "Page Exchange",
 	"namemsg": "pageexchange-extensionname",
-	"version": "0.1",
+	"version": "0.2-alpha",
 	"author": [
 		"Yaron Koren"
 	],
@@ -22,6 +22,8 @@
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "PXHooks::describeDBSchema",
+		"ResourceLoaderSiteModulePages": "PXHooks::loadJSPages",
+		"ResourceLoaderSiteStylesModulePages": "PXHooks::loadCSSPages",
 		"AdminLinks": "PXHooks::addToAdminLinks"
 	},
 	"SpecialPages": {

@@ -32,7 +32,7 @@ class PXPackageFile {
 		return $packageFile;
 	}
 
-	public function getPackage( $packageName ) {
+	public function getPackage( $packageName, $user ) {
 		$packageData = $this->mData->packages->$packageName;
 		return PXRemotePackage::newFromData(
 			$this->mFileNum,
@@ -40,11 +40,12 @@ class PXPackageFile {
 			$packageName,
 			$packageData,
 			$this->mInstalledExtensions,
-			$this->mInstalledPackages
+			$this->mInstalledPackages,
+			$user
 		);
 	}
 
-	public function getAllPackages() {
+	public function getAllPackages( $user ) {
 		$packages = [];
 		foreach ( $this->mData->packages as $name => $packageData ) {
 			$packages[] = PXRemotePackage::newFromData(
@@ -53,7 +54,8 @@ class PXPackageFile {
 				$name,
 				$packageData,
 				$this->mInstalledExtensions,
-				$this->mInstalledPackages
+				$this->mInstalledPackages,
+				$user
 			);
 		}
 		return $packages;

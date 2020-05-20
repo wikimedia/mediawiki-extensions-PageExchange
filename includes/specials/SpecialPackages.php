@@ -93,7 +93,7 @@ class SpecialPackages extends SpecialPage {
 			[ 'pxp_id', 'pxp_name', 'pxp_package_data' ]
 		);
 		while ( $row = $res->fetchRow() ) {
-			$this->mInstalledPackages[] = PXInstalledPackage::newFromDB( $row );
+			$this->mInstalledPackages[] = PXInstalledPackage::newFromDB( $row, $this->getUser() );
 		}
 	}
 
@@ -111,7 +111,7 @@ class SpecialPackages extends SpecialPage {
 				$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ], $e->getMessage() ) );
 				continue;
 			}
-			$packages = $pxFile->getAllPackages();
+			$packages = $pxFile->getAllPackages( $this->getUser() );
 			foreach ( $packages as $remotePackage ) {
 				$this->loadRemotePackage( $remotePackage );
 			}
@@ -159,7 +159,7 @@ class SpecialPackages extends SpecialPage {
 
 		$pxFile = PXPackageFile::init( $fileURL, $fileNum, $this->mInstalledExtensions, $installedPackageIDs );
 
-		return $pxFile->getPackage( $packageName );
+		return $pxFile->getPackage( $packageName, $this->getUser() );
 	}
 
 	private function displayAll() {

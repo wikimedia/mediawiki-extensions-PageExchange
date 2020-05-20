@@ -24,6 +24,7 @@ abstract class PXPackage {
 	protected $mURL;
 	protected $mRequiredExtensions = [];
 	protected $mRequiredPackages = [];
+	protected $mUser;
 
 	public function populateWithData( $fileData, $packageData ) {
 		$pagesData = self::getPackageField( 'pages', $fileData, $packageData, false );

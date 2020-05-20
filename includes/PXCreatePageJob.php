@@ -37,7 +37,14 @@ class PXCreatePageJob extends Job {
 		}
 
 		$pageText = file_get_contents( $this->params['page_url'] );
-		$newContent = new WikitextContent( $pageText );
+		$contentType = $this->params['content_type'];
+		if ( $contentType == 'JavaScript' ) {
+			$newContent = new JavaScriptContent( $pageText );
+		} elseif ( $contentType == 'CSS' ) {
+			$newContent = new CSSContent( $pageText );
+		} else {
+			$newContent = new WikitextContent( $pageText );
+		}
 		$user = User::newFromId( $this->params['user_id'] );
 		$editSummary = $this->params['edit_summary'];
 		$flags = 0;
