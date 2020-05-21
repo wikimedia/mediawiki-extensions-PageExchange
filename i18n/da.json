@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"packages": "Pakker",
+	"pageexchange-available": "Tilgængelig",
+	"pageexchange-updatepackage": "Opdater pakke: $1",
+	"pageexchange-package-publisher": "Udgiver:",
+	"pageexchange-package-author": "Forfatter:",
+	"pageexchange-package-version": "Version:",
+	"pageexchange-package-language": "Sprog:",
+	"pageexchange-package-requiredpackages": "Krævede pakker:",
+	"pageexchange-package-install": "Installer",
+	"pageexchange-package-uninstall": "Afinstaller"
+}
