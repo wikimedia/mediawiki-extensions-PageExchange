@@ -237,7 +237,8 @@ END;
 
 		if ( $this->mRequiredExtensions != null ) {
 			foreach ( $this->mRequiredExtensions as $requiredExt ) {
-				if ( !in_array( $requiredExt, $installedExtensions ) ) {
+				$requiredExtNoSpaces = str_replace( ' ', '', $requiredExt );
+				if ( !in_array( $requiredExtNoSpaces, $installedExtensions ) ) {
 					$this->mMissingExtensions[] = $requiredExt;
 				}
 			}

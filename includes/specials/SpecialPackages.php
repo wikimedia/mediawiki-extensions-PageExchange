@@ -32,7 +32,9 @@ class SpecialPackages extends SpecialPage {
 		$extensionCredits = $this->getConfig()->get( 'ExtensionCredits' );
 		foreach ( $extensionCredits as $group => $exts ) {
 			foreach ( $exts as $ext ) {
-				$this->mInstalledExtensions[] = $ext['name'];
+				// Make the names "space-insensitive".
+				$extensionName = str_replace( ' ', '', $ext['name'] );
+				$this->mInstalledExtensions[] = $extensionName;
 			}
 		}
 
