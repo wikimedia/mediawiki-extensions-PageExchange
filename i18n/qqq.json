@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Robby",
 			"Yaron Koren"
 		]
 	},
@@ -12,7 +13,7 @@
 	"pageexchange-logname": "{{doc-logpage}}",
 	"pageexchange-logdesc": "This is the log of actions related to the Page Exchange extension.",
 	"pageexchange-installed": "A section header for packages that have been installed on the wiki",
-	"pageexchange-available": "A section header for packages that are available to be installed on the wiki",
+	"pageexchange-available": "A section header for packages that are available to be installed on the wiki\n{{identical|Available}}",
 	"pageexchange-installpackage": "An edit summary. Parameters:\n* $1 - the name of a \"package\" of wiki pages",
 	"pageexchange-updatepackage": "An edit summary. Parameters:\n* $1 - the name of a \"package\" of wiki pages",
 	"pageexchange-uninstallpackage": "An edit summary. Parameters:\n* $1 - the name of a \"package\" of wiki pages",
@@ -22,9 +23,9 @@
 	"pageexchange-package-website": "A label in a display",
 	"pageexchange-package-publisher": "A label in a display",
 	"pageexchange-package-author": "A label in a display",
-	"pageexchange-package-version": "A label in a display",
+	"pageexchange-package-version": "A label in a display\n{{identical|Version}}",
 	"pageexchange-package-pages": "A label in a display",
-	"pageexchange-package-language": "A label in a display",
+	"pageexchange-package-language": "A label in a display\n{{identical|language}}",
 	"pageexchange-package-requiredextensions": "A label for the list of MediaWiki extensions required for this package to work",
 	"pageexchange-package-requiredpackages": "A label for the list of wiki page \"packages\" that must be installed for the current package to work",
 	"pageexchange-package-morerecent": "An info message about a \"package\" of wiki pages that has been installed on this wiki",
