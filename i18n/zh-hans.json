@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"列维劳德"
+		]
+	},
+	"pageexchange-logdesc": "这是与 Page Exchange 扩展相关的操作日志。",
+	"pageexchange-available": "可用",
+	"pageexchange-package-website": "网址：",
+	"pageexchange-package-publisher": "发布者：",
+	"pageexchange-package-author": "作者：",
+	"pageexchange-package-version": "版本：",
+	"pageexchange-package-pages": "页面：",
+	"pageexchange-package-language": "语言：",
+	"pageexchange-package-update": "更新",
+	"pageexchange-package-uninstall": "卸载"
+}
