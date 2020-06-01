@@ -29,7 +29,7 @@
 	"pageexchange-package-requiredextensions": "A label for the list of MediaWiki extensions required for this package to work",
 	"pageexchange-package-requiredpackages": "A label for the list of wiki page \"packages\" that must be installed for the current package to work",
 	"pageexchange-package-morerecent": "An info message about a \"package\" of wiki pages that has been installed on this wiki",
-	"pageexchange-package-install": "The text of a button",
+	"pageexchange-package-install": "The text of a button\n{{identical|Install}}",
 	"pageexchange-package-update": "The text of a button",
 	"pageexchange-package-uninstall": "The text of a button",
 	"pageexchange-package-deleteallpages": "The label of a checkbox",
