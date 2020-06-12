@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
+			"Thibaut120094",
 			"Wladek92"
 		]
 	},
-	"pageexchange-desc": "Permet d’installer des « paquets » de pages wiki prédéfinies",
+	"pageexchange-desc": "Permet d’installer des « paquets » de pages wiki prédéfinies",
 	"packages": "Paquets",
 	"right-pageexchange": "Lancer les actions d’extraction de page",
 	"action-pageexchange": "lancer les actions d’extraction de page",
