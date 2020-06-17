@@ -151,7 +151,12 @@ class PXInstalledPackage extends PXPackage {
 				// Seems impossible that this would happen.
 				$remoteDiffersFromInstalled = true;
 			} else {
-				$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
+				if ( $page->getNamespace() == NS_FILE ) {
+					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external text' ) . ', ' .
+						Html::element( 'a', [ 'href' => $page->getFileURL() ], 'external file' ) . ')';
+				} else {
+					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
+				}
 				$localContents = $page->getLocalContents();
 				if ( $localContents == $remoteContents ) {
 					// Do nothing.
@@ -161,7 +166,7 @@ class PXInstalledPackage extends PXPackage {
 				}
 			}
 			if ( $page->getNamespace() == NS_FILE && $remotePackage !== null ) {
-				$pagesString .= ' (It is unknown whether the latest version of the actual file matches the local copy.)';
+				$pagesString .= ' (It is unknown whether the latest version of the file matches the local copy.)';
 			}
 		}
 		foreach ( $this->mUnmatchedRemotePages as $unmatchedRemotePage ) {

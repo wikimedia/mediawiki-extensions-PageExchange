@@ -98,6 +98,10 @@ class PXPage {
 		$this->mURL = $url;
 	}
 
+	public function getFileURL() {
+		return $this->mFileURL;
+	}
+
 	public function getContentType() {
 		if ( $this->mNamespace !== NS_MEDIAWIKI ) {
 			return null;
