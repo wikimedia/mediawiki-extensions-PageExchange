@@ -137,7 +137,7 @@ class PXInstalledPackage extends PXPackage {
 
 		$pagesString = "<ul>\n";
 		foreach ( $this->mPages as $page ) {
-			$pagesString .= "<li>" . $page->getLink();
+			$pagesString .= "<li>" . $page->getLocalLink();
 			$remoteContents = $page->getRemoteContents();
 			if ( $remotePackage == null ) {
 				// No remote version of anything.
@@ -165,7 +165,9 @@ class PXInstalledPackage extends PXPackage {
 			}
 		}
 		foreach ( $this->mUnmatchedRemotePages as $unmatchedRemotePage ) {
-			$pagesString .= "<li>" . $unmatchedRemotePage->getLink() . ' - <span class="error">this page does not exist locally.</span>';
+			$pagesString .= "<li>" . $unmatchedRemotePage->getLocalLink() .
+				' (' . Html::element( 'a', [ 'href' => $unmatchedRemotePage->getURL() ], 'external' ) .
+				') - this page does not exist locally.';
 		}
 
 		$pagesString .= "</ul>\n";
