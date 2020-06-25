@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Robby",
 			"Yaron Koren"
 		]
@@ -9,7 +10,7 @@
 	"pageexchange-desc": "{{desc|name=Page Exchange|url=https://www.mediawiki.org/wiki/Extension:Page_Exchange}}",
 	"packages": "{{doc-special|Packages}}",
 	"right-pageexchange": "{{doc-right|pageexchange}}",
-	"action-pageexchange": "{{doc-action|pageexchange}}\n{{doc-pageexchange}}",
+	"action-pageexchange": "{{doc-action|pageexchange}}",
 	"pageexchange-logname": "{{doc-logpage}}",
 	"pageexchange-logdesc": "This is the log of actions related to the Page Exchange extension.",
 	"pageexchange-installed": "A section header for packages that have been installed on the wiki",
