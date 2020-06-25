@@ -12,3 +12,13 @@ $specialPageAliases = [];
 $specialPageAliases['en'] = [
 	'Packages' => [ 'Packages' ]
 ];
+
+/** Serbian Cyrillic (српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = [
+	'Packages' => [ 'Пакети' ]
+];
+
+/** Serbian Latin (srpski (latinica))) */
+$specialPageAliases['sr-el'] = [
+	'Packages' => [ 'Paketi' ]
+];
