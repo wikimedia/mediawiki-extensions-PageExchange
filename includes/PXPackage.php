@@ -52,6 +52,17 @@ abstract class PXPackage {
 		$this->mRequiredPackages = self::getPackageField( 'requiredPackages', $fileData, $packageData );
 	}
 
+	public static function getSpecialPage( $pageName ) {
+		if ( class_exists( 'MediaWiki\Special\SpecialPageFactory' ) ) {
+			// MW 1.32+
+			return MediaWikiServices::getInstance()
+				->getSpecialPageFactory()
+				->getPage( $pageName );
+		} else {
+			return SpecialPageFactory::getPage( $pageName );
+		}
+	}
+
 	public static function getPackageField( $fieldName, $fileData, $packageData, $escapeHTML = true, $isWikitext = false ) {
 		if ( property_exists( $packageData, $fieldName ) ) {
 			$value = $packageData->$fieldName;
@@ -63,9 +74,7 @@ abstract class PXPackage {
 		if ( $isWikitext ) {
 			$mwServices = MediaWikiServices::getInstance();
 			$parser = $mwServices->getParser();
-			$packagesTitle = $mwServices->getSpecialPageFactory()
-				->getPage( 'Packages' )
-				->getPageTitle();
+			$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
 			return $parser->parse( $value, $packagesTitle, new ParserOptions(), false )->getText();
 		}
 		if ( !$escapeHTML ) {
@@ -231,11 +240,7 @@ END;
 	abstract public function getFullHTML();
 
 	public function getPackageLink( $linkText, $query ) {
-		$packagesPage = MediaWikiServices::getInstance()
-			->getSpecialPageFactory()
-			->getPage( 'Packages' );
-
-		$packagesTitle = $packagesPage->getPageTitle();
+		$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
 		$packageURL = $packagesTitle->getLocalURL( $query );
 		return Html::element( 'a', [ 'href' => $packageURL ], $linkText );
 	}
@@ -243,10 +248,7 @@ END;
 	public function logAction( $actionName, User $user ) {
 		$log = new LogPage( 'pageexchange', false );
 
-		$packagesPage = MediaWikiServices::getInstance()
-			->getSpecialPageFactory()
-			->getPage( 'Packages' );
-		$packagesTitle = $packagesPage->getPageTitle();
+		$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
 		$logParams = [
 			$this->mName,
 			$this->mPublisher
