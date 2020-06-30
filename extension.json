@@ -29,9 +29,9 @@
 	"SpecialPages": {
 		"Packages": "SpecialPackages"
 	},
-        "JobClasses": {
-                "pageExchangeCreatePage": "PXCreatePageJob"
-        },
+	"JobClasses": {
+		"pageExchangeCreatePage": "PXCreatePageJob"
+	},
 	"LogTypes": [
 		"pageexchange"
 	],
