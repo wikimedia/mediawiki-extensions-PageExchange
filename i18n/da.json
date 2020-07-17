@@ -14,5 +14,7 @@
 	"pageexchange-package-language": "Sprog:",
 	"pageexchange-package-requiredpackages": "Krævede pakker:",
 	"pageexchange-package-install": "Installer",
-	"pageexchange-package-uninstall": "Afinstaller"
+	"pageexchange-package-update": "Opdatér",
+	"pageexchange-package-uninstall": "Afinstaller",
+	"pageexchange-packageupdated": "Denne pakke blev opdateret."
 }
