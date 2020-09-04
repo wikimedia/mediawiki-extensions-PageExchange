@@ -1,16 +1,16 @@
 /* JavaScript for the Page Exchange extension */
 
-$('.pageExchangeAdditionalPages').hide();
+$( '.pageExchangeAdditionalPages' ).hide();
 
-$('.pageExchangeToggle').click( function() {
-	var $toggleLink = $(this);
-	$toggleLink.siblings('.pageExchangeAdditionalPages').each( function() {
-		if ( $(this).is(":hidden") ) {
-			$(this).show();
-			$toggleLink.text('show less');
+$( '.pageExchangeToggle' ).on( 'click', function () {
+	var $toggleLink = $( this );
+	$toggleLink.siblings( '.pageExchangeAdditionalPages' ).each( function () {
+		if ( $( this ).is( ':hidden' ) ) {
+			$( this ).show();
+			$toggleLink.text( 'show less' );
 		} else {
-			$(this).hide();
-			$toggleLink.text('show more');
+			$( this ).hide();
+			$toggleLink.text( 'show more' );
 		}
-	});
-});
+	} );
+} );
