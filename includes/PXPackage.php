@@ -31,7 +31,11 @@ abstract class PXPackage {
 		$pagesData = self::getPackageField( 'pages', $fileData, $packageData, false );
 		if ( $pagesData !== null ) {
 			foreach( $pagesData as $pageData ) {
-				$this->mPages[] = PXPage::newFromData( $pageData );
+				$page = PXPage::newFromData( $pageData );
+				if ( $page === null ) {
+					continue;
+				}
+				$this->mPages[] = $page;
 			}
 		}
 		$this->processPages();
