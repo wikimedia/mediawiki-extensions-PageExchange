@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\AtEase\AtEase;
+
 /**
  * Class for a JSON file holding the definitions of one or more packages.
  *
