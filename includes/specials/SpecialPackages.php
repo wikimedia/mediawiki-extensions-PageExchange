@@ -29,6 +29,16 @@ class SpecialPackages extends SpecialPage {
 		$out->addModules( [ 'ext.pageexchange' ] );
 		$out->addModuleStyles( [ 'oojs-ui.styles.icons-alerts' ] );
 
+		// Extensions loaded via wfLoadExtension().
+		$registeredExtensions = ExtensionRegistry::getInstance()->getAllThings();
+		foreach ( $registeredExtensions as $extName => $extData ) {
+			// Make the names "space-insensitive".
+			$extensionName = str_replace( ' ', '', $extName );
+			$this->mInstalledExtensions[] = $extensionName;
+		}
+
+		// For MW 1.35+, this only gets extensions loaded the old way, via
+		// include_once() or require_once().
 		$extensionCredits = $this->getConfig()->get( 'ExtensionCredits' );
 		foreach ( $extensionCredits as $group => $exts ) {
 			foreach ( $exts as $ext ) {
