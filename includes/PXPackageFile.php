@@ -68,6 +68,15 @@ class PXPackageFile {
 	 * but it seemed silly to create a class just for this one function.
 	 */
 	public static function getWebPageContents( $url ) {
+		// Use cURL, if it's installed - it seems to have a better
+		// chance of working.
+		if ( function_exists( 'curl_init' ) ) {
+			$ch = curl_init();
+			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+			curl_setopt( $ch, CURLOPT_URL, $url );
+			return curl_exec( $ch );
+		}
+
 		if ( method_exists( AtEase::class, 'suppressWarnings' ) ) {
 			// MW >= 1.33
 			AtEase::suppressWarnings();
