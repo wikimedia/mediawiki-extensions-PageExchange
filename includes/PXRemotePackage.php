@@ -152,6 +152,7 @@ END;
 		$hasMismatchedLanguage = ( $this->mLanguage != '' ) && ( $this->mLanguage != $wgLanguageCode );
 		$languageString = $hasMismatchedLanguage ? "<span class=\"error\">{$this->mLanguage}</span>" : $this->mLanguage;
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-language', $languageString, $hasMismatchedLanguage );
+		$packageHTML .= $this->displayAttribute( 'pageexchange-package-license', $this->mLicenseName );
 		$hasMismatchedExtensions = count( $this->mMissingExtensions ) > 0;
 		$packageRequiredExtensionsString = $this->getRequiredExtensionsString();
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-requiredextensions', $packageRequiredExtensionsString, $hasMismatchedExtensions );
@@ -292,6 +293,7 @@ END;
 		$pagesString .= "</ul>\n";
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-pages', $pagesString );
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-language', $this->mLanguage );
+		$packageHTML .= $this->displayAttribute( 'pageexchange-package-license', $this->mLicenseName );
 		$packageRequiredExtensionsString = $this->getRequiredExtensionsString();
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-requiredextensions', $packageRequiredExtensionsString );
 		$packageRequiredPackagesString = $this->getRequiredPackagesString();
@@ -335,6 +337,7 @@ END;
 			'publisherURL' => $this->mPublisherURL,
 			'author' => $this->mAuthor,
 			'language' => $this->mLanguage,
+			'licenseName' => $this->mLicenseName,
 			'url' => $this->mURL,
 			'requiredExtensions' => $this->mRequiredExtensions,
 			'requiredPackages' => $this->mRequiredPackages,

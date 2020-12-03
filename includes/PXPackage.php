@@ -22,6 +22,7 @@ abstract class PXPackage {
 	protected $mAuthor;
 	protected $mLanguage;
 	protected $mURL;
+	protected $mLicenseName;
 	protected $mRequiredExtensions = [];
 	protected $mRequiredPackages = [];
 	protected $mUser;
@@ -48,6 +49,7 @@ abstract class PXPackage {
 		if ( substr( $this->mURL, 0, 4 ) !== 'http' ) {
 			$this->mURL = null;
 		}
+		$this->mLicenseName = self::getPackageField( 'licenseName', $fileData, $packageData );
 		$this->mRequiredExtensions = self::getPackageField( 'requiredExtensions', $fileData, $packageData );
 		$this->mRequiredPackages = self::getPackageField( 'requiredPackages', $fileData, $packageData );
 	}

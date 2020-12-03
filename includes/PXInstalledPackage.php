@@ -67,6 +67,10 @@ class PXInstalledPackage extends PXPackage {
 	}
 
 	public function displayInstalledAttribute( $attrMsg, $attrField ) {
+		if ( !property_exists( $this, $attrField ) ) {
+			return '';
+		}
+
 		$localValue = $this->$attrField;
 		$remotePackage = $this->mAssociatedRemotePackage;
 		if ( $remotePackage !== null ) {
@@ -179,6 +183,7 @@ class PXInstalledPackage extends PXPackage {
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-pages', $pagesString );
 
 		$packageHTML .= $this->displayInstalledAttribute( 'pageexchange-package-language', 'mLanguage' );
+		$packageHTML .= $this->displayInstalledAttribute( 'pageexchange-package-license', 'mLicenseName' );
 
 		if ( !$remoteDiffersFromInstalled && $remotePackage !== null ) {
 			$remoteDiffersFromInstalled =

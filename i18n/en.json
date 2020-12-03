@@ -25,6 +25,7 @@
 	"pageexchange-package-version": "Version:",
 	"pageexchange-package-pages": "Pages:",
 	"pageexchange-package-language": "Language:",
+	"pageexchange-package-license": "License:",
 	"pageexchange-package-requiredextensions": "Required extensions:",
 	"pageexchange-package-requiredpackages": "Required packages:",
 	"pageexchange-package-morerecent": "There is a more recent version of this package than the one currently installed on this wiki.",
