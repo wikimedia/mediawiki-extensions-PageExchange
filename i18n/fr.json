@@ -3,6 +3,7 @@
 		"authors": [
 			"Gomoko",
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
@@ -26,6 +27,7 @@
 	"pageexchange-package-version": "Version :",
 	"pageexchange-package-pages": "Pages :",
 	"pageexchange-package-language": "Langue :",
+	"pageexchange-package-license": "Licence :",
 	"pageexchange-package-requiredextensions": "Extensions nécessaires :",
 	"pageexchange-package-requiredpackages": "Paquets nécessaires :",
 	"pageexchange-package-morerecent": "Il existe une version plus récente de ce paquet que celle actuellement installée sur ce wiki.",

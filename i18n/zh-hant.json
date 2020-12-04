@@ -24,6 +24,7 @@
 	"pageexchange-package-version": "版本：",
 	"pageexchange-package-pages": "頁面：",
 	"pageexchange-package-language": "語言：",
+	"pageexchange-package-license": "授權：",
 	"pageexchange-package-requiredextensions": "所需擴充：",
 	"pageexchange-package-requiredpackages": "所需套件：",
 	"pageexchange-package-morerecent": "此套件現在有比安裝在此 wiki 上還要新的版本。",

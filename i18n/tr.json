@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
 	"pageexchange-desc": "Önceden tanımlanmış viki sayfalarının \"paketlerini\" yüklemeye izin verir",
@@ -24,6 +25,7 @@
 	"pageexchange-package-version": "Sürüm:",
 	"pageexchange-package-pages": "Sayfalar:",
 	"pageexchange-package-language": "Dil:",
+	"pageexchange-package-license": "Lisans:",
 	"pageexchange-package-requiredextensions": "Gerekli uzantılar:",
 	"pageexchange-package-requiredpackages": "Gerekli paketler:",
 	"pageexchange-package-morerecent": "Bu paketin şu anda bu vikide yüklü olandan daha yeni bir sürümü var.",
