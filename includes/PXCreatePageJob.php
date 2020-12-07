@@ -94,14 +94,25 @@ class PXCreatePageJob extends Job {
 			$publishOptions['headers'] = [];
 		}
 		$archive = $file->publish( $tempFilePath, $flags, $publishOptions );
-		$file->recordUpload2(
-			$archive->value,
-			$editSummary,
-			$editSummary, // What does this get used for?
-			$props,
-			$timestamp = false,
-			$user
-		);
+		if ( is_callable( [ $file, 'recordUpload3' ] ) ) {
+			// MW 1.35+
+			$file->recordUpload3(
+				$archive->value,
+				$editSummary,
+				$editSummary, // What does this get used for?
+				$user,
+				$props
+			);
+		} else {
+			$file->recordUpload2(
+				$archive->value,
+				$editSummary,
+				$editSummary, // What does this get used for?
+				$props,
+				$timestamp = false,
+				$user
+			);
+		}
 	}
 
 }
