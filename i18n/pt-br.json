@@ -24,6 +24,7 @@
 	"pageexchange-package-version": "Versão:",
 	"pageexchange-package-pages": "Páginas:",
 	"pageexchange-package-language": "Idioma:",
+	"pageexchange-package-license": "Licença:",
 	"pageexchange-package-requiredextensions": "Extensões necessárias:",
 	"pageexchange-package-requiredpackages": "Pacotes necessários:",
 	"pageexchange-package-morerecent": "Existe uma versão mais recente deste pacote do que a atualmente instalada neste wiki.",

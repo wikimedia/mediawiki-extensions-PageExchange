@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"Rail"
 		]
 	},
@@ -24,6 +25,7 @@
 	"pageexchange-package-version": "Wersja:",
 	"pageexchange-package-pages": "Strony:",
 	"pageexchange-package-language": "Język:",
+	"pageexchange-package-license": "Licencja:",
 	"pageexchange-package-requiredextensions": "Wymagane rozszerzenia:",
 	"pageexchange-package-requiredpackages": "Wymagane pakiety:",
 	"pageexchange-package-morerecent": "Istnieje nowsza wersja tego pakietu od wersji, która jest obecnie zainstalowana na tej wiki.",

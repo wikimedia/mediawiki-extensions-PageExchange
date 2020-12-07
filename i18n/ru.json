@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Diman Russkov",
+			"Kareyac",
 			"VoxelJ"
 		]
 	},
@@ -14,6 +15,7 @@
 	"pageexchange-package-version": "Версия:",
 	"pageexchange-package-pages": "Страницы.",
 	"pageexchange-package-language": "Язык:",
+	"pageexchange-package-license": "Лицензия:",
 	"pageexchange-package-update": "Обновить",
 	"pageexchange-pagehaschanged": "Последняя версия этой страницы отличается от локальной копии.",
 	"pageexchange-uninstallablepackage": "Этот совет не может быть установлен из за следующих причин:"

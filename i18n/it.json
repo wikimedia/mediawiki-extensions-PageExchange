@@ -14,6 +14,7 @@
 	"pageexchange-package-version": "Versione:",
 	"pageexchange-package-pages": "Pagine:",
 	"pageexchange-package-language": "Lingua:",
+	"pageexchange-package-license": "Licenza:",
 	"pageexchange-package-requiredextensions": "Estensioni richieste:",
 	"pageexchange-package-install": "Installa",
 	"pageexchange-package-update": "Aggiorna",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Javiero",
 			"Robin van der Vliet"
 		]
 	},
@@ -11,6 +12,7 @@
 	"pageexchange-package-version": "Versio:",
 	"pageexchange-package-pages": "Paĝoj:",
 	"pageexchange-package-language": "Lingvo:",
+	"pageexchange-package-license": "Permesilo:",
 	"pageexchange-package-install": "Instali",
 	"pageexchange-package-update": "Ĝisdatigi",
 	"pageexchange-package-uninstall": "Malinstali"
