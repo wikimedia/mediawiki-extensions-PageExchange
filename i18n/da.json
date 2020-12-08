@@ -12,6 +12,7 @@
 	"pageexchange-package-version": "Version:",
 	"pageexchange-package-pages": "Sider:",
 	"pageexchange-package-language": "Sprog:",
+	"pageexchange-package-license": "Licens:",
 	"pageexchange-package-requiredpackages": "Krævede pakker:",
 	"pageexchange-package-install": "Installer",
 	"pageexchange-package-update": "Opdatér",
