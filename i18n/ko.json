@@ -25,6 +25,7 @@
 	"pageexchange-package-version": "버전:",
 	"pageexchange-package-pages": "문서:",
 	"pageexchange-package-language": "언어:",
+	"pageexchange-package-license": "라이선스:",
 	"pageexchange-package-requiredextensions": "필요한 확장 기능:",
 	"pageexchange-package-requiredpackages": "필요 패키지:",
 	"pageexchange-package-morerecent": "이 위키에 설치된 것보다 더 최근 버전의 패키지가 있습니다.",
