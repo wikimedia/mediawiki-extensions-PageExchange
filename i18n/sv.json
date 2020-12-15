@@ -19,6 +19,7 @@
 	"pageexchange-package-version": "Version:",
 	"pageexchange-package-pages": "Sidor:",
 	"pageexchange-package-language": "Språk:",
+	"pageexchange-package-license": "Licens:",
 	"pageexchange-package-requiredpackages": "Nödvändiga paket:",
 	"pageexchange-package-install": "Installera",
 	"pageexchange-package-update": "Uppdatera",
