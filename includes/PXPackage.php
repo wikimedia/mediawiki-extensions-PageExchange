@@ -81,7 +81,7 @@ abstract class PXPackage {
 			$mwServices = MediaWikiServices::getInstance();
 			$parser = $mwServices->getParser();
 			$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
-			return $parser->parse( $value, $packagesTitle, new ParserOptions(), false )->getText();
+			return $parser->parse( $value, $packagesTitle, ParserOptions::newFromAnon(), false )->getText();
 		}
 		if ( !$escapeHTML ) {
 			return $value;
