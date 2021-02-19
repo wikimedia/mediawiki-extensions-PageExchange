@@ -276,8 +276,10 @@ END;
 	public function update( $user ) {
 		$dbw = wfGetDB( DB_MASTER );
 
+		$remotePackage = $this->mAssociatedRemotePackage;
 		$updateValues = [
-			'pxp_name' => $this->mAssociatedRemotePackage->mName
+			'pxp_name' => $remotePackage->mName,
+			'pxp_package_data' => json_encode( $remotePackage->getPackageData() )
 		];
 		$dbw->update( 'px_packages', $updateValues, [ 'pxp_id' => $this->mID ] );
 
