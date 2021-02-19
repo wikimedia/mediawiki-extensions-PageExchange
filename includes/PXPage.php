@@ -165,7 +165,15 @@ class PXPage {
 		$wikiPage = new WikiPage( $this->mLocalTitle );
 		$editSummaryMsg = $isUninstall ? 'pageexchange-uninstallpackage' : 'pageexchange-updatepackage';
 		$editSummary = wfMessage( $editSummaryMsg )->rawParams( $packageName )->inContentLanguage()->parse();
-		$wikiPage->doDeleteArticleReal( $editSummary );
+		$error = '';
+		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
+			$wikiPage->doDeleteArticle( $editSummary, false, null, null, $error, $user );
+		} else {
+			$wikiPage->doDeleteArticleReal( $editSummary, $user, false, null, $error );
+		}
+		if ( $error != '' ) {
+			throw new MWException( $error );
+		}
 		if ( $this->mNamespace == NS_FILE ) {
 			$file = wfLocalFile( $this->mLocalTitle );
 			$file->delete( $editSummary );
