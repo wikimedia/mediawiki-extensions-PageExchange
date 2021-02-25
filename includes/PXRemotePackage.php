@@ -26,6 +26,16 @@ class PXRemotePackage extends PXPackage {
 		return $package;
 	}
 
+	public function getRemoteEquivalent( $installedPage ) {
+		foreach ( $this->mPages as $remotePage ) {
+			if ( $installedPage->getName() == $remotePage->getName() &&
+				$installedPage->getNamespace() == $remotePage->getNamespace() ) {
+				return $remotePage;
+			}
+		}
+		return null;
+	}
+
 	public function processPages() {
 		$matchingPageFound = false;
 		$nonMatchingPageFound = false;

@@ -145,7 +145,11 @@ class PXInstalledPackage extends PXPackage {
 			$remoteContents = $page->getRemoteContents();
 			if ( $remotePackage == null ) {
 				// No remote version of anything.
-			} elseif ( $page->getURL() == null ) {
+				continue;
+			}
+
+			$remotePage = $remotePackage->getRemoteEquivalent( $page );
+			if ( $remotePage == null ) {
 				$pagesString .= ' - <span class="error">This page no longer exists in the latest version of this package.</span>';
 				$remoteDiffersFromInstalled = true;
 			} elseif ( $remoteContents == null ) {
@@ -286,16 +290,8 @@ END;
 		$deletedPages = [];
 
 		foreach ( $this->mPages as $localPage ) {
-			$localName = $localPage->getName();
-			$localNamespace = $localPage->getNamespace();
-			$foundMatch = false;
-			foreach ( $this->mAssociatedRemotePackage->mPages as $remotePage ) {
-				if ( $remotePage->getName() == $localName && $remotePage->getNamespace() == $localNamespace ) {
-					$foundMatch = true;
-					break;
-				}
-			}
-			if ( !$foundMatch ) {
+			$remotePage = $this->mAssociatedRemotePackage->getRemoteEquivalent( $localPage );
+			if ( $remotePage == null ) {
 				$deletedPages[] = $localPage;
 			}
 		}
