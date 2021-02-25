@@ -166,7 +166,9 @@ class PXInstalledPackage extends PXPackage {
 					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
 				}
 				$localContents = $page->getLocalContents();
-				if ( $localContents == $remoteContents ) {
+				// Ignore newlines or spaces at the end of the
+				// page contents.
+				if ( rtrim( $localContents ) == rtrim( $remoteContents ) ) {
 					// Do nothing.
 				} else {
 					$pagesString .= ' - ' . wfMessage( 'pageexchange-pagehaschanged' )->parse();
@@ -297,7 +299,7 @@ END;
 		}
 
 		foreach ( $deletedPages as $deletedPage ) {
-			$deletedPage->deleteWikiPage( $user, $packageName, false );
+			$deletedPage->deleteWikiPage( $user, $this->mName, false );
 		}
 
 		foreach ( $this->mAssociatedRemotePackage->mPages as $page ) {
