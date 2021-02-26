@@ -62,7 +62,8 @@
 		"PXRemotePackage": "includes/PXRemotePackage.php",
 		"PXInstalledPackage": "includes/PXInstalledPackage.php",
 		"PXPage": "includes/PXPage.php",
-		"PXCreatePageJob": "includes/PXCreatePageJob.php"
+		"PXCreatePageJob": "includes/PXCreatePageJob.php",
+		"PXInstallPackageAPI": "api/PXInstallPackageAPI.php"
 	},
 	"ResourceModules": {
 		"ext.pageexchange": {
@@ -78,6 +79,9 @@
 		"PageExchangePackageFiles": {
 			"value": []
 		}
+	},
+	"APIModules": {
+		"pxinstallpackage": "PXInstallPackageAPI"
 	},
 	"manifest_version": 2
 }

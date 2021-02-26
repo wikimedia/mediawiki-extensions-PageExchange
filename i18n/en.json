@@ -7,6 +7,8 @@
 	"pageexchange-extensionname": "Page Exchange",
 	"pageexchange-desc": "Allows for installing \"packages\" of pre-defined wiki pages",
 	"packages": "Packages",
+	"apihelp-pxinstallpackage-summary": "Install a package using Page Exchange extension",
+	"apihelp-pxinstallpackage-param-packageid": "Global ID of a package",
 	"right-pageexchange": "Run Page Exchange actions",
 	"action-pageexchange": "run Page Exchange actions",
 	"pageexchange-logname": "Page Exchange log",
