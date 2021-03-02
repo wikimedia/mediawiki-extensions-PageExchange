@@ -11,6 +11,11 @@
 	"packages": "{{doc-special|Packages}}",
 	"apihelp-pxinstallpackage-summary": "{{doc-apihelp-summary|pxinstallpackage}}",
 	"apihelp-pxinstallpackage-param-packageid": "{{doc-apihelp-param|pxinstallpackage|packageid}}",
+	"apihelp-pxupdatepackage-summary": "{{doc-apihelp-summary|pxupdatepackage}}",
+	"apihelp-pxupdatepackage-param-packageid": "{{doc-apihelp-param|pxupdatepackage|packageid}}",
+	"apihelp-pxuninstallpackage-summary": "{{doc-apihelp-summary|pxuninstallpackage}}",
+	"apihelp-pxuninstallpackage-param-packageid": "{{doc-apihelp-param|pxuninstallpackage|packageid}}",
+	"apihelp-pxuninstallpackage-param-deletepages": "{{doc-apihelp-param|pxuninstallpackage|deletepages}}",
 	"right-pageexchange": "{{doc-right|pageexchange}}",
 	"action-pageexchange": "{{doc-action|pageexchange}}",
 	"pageexchange-logname": "{{doc-logpage}}",
@@ -43,5 +48,8 @@
 	"pageexchange-inappropriatepackage": "A warning message",
 	"pageexchange-packageinstalled": "A success message",
 	"pageexchange-packageuninstalled": "A success message",
-	"pageexchange-packageupdated": "A success message"
+	"pageexchange-packageupdated": "A success message",
+	"pageexchange-packageidnull": "An error message when URL misses a necessary parameter",
+	"pageexchange-packagenotexists": "An error message when no package exists",
+	"pageexchange-packagealreadyinstalled": "An info message that package is already installed"
 }

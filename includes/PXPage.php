@@ -116,7 +116,7 @@ class PXPage {
 	}
 
 	public function getRemoteContents() {
-		return PXPackageFile::getWebPageContents( $this->mURL );
+		return PXUtils::getWebPageContents( $this->mURL );
 	}
 
 	public function getLocalContents() {
@@ -131,7 +131,6 @@ class PXPage {
 		} else {
 			return null;
 		}
-
 	}
 
 	/**

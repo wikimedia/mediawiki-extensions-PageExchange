@@ -30,7 +30,7 @@ abstract class PXPackage {
 	public function populateWithData( $fileData, $packageData ) {
 		$pagesData = self::getPackageField( 'pages', $fileData, $packageData, false );
 		if ( $pagesData !== null ) {
-			foreach( $pagesData as $pageData ) {
+			foreach ( $pagesData as $pageData ) {
 				$page = PXPage::newFromData( $pageData );
 				if ( $page === null ) {
 					continue;
@@ -117,7 +117,7 @@ abstract class PXPackage {
 		$bgHex = $this->colorArrayToHex( $bgColor );
 		$headerBGColor = $this->darkenColor( $bgColor );
 		$headerBGHex = $this->colorArrayToHex( $headerBGColor );
-		//$headerBGHex = $this->getCardHeaderBGColor();
+		// $headerBGHex = $this->getCardHeaderBGColor();
 		$borderColor = $this->darkenColor( $headerBGColor );
 		$borderHex = $this->colorArrayToHex( $borderColor );
 		$packageHTML = <<<END
@@ -135,7 +135,7 @@ END;
 	}
 
 	protected function colorArrayToHex( $colors ) {
-		return sprintf("#%02x%02x%02x", $colors[0], $colors[1], $colors[2] );
+		return sprintf( "#%02x%02x%02x", $colors[0], $colors[1], $colors[2] );
 	}
 
 	protected function darkenColor( $colors ) {
@@ -192,7 +192,7 @@ END;
 	}
 
 	public function displayInfoMessage( $msg ) {
-		$text =<<<END
+		$text = <<<END
 <table class="pageExchangeInfoMessage">
 <tr>
 <td>
@@ -200,10 +200,10 @@ END;
 END;
 		$text .= new OOUI\IconWidget( [
 			'icon' => 'notice',
-			//'title' => 'Notice'
+			// 'title' => 'Notice'
 		] );
 
-		$text .=<<<END
+		$text .= <<<END
 </td>
 <td>
 <div>$msg</div>
@@ -217,18 +217,18 @@ END;
 	}
 
 	public function displayWarningMessage( $msg ) {
-		$text =<<<END
+		$text = <<<END
 <table class="pageExchangeWarningMessage">
 <tr>
 <td>
 
 END;
 		$text .= new OOUI\IconWidget( [
-			'icon' => 'notice', //'warning',
+			'icon' => 'notice', // 'warning',
 			//'title' => 'Notice'
 		] );
 
-		$text .=<<<END
+		$text .= <<<END
 </td>
 <td>
 <div class="error">$msg</div>

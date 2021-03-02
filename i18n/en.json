@@ -9,6 +9,11 @@
 	"packages": "Packages",
 	"apihelp-pxinstallpackage-summary": "Install a package using Page Exchange extension",
 	"apihelp-pxinstallpackage-param-packageid": "Global ID of a package",
+	"apihelp-pxupdatepackage-summary": "Update a package using Page Exchange extension",
+	"apihelp-pxupdatepackage-param-packageid": "Global ID of a package",
+	"apihelp-pxuninstallpackage-summary": "Uninstall a package using Page Exchange extension",
+	"apihelp-pxuninstallpackage-param-packageid": "Global ID of a package",
+	"apihelp-pxuninstallpackage-param-deletepages": "Whether to delete the wiki pages associated with this package.",
 	"right-pageexchange": "Run Page Exchange actions",
 	"action-pageexchange": "run Page Exchange actions",
 	"pageexchange-logname": "Page Exchange log",
@@ -41,5 +46,8 @@
 	"pageexchange-inappropriatepackage": "This package may not be appropriate for your wiki; see below.",
 	"pageexchange-packageinstalled": "This package was installed.",
 	"pageexchange-packageuninstalled": "This package was uninstalled.",
-	"pageexchange-packageupdated": "This package was updated."
+	"pageexchange-packageupdated": "This package was updated.",
+	"pageexchange-packageidnull": "Error: packageid cannot be null",
+	"pageexchange-packagenotexists": "Error: No Package with ID: '$1' exists.",
+	"pageexchange-packagealreadyinstalled": "Package with ID: '$1' is already installed"
 }

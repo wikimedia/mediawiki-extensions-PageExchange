@@ -28,26 +28,7 @@ class SpecialPackages extends SpecialPage {
 		$out->enableOOUI();
 		$out->addModules( [ 'ext.pageexchange' ] );
 		$out->addModuleStyles( [ 'oojs-ui.styles.icons-alerts' ] );
-
-		// Extensions loaded via wfLoadExtension().
-		$registeredExtensions = ExtensionRegistry::getInstance()->getAllThings();
-		foreach ( $registeredExtensions as $extName => $extData ) {
-			// Make the names "space-insensitive".
-			$extensionName = str_replace( ' ', '', $extName );
-			$this->mInstalledExtensions[] = $extensionName;
-		}
-
-		// For MW 1.35+, this only gets extensions that are loaded the
-		// old way, via include_once() or require_once().
-		$extensionCredits = $this->getConfig()->get( 'ExtensionCredits' );
-		foreach ( $extensionCredits as $group => $exts ) {
-			foreach ( $exts as $ext ) {
-				// Make the names "space-insensitive".
-				$extensionName = str_replace( ' ', '', $ext['name'] );
-				$this->mInstalledExtensions[] = $extensionName;
-			}
-		}
-
+		$this->mInstalledExtensions = PXUtils::getInstalledExtensions( $this->getConfig() );
 		$packageName = $request->getVal( 'name' );
 		$fileNum = $request->getVal( 'fileNum' );
 
@@ -66,7 +47,7 @@ class SpecialPackages extends SpecialPage {
 			}
 		} elseif ( $packageName !== null ) {
 			$package = null;
-			$this->loadInstalledPackages();
+			$this->mInstalledPackages = PXUtils::getInstalledPackages( $user );
 			$this->loadAllFiles();
 			foreach ( $this->mInstalledPackages as $installedPackage ) {
 				if ( $installedPackage->getName() == $packageName ) {
@@ -84,29 +65,18 @@ class SpecialPackages extends SpecialPage {
 				$package->update( $user );
 				$text = $this->displaySuccessMessage( $this->msg( 'pageexchange-packageupdated' )->parse() );
 			} elseif ( $request->getCheck( 'uninstall' ) ) {
-				$deleteAll = $request->getCheck('deleteAll');
+				$deleteAll = $request->getCheck( 'deleteAll' );
 				$package->uninstall( $user, $deleteAll );
 				$text = $this->displaySuccessMessage( $this->msg( 'pageexchange-packageuninstalled' )->parse() );
 			} else {
 				$text = $package->getFullHTML();
 			}
 		} else {
-			$this->loadInstalledPackages();
+			$this->mInstalledPackages = PXUtils::getInstalledPackages( $user );
 			$this->loadAllFiles();
 			$text = $this->displayAll();
 		}
 		$out->addHTML( $text );
-	}
-
-	private function loadInstalledPackages() {
-		$dbr = wfGetDb( DB_REPLICA );
-		$res = $dbr->select(
-			'px_packages',
-			[ 'pxp_id', 'pxp_name', 'pxp_package_data' ]
-		);
-		while ( $row = $res->fetchRow() ) {
-			$this->mInstalledPackages[] = PXInstalledPackage::newFromDB( $row, $this->getUser() );
-		}
 	}
 
 	private function loadAllFiles() {

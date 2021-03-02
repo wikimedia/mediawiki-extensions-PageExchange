@@ -61,7 +61,7 @@ class PXRemotePackage extends PXPackage {
 			$pageLink = $page->getLink();
 			if ( $page->localTitleExists() ) {
 				$pageLink = "<em>" . $pageLink . "</em>";
-				//$localLink = Linker::link( $page->getLocalTitle(), 'local', [], [ 'action' => 'raw' ] );
+				// $localLink = Linker::link( $page->getLocalTitle(), 'local', [], [ 'action' => 'raw' ] );
 				//$pageLink .= " ($localLink)";
 				$matchingPageFound = true;
 			} else {
@@ -73,7 +73,7 @@ class PXRemotePackage extends PXPackage {
 			$shownLinks = array_splice( $pageLinks, 0, 7 );
 			$shownLinksStr = implode( ', ', $shownLinks );
 			$hiddenLinksStr = implode( ', ', $pageLinks );
-			$this->mPagesString =<<<END
+			$this->mPagesString = <<<END
 <span class="pageExchangePageLinks">
 $shownLinksStr, <span class="pageExchangeAdditionalPages">$hiddenLinksStr</span>
 (<a class="pageExchangeToggle">show more</a>)
@@ -286,7 +286,7 @@ END;
 			$remoteContents = $page->getRemoteContents();
 			if ( $remoteContents == null ) {
 				$pagesString .= ' - <span class="error">No contents found at this page!</span>';
-			} elseif ( ! $page->localTitleExists() ) {
+			} elseif ( !$page->localTitleExists() ) {
 				// Do nothing.
 			} else {
 				$localContents = $page->getLocalContents();
@@ -322,7 +322,7 @@ END;
 			'flags' => 'progressive'
 		] );
 
-		$packageHTML .=<<<END
+		$packageHTML .= <<<END
 <form method="post">
 <div style="border-top: 1px #ccc solid; margin-top: 20px; padding: 15px;">
 $installButton

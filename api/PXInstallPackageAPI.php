@@ -14,30 +14,13 @@ class PXInstallPackageAPI extends ApiBase {
 		$user = $this->getUser();
 
 		if ( $packageID == null ) {
-			throw new MWException( 'Error: packageid cannot be null' );
+			throw new MWException( wfMessage( 'pageexchange-packageidnull' ) );
 		}
 
-		// Extensions loaded via wfLoadExtension().
-		$registeredExtensions = ExtensionRegistry::getInstance()->getAllThings();
-		foreach ( $registeredExtensions as $extName => $extData ) {
-			// Make the names "space-insensitive".
-			$extensionName = str_replace( ' ', '', $extName );
-			$this->mInstalledExtensions[] = $extensionName;
-		}
-
-		// For MW 1.35+, this only gets extensions that are loaded the
-		// old way, via include_once() or require_once().
-		$extensionCredits = $this->getConfig()->get( 'ExtensionCredits' );
-		foreach ( $extensionCredits as $group => $exts ) {
-			foreach ( $exts as $ext ) {
-				// Make the names "space-insensitive".
-				$extensionName = str_replace( ' ', '', $ext['name'] );
-				$this->mInstalledExtensions[] = $extensionName;
-			}
-		}
+		$this->mInstalledExtensions = PXUtils::getInstalledExtensions( $this->getConfig() );
 		$package = $this->getRemotePackage( $packageID );
-		if($package == null){
-			throw new MWException( 'Error: No Package with ID: "' . $packageID . '" exists.' );
+		if ( $package == null ) {
+			throw new MWException( wfMessage( 'pageexchange-packagenotexists', $packageID ) );
 		}
 		$package->install( $user );
 	}
@@ -54,7 +37,7 @@ class PXInstallPackageAPI extends ApiBase {
 		while ( $row = $res->fetchRow() ) {
 			$installedPackageIDs[] = $row[0];
 			if ( $row[0] == $packageID ) {
-				throw new MWException( 'Package with ID: "' . $packageID . '" is already installed' );
+				throw new MWException( wfMessage( 'pageexchange-packagealreadyinstalled', $packageID ) );
 			}
 		}
 

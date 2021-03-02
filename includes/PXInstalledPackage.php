@@ -109,8 +109,8 @@ class PXInstalledPackage extends PXPackage {
 	}
 
 	private function isUpdateable() {
-                $userCanEditJS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitejs' );
-                $userCanEditCSS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitecss' );
+				$userCanEditJS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitejs' );
+				$userCanEditCSS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitecss' );
 
 		foreach ( $this->mPages as $page ) {
 			$contentType = $page->getContentType();
@@ -155,7 +155,7 @@ class PXInstalledPackage extends PXPackage {
 			} elseif ( $remoteContents == null ) {
 				$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
 				$pagesString .= ' - <span class="error">No contents found in the external version of this page!</span>';
-			} elseif ( ! $page->localTitleExists() ) {
+			} elseif ( !$page->localTitleExists() ) {
 				// Seems impossible that this would happen.
 				$remoteDiffersFromInstalled = true;
 			} else {
@@ -228,7 +228,7 @@ class PXInstalledPackage extends PXPackage {
 			'name' => 'uninstall',
 			'flags' => 'destructive'
 		] );
-		$uninstallFormSection =<<<END
+		$uninstallFormSection = <<<END
 <p>
 <label>
 $deleteAllCheckbox
@@ -240,7 +240,7 @@ $uninstallButton
 
 END;
 
-		$packageHTML .=<<<END
+		$packageHTML .= <<<END
 <form method="post">
 <table style="border-collapse: collapse; margin-top: 20px; border-top: 1px solid #ccc;">
 <tr>
@@ -251,14 +251,14 @@ END;
 			// Don't include the update button if the remote
 			// package can't be found, or if it's identical to the
 			// installed package.
-			$packageHTML .=<<<END
+			$packageHTML .= <<<END
 <td style="padding: 15px;">
 $uninstallFormSection
 </td>
 
 END;
 		} else {
-			$packageHTML .=<<<END
+			$packageHTML .= <<<END
 <td style="border-right: 1px solid #ccc; padding: 25px;">
 $updateButton
 </td>
@@ -269,7 +269,7 @@ $uninstallFormSection
 END;
 		}
 
-		$packageHTML .=<<<END
+		$packageHTML .= <<<END
 </tr>
 </table>
 </form>

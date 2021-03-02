@@ -63,7 +63,10 @@
 		"PXInstalledPackage": "includes/PXInstalledPackage.php",
 		"PXPage": "includes/PXPage.php",
 		"PXCreatePageJob": "includes/PXCreatePageJob.php",
-		"PXInstallPackageAPI": "api/PXInstallPackageAPI.php"
+		"PXUtils": "includes/PXUtils.php",
+		"PXInstallPackageAPI": "api/PXInstallPackageAPI.php",
+		"PXUpdatePackageAPI": "api/PXUpdatePackageAPI.php",
+		"PXUninstallPackageAPI": "api/PXUninstallPackageAPI.php"
 	},
 	"ResourceModules": {
 		"ext.pageexchange": {
@@ -81,7 +84,9 @@
 		}
 	},
 	"APIModules": {
-		"pxinstallpackage": "PXInstallPackageAPI"
+		"pxinstallpackage": "PXInstallPackageAPI",
+		"pxupdatepackage": "PXUpdatePackageAPI",
+		"pxuninstallpackage": "PXUninstallPackageAPI"
 	},
 	"manifest_version": 2
 }

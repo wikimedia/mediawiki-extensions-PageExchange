@@ -36,7 +36,7 @@ class PXCreatePageJob extends Job {
 			return false;
 		}
 
-		$pageText = PXPackageFile::getWebPageContents( $this->params['page_url'] );
+		$pageText = PXUtils::getWebPageContents( $this->params['page_url'] );
 		$contentType = $this->params['content_type'];
 		if ( $contentType == 'JavaScript' ) {
 			$newContent = new JavaScriptContent( $pageText );
@@ -70,7 +70,7 @@ class PXCreatePageJob extends Job {
 
 	public function createOrUpdateFile( $user, $editSummary, $fileURL ) {
 		// Code copied largely from /maintenance/importImages.php.
-		$fileContents = PXPackageFile::getWebPageContents( $fileURL );
+		$fileContents = PXUtils::getWebPageContents( $fileURL );
 		$tempFile = tmpfile();
 		fwrite( $tempFile, $fileContents );
 		$tempFilePath = stream_get_meta_data( $tempFile )['uri'];
