@@ -5,6 +5,7 @@
 		]
 	},
 	"packages": "Pacchetti",
+	"apihelp-pxinstallpackage-param-packageid": "ID globale di un pacchetto",
 	"pageexchange-installed": "Installato",
 	"pageexchange-available": "Disponibile",
 	"pageexchange-installpackage": "Installa pacchetto: $1",

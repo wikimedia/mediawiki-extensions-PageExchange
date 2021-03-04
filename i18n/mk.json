@@ -6,6 +6,8 @@
 	},
 	"pageexchange-desc": "Овозможува воспоставка на „пакети“ од предодредени викистраници",
 	"packages": "Пакети",
+	"apihelp-pxinstallpackage-summary": "Воспоставка на пакет со помош на додатокот „Размена на страници“",
+	"apihelp-pxinstallpackage-param-packageid": "Глобална назнака на пакетот",
 	"right-pageexchange": "Спроведување на дејства со Размена на страници",
 	"action-pageexchange": "спроведување на дејства со Размена на страници",
 	"pageexchange-logname": "Дневник на Размена на страници",

@@ -9,6 +9,8 @@
 	},
 	"pageexchange-desc": "Permet d’installer des « paquets » de pages wiki prédéfinies",
 	"packages": "Paquets",
+	"apihelp-pxinstallpackage-summary": "Installer un paquet en utilisant l’extension Échange de page",
+	"apihelp-pxinstallpackage-param-packageid": "ID global d’un paquet",
 	"right-pageexchange": "Lancer les actions d’extraction de page",
 	"action-pageexchange": "lancer les actions d’extraction de page",
 	"pageexchange-logname": "Journal d’échange de page",
