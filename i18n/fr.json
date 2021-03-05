@@ -11,6 +11,11 @@
 	"packages": "Paquets",
 	"apihelp-pxinstallpackage-summary": "Installer un paquet en utilisant l’extension Échange de page",
 	"apihelp-pxinstallpackage-param-packageid": "ID global d’un paquet",
+	"apihelp-pxupdatepackage-summary": "Mettre à jour un paquet en utilisant l’extension Échange de page",
+	"apihelp-pxupdatepackage-param-packageid": "ID global d’un paquet",
+	"apihelp-pxuninstallpackage-summary": "Désinstaller un paquet en utilisant l’extension Échange de page",
+	"apihelp-pxuninstallpackage-param-packageid": "ID global d’un paquet",
+	"apihelp-pxuninstallpackage-param-deletepages": "S’il faut ou non supprimer les pages du wiki associées avec ce paquet.",
 	"right-pageexchange": "Lancer les actions d’extraction de page",
 	"action-pageexchange": "lancer les actions d’extraction de page",
 	"pageexchange-logname": "Journal d’échange de page",
@@ -43,5 +48,8 @@
 	"pageexchange-inappropriatepackage": "Il est possible que ce paquet ne soit pas approprié à votre wiki; voir ci-dessous.",
 	"pageexchange-packageinstalled": "Ce paquet a été installé.",
 	"pageexchange-packageuninstalled": "Ce paquet a été désinstallé.",
-	"pageexchange-packageupdated": "Ce paquet a été mis à jour."
+	"pageexchange-packageupdated": "Ce paquet a été mis à jour.",
+	"pageexchange-packageidnull": "Erreur : packageid ne peut pas être nul",
+	"pageexchange-packagenotexists": "Erreur : Il n’existe aucun paquet avec l’ID '$1'.",
+	"pageexchange-packagealreadyinstalled": "Le paquet avec l’ID '$1' est déjà installé"
 }

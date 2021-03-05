@@ -7,6 +7,12 @@
 	},
 	"pageexchange-desc": "미리 정의된 위키 문서의 \"패키지\" 설치 허용",
 	"packages": "패키지",
+	"apihelp-pxinstallpackage-param-packageid": "패키지의 글로벌 ID",
+	"apihelp-pxupdatepackage-summary": "Page Exchange 확장 기능을 사용하여 패키지를 업데이트합니다",
+	"apihelp-pxupdatepackage-param-packageid": "패키지의 글로벌 ID",
+	"apihelp-pxuninstallpackage-summary": "Page Exchange 확장 기능을 사용여 패키지를 제거합니다",
+	"apihelp-pxuninstallpackage-param-packageid": "패키지의 글로벌 ID",
+	"apihelp-pxuninstallpackage-param-deletepages": "이 패키지에 관련한 위키 문서를 삭제할지의 여부입니다.",
 	"right-pageexchange": "페이지 교환 동작 실행",
 	"action-pageexchange": "페이지 교환 동작 실행",
 	"pageexchange-logname": "문서 교환 기록",
@@ -39,5 +45,8 @@
 	"pageexchange-inappropriatepackage": "이 패키지는 당신의 위키에 적절하지 않을 수 있습니다. 아래를 참고하십시오.",
 	"pageexchange-packageinstalled": "이 패키지를 설치했습니다.",
 	"pageexchange-packageuninstalled": "이 패키지를 제거하였습니다.",
-	"pageexchange-packageupdated": "이 패키지를 업데이트했습니다."
+	"pageexchange-packageupdated": "이 패키지를 업데이트했습니다.",
+	"pageexchange-packageidnull": "오류: packageid는 null일 수 없습니다",
+	"pageexchange-packagenotexists": "오류: ID에 해당하는 패키지가 없습니다: '$1'이(가) 존재합니다.",
+	"pageexchange-packagealreadyinstalled": "ID에 해당하는 패키지: '$1'이(가) 이미 설치되어 있습니다"
 }
