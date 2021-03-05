@@ -64,9 +64,9 @@
 		"PXPage": "includes/PXPage.php",
 		"PXCreatePageJob": "includes/PXCreatePageJob.php",
 		"PXUtils": "includes/PXUtils.php",
-		"PXInstallPackageAPI": "api/PXInstallPackageAPI.php",
-		"PXUpdatePackageAPI": "api/PXUpdatePackageAPI.php",
-		"PXUninstallPackageAPI": "api/PXUninstallPackageAPI.php"
+		"PXInstallPackageAPI": "includes/api/PXInstallPackageAPI.php",
+		"PXUpdatePackageAPI": "includes/api/PXUpdatePackageAPI.php",
+		"PXUninstallPackageAPI": "includes/api/PXUninstallPackageAPI.php"
 	},
 	"ResourceModules": {
 		"ext.pageexchange": {
