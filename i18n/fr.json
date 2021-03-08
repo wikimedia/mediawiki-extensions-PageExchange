@@ -49,7 +49,7 @@
 	"pageexchange-packageinstalled": "Ce paquet a été installé.",
 	"pageexchange-packageuninstalled": "Ce paquet a été désinstallé.",
 	"pageexchange-packageupdated": "Ce paquet a été mis à jour.",
-	"pageexchange-packageidnull": "Erreur : packageid ne peut pas être nul",
-	"pageexchange-packagenotexists": "Erreur : Il n’existe aucun paquet avec l’ID '$1'.",
-	"pageexchange-packagealreadyinstalled": "Le paquet avec l’ID '$1' est déjà installé"
+	"pageexchange-packageidnull": "Erreur : packageid ne peut pas être nul.",
+	"pageexchange-packagenotexists": "Erreur : il n’existe aucun paquet avec l’ID « $1 ».",
+	"pageexchange-packagealreadyinstalled": "Le paquet avec l’ID « $1 » est déjà installé"
 }

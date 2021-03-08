@@ -6,6 +6,8 @@
 	},
 	"packages": "Pacchetti",
 	"apihelp-pxinstallpackage-param-packageid": "ID globale di un pacchetto",
+	"apihelp-pxupdatepackage-param-packageid": "ID globale di un pacchetto",
+	"apihelp-pxuninstallpackage-param-packageid": "ID globale di un pacchetto",
 	"pageexchange-installed": "Installato",
 	"pageexchange-available": "Disponibile",
 	"pageexchange-installpackage": "Installa pacchetto: $1",
@@ -24,5 +26,7 @@
 	"pageexchange-latestvalue": "(ultimo valore: $1)",
 	"pageexchange-packageinstalled": "Questo pacchetto è stato installato.",
 	"pageexchange-packageuninstalled": "Questo pacchetto è stato disinstallato.",
-	"pageexchange-packageupdated": "Questo pacchetto è stato aggiornato."
+	"pageexchange-packageupdated": "Questo pacchetto è stato aggiornato.",
+	"pageexchange-packagenotexists": "Errore: non esiste alcun pacchetto con ID '$1'.",
+	"pageexchange-packagealreadyinstalled": "Il pacchetto con ID '$1' è già installato"
 }

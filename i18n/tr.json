@@ -2,11 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Joseph",
 			"MuratTheTurkish"
 		]
 	},
 	"pageexchange-desc": "Önceden tanımlanmış viki sayfalarının \"paketlerini\" yüklemeye izin verir",
 	"packages": "Paketler",
+	"apihelp-pxinstallpackage-summary": "Sayfa Takası uzantısını kullanarak bir paket yükle",
+	"apihelp-pxinstallpackage-param-packageid": "Bir paketin küresel ID'si",
+	"apihelp-pxupdatepackage-summary": "Sayfa Takası uzantısını kullanarak bir paketi güncelle",
+	"apihelp-pxupdatepackage-param-packageid": "Bir paketin küresel ID'si",
+	"apihelp-pxuninstallpackage-summary": "Sayfa Takası uzantısını kullanarak bir paketi kaldır",
+	"apihelp-pxuninstallpackage-param-packageid": "Bir paketin küresel ID'si",
+	"apihelp-pxuninstallpackage-param-deletepages": "Bu paketle ilişkili viki sayfalarının silinip silinmeyeceği.",
 	"right-pageexchange": "Sayfa Değişimi eylemlerini çalıştır",
 	"action-pageexchange": "Sayfa Değişimi eylemlerini çalıştır",
 	"pageexchange-logname": "Sayfa Değişimi günlüğü",
@@ -39,5 +47,8 @@
 	"pageexchange-inappropriatepackage": "Bu paket vikiniz için uygun olmayabilir; aşağıya bakınız.",
 	"pageexchange-packageinstalled": "Bu paket kuruldu.",
 	"pageexchange-packageuninstalled": "Bu paket kaldırıldı.",
-	"pageexchange-packageupdated": "Bu paket güncellendi."
+	"pageexchange-packageupdated": "Bu paket güncellendi.",
+	"pageexchange-packageidnull": "Hata: packageid boş olamaz",
+	"pageexchange-packagenotexists": "Hata: '$1' ID'sine sahip bir paket yok.",
+	"pageexchange-packagealreadyinstalled": "'$1' ID'sine sahip paket zaten yüklü."
 }
