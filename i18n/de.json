@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anna7321",
 			"Killarnee"
 		]
 	},
 	"packages": "Pakete",
+	"apihelp-pxinstallpackage-param-packageid": "Globale ID des Pakets",
+	"apihelp-pxupdatepackage-param-packageid": "Globale ID des Pakets",
 	"pageexchange-installed": "Eingerichtet",
 	"pageexchange-available": "Verfügbar",
 	"pageexchange-package-website": "Website:",
