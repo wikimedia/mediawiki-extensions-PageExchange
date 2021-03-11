@@ -7,6 +7,11 @@
 	},
 	"pageexchange-desc": "Permite instalar \"pacotes\" de páginas wiki predefinidas",
 	"packages": "Pacotes",
+	"apihelp-pxupdatepackage-summary": "Erro: packageid não pode ser nulo",
+	"apihelp-pxupdatepackage-param-packageid": "ID global de um pacote",
+	"apihelp-pxuninstallpackage-summary": "Desinstalar um pacote usando a extensão Page Exchange",
+	"apihelp-pxuninstallpackage-param-packageid": "ID global de um pacote",
+	"apihelp-pxuninstallpackage-param-deletepages": "Se deseja excluir as páginas da wiki associadas a este pacote.",
 	"right-pageexchange": "Executar ações de troca de páginas",
 	"action-pageexchange": "executar ações de troca de páginas",
 	"pageexchange-logname": "Registro de troca de páginas",
@@ -39,5 +44,8 @@
 	"pageexchange-inappropriatepackage": "Este pacote pode não ser apropriado para a sua wiki; ver abaixo.",
 	"pageexchange-packageinstalled": "Este pacote foi instalado.",
 	"pageexchange-packageuninstalled": "Este pacote foi desinstalado.",
-	"pageexchange-packageupdated": "Este pacote foi atualizado."
+	"pageexchange-packageupdated": "Este pacote foi atualizado.",
+	"pageexchange-packageidnull": "Erro: packageid não pode ser nulo",
+	"pageexchange-packagenotexists": "Eror: Nenhum pacote com ID: '$1' existe.",
+	"pageexchange-packagealreadyinstalled": "Pacote com ID: '$1' já está instalado"
 }
