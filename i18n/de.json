@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Anna7321",
+			"Gebu",
 			"Killarnee"
 		]
 	},
@@ -14,6 +15,7 @@
 	"pageexchange-package-publisher": "Herausgeber:",
 	"pageexchange-package-author": "Autor:",
 	"pageexchange-package-version": "Version:",
+	"pageexchange-package-pages": "Seiten:",
 	"pageexchange-package-language": "Sprache:",
 	"pageexchange-package-license": "Lizenz:",
 	"pageexchange-package-requiredextensions": "Erforderliche Erweiterungen:",

@@ -8,6 +8,11 @@
 	"packages": "Пакети",
 	"apihelp-pxinstallpackage-summary": "Воспоставка на пакет со помош на додатокот „Размена на страници“",
 	"apihelp-pxinstallpackage-param-packageid": "Глобална назнака на пакетот",
+	"apihelp-pxupdatepackage-summary": "Измена на пакет со помош на додатокот „Размена на страници“",
+	"apihelp-pxupdatepackage-param-packageid": "Глобална назнака на пакетот",
+	"apihelp-pxuninstallpackage-summary": "Отстранување на пакет со помош на додатокот „Размена на страници“",
+	"apihelp-pxuninstallpackage-param-packageid": "Глобална назнака на пакетот",
+	"apihelp-pxuninstallpackage-param-deletepages": "Дали да се избришат викистраниците поврзани со пакетов",
 	"right-pageexchange": "Спроведување на дејства со Размена на страници",
 	"action-pageexchange": "спроведување на дејства со Размена на страници",
 	"pageexchange-logname": "Дневник на Размена на страници",
@@ -40,5 +45,8 @@
 	"pageexchange-inappropriatepackage": "Овој пакет може да не е соодветен за вашето вики. Погледајте подолу.",
 	"pageexchange-packageinstalled": "Овој пакет е воспоствен.",
 	"pageexchange-packageuninstalled": "Овој пакет е отстранет.",
-	"pageexchange-packageupdated": "Овој пакет е подновен."
+	"pageexchange-packageupdated": "Овој пакет е подновен.",
+	"pageexchange-packageidnull": "Грешка: назнаката на пакетот не може да биде никаква",
+	"pageexchange-packagenotexists": "Грешка: Не постои пакет со назнаката „$1“.",
+	"pageexchange-packagealreadyinstalled": "Веќе е воспоставен пакет со назнаката „$1“"
 }
