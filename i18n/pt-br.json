@@ -7,6 +7,7 @@
 	},
 	"pageexchange-desc": "Permite instalar \"pacotes\" de páginas wiki predefinidas",
 	"packages": "Pacotes",
+	"apihelp-pxinstallpackage-param-packageid": "ID global de um pacote",
 	"apihelp-pxupdatepackage-summary": "Erro: packageid não pode ser nulo",
 	"apihelp-pxupdatepackage-param-packageid": "ID global de um pacote",
 	"apihelp-pxuninstallpackage-summary": "Desinstalar um pacote usando a extensão Page Exchange",
