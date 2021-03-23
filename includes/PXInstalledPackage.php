@@ -183,6 +183,11 @@ class PXInstalledPackage extends PXPackage {
 			$pagesString .= "<li>" . $unmatchedRemotePage->getLocalLink() .
 				' (' . Html::element( 'a', [ 'href' => $unmatchedRemotePage->getURL() ], 'external' ) .
 				') - this page does not exist locally.';
+			$remoteContents = $page->getRemoteContents();
+			if ( $remoteContents == null ) {
+				$pagesString .= ' <span class="error">No contents found in the external version of this page!</span>';
+			}
+			$pagesString .= "</li>\n";
 		}
 
 		$pagesString .= "</ul>\n";
