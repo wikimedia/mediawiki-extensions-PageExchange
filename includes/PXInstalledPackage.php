@@ -185,7 +185,7 @@ class PXInstalledPackage extends PXPackage {
 				') - this page does not exist locally.';
 			$remoteContents = $page->getRemoteContents();
 			if ( $remoteContents == null ) {
-				$pagesString .= ' <span class="error">No contents found in the external version of this page!</span>';
+				$pagesString .= ' <span class="error">' . wfMessage( 'pageexchange-nocontentslocal' )->parse() . '</span>';
 			}
 			$pagesString .= "</li>\n";
 		}
