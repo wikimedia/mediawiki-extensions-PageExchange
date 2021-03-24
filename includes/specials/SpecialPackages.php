@@ -37,7 +37,7 @@ class SpecialPackages extends SpecialPage {
 			$this->addBreadcrumb();
 			$package = $this->getRemotePackage( $fileNum, $packageName );
 			if ( $package == null ) {
-				$out->addHTML( '<span class="error">Error: No package was found named "' . $packageName . '".' );
+				$out->addHTML( '<span class="error">' . $this->msg( 'pageexchange-noremotepackage', $packageName )->parse() . '</span>' );
 				return;
 			} elseif ( $request->getCheck( 'install' ) ) {
 				$package->install( $user );
@@ -58,7 +58,7 @@ class SpecialPackages extends SpecialPage {
 				}
 			}
 			if ( $package == null ) {
-				$out->addHTML( '<span class="error">Error: No package has been installed named "' . $packageName . '".' );
+				$out->addHTML( '<span class="error">' . $this->msg( 'pageexchange-nolocalpackage', $packageName )->parse() . '</span>' );
 				return;
 			}
 			if ( $request->getCheck( 'update' ) ) {

@@ -138,8 +138,9 @@ END;
 		$packageHTML = '';
 
 		if ( $this->mPagesStatus == 'partial' ) {
-			$packageHTML .= $this->displayWarningMessage( 'Downloading this package would overwrite some pages on your wiki.' );
+			$packageHTML .= $this->displayWarningMessage( wfMessage( 'pageexchange-overwrite' )->parse() );
 		} elseif ( $this->mPagesStatus == 'complete' ) {
+			// Is this message necessary? Or would it be better to just use the "overwrite" message?
 			$packageHTML .= $this->displayWarningMessage( 'Every page in this package is already found on your wiki; perhaps you have already unofficially installed it.' );
 		}
 		if ( $this->isUninstallable() ) {
@@ -285,7 +286,7 @@ END;
 			$pagesString .= "<li>" . $page->getLink();
 			$remoteContents = $page->getRemoteContents();
 			if ( $remoteContents == null ) {
-				$pagesString .= ' - <span class="error">No contents found at this page!</span>';
+				$pagesString .= ' - <span class="error">' . wfMessage( 'pageexchange-nocontentsremote' )->parse() . '</span>';
 			} elseif ( !$page->localTitleExists() ) {
 				// Do nothing.
 			} else {

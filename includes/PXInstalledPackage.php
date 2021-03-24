@@ -154,7 +154,7 @@ class PXInstalledPackage extends PXPackage {
 				$remoteDiffersFromInstalled = true;
 			} elseif ( $remoteContents == null ) {
 				$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
-				$pagesString .= ' - <span class="error">No contents found in the external version of this page!</span>';
+				$pagesString .= ' - <span class="error">' . wfMessage( 'pageexchange-nocontentslocal' )->parse() . '</span>';
 			} elseif ( !$page->localTitleExists() ) {
 				// Seems impossible that this would happen.
 				$remoteDiffersFromInstalled = true;
