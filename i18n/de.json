@@ -2,13 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Anna7321",
+			"FF-11",
 			"Gebu",
 			"Killarnee"
 		]
 	},
 	"packages": "Pakete",
 	"apihelp-pxinstallpackage-param-packageid": "Globale ID des Pakets",
+	"apihelp-pxupdatepackage-summary": "Aktulalisiere ein Paket mit der Erweiterung Page Exchange",
 	"apihelp-pxupdatepackage-param-packageid": "Globale ID des Pakets",
+	"apihelp-pxuninstallpackage-summary": "Deinstalliere ein Paket mit der Erweiterung Page Exchange",
+	"apihelp-pxuninstallpackage-param-packageid": "Globale ID eines Pakets",
 	"pageexchange-installed": "Eingerichtet",
 	"pageexchange-available": "Verfügbar",
 	"pageexchange-package-website": "Website:",
@@ -22,5 +26,12 @@
 	"pageexchange-package-requiredpackages": "Erforderliche Pakete:",
 	"pageexchange-package-install": "Installieren",
 	"pageexchange-package-update": "Aktualisieren",
-	"pageexchange-package-uninstall": "Deinstallieren"
+	"pageexchange-package-uninstall": "Deinstallieren",
+	"pageexchange-noremotepackage": "Fehler: Kein Paket mit dem Namen \"$1\" wurde gefunden.",
+	"pageexchange-overwrite": "Das herunterladen dieses Pakets würde einige Seiten auf deinem Wiki überschreiben.",
+	"pageexchange-nocontentslocal": "In der externen Version dieser Seite wurden keine Inhalte gefunden!",
+	"pageexchange-nocontentsremote": "Auf dieser Seite wurden keine Inhalte gefunden!",
+	"pageexchange-packageidnull": "Fehler: packageid kann nicht null sein",
+	"pageexchange-packagenotexists": "Fehler: Es existiert kein Paket mit der ID: '$1'.",
+	"pageexchange-packagealreadyinstalled": "Das Paket mit der ID: '$1' ist bereits installiert"
 }
