@@ -53,6 +53,6 @@
 	"pageexchange-packageuninstalled": "This package was uninstalled.",
 	"pageexchange-packageupdated": "This package was updated.",
 	"pageexchange-packageidnull": "Error: packageid cannot be null",
-	"pageexchange-packagenotexists": "Error: No Package with ID: '$1' exists.",
-	"pageexchange-packagealreadyinstalled": "Package with ID: '$1' is already installed"
+	"pageexchange-packagenotexists": "Error: No package with ID \"$1\" exists.",
+	"pageexchange-packagealreadyinstalled": "Package with ID \"$1\" is already installed"
 }
