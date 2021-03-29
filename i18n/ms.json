@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tofeiku"
+		]
+	},
+	"pageexchange-noremotepackage": "Ralat: Tiada pakej dijumpai yang bernama \"$1\".",
+	"pageexchange-nocontentslocal": "Tiada kandungan dijumpai di versi luaran laman ini!",
+	"pageexchange-nocontentsremote": "Tiada kandungan dijumpai di laman ini!"
+}

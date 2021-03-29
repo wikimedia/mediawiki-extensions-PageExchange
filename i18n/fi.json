@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Joquliina",
 			"Pyscowicz"
 		]
 	},
-	"pageexchange-package-language": "Kieli:"
+	"pageexchange-package-language": "Kieli:",
+	"pageexchange-nocontentsremote": "Tältä sivulta ei löytynyt sisältöä!"
 }
