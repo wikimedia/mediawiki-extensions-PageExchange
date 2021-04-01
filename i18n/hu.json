@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Csega",
-			"Hanna Tardos"
+			"Hanna Tardos",
+			"Tacsipacsi"
 		]
 	},
 	"packages": "Csomagok",
@@ -22,7 +23,7 @@
 	"pageexchange-package-update": "Frissítés",
 	"pageexchange-package-uninstall": "Eltávolítás",
 	"pageexchange-uninstallablepackage": "Ezt a csomagot nem tudtuk telepíteni a következő okokból:",
-	"pageexchange-nolocalpackage": "Hiba: \"$1\" nevű csomag nem került telepítésre.",
+	"pageexchange-nolocalpackage": "Hiba: Nincs „$1” nevű csomag telepítve.",
 	"pageexchange-nocontentsremote": "Ezen a lapon nem szerepel tartalom.",
 	"pageexchange-packageupdated": "A csomag frissítve lett."
 }
