@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Joquliina",
+			"Mediawikitranslator",
 			"Pyscowicz"
 		]
 	},
 	"pageexchange-package-language": "Kieli:",
+	"pageexchange-nolocalpackage": "Virhe: Pakettia nimeltä \"$1\" ei ole asennettu.",
 	"pageexchange-nocontentsremote": "Tältä sivulta ei löytynyt sisältöä!"
 }
