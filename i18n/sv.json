@@ -25,7 +25,9 @@
 	"pageexchange-package-update": "Uppdatera",
 	"pageexchange-package-uninstall": "Avinstallera",
 	"pageexchange-pagehaschanged": "den senaste versionen av denna sida skiljer sig från den lokala kopian",
+	"pageexchange-nocontentsremote": "Inget innehåll hittades på denna sida!",
 	"pageexchange-packageinstalled": "Paketet installerades.",
 	"pageexchange-packageuninstalled": "Detta paket avinstallerades.",
-	"pageexchange-packageupdated": "Detta paket uppdaterades."
+	"pageexchange-packageupdated": "Detta paket uppdaterades.",
+	"pageexchange-packagenotexists": "Fel: Inget paket med ID \"$1\" finns."
 }
