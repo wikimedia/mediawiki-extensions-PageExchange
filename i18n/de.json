@@ -4,7 +4,8 @@
 			"Anna7321",
 			"FF-11",
 			"Gebu",
-			"Killarnee"
+			"Killarnee",
+			"Umherirrender"
 		]
 	},
 	"packages": "Pakete",
@@ -27,7 +28,7 @@
 	"pageexchange-package-install": "Installieren",
 	"pageexchange-package-update": "Aktualisieren",
 	"pageexchange-package-uninstall": "Deinstallieren",
-	"pageexchange-noremotepackage": "Fehler: Kein Paket mit dem Namen \"$1\" wurde gefunden.",
+	"pageexchange-noremotepackage": "Fehler: Kein Paket mit dem Namen „$1“ wurde gefunden.",
 	"pageexchange-overwrite": "Das herunterladen dieses Pakets würde einige Seiten auf deinem Wiki überschreiben.",
 	"pageexchange-nocontentslocal": "In der externen Version dieser Seite wurden keine Inhalte gefunden!",
 	"pageexchange-nocontentsremote": "Auf dieser Seite wurden keine Inhalte gefunden!",

@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Alhassan Peter"
+			"Alhassan Peter",
+			"Hasslaebetch"
 		]
 	},
 	"pageexchange-noremotepackage": "Chiriŋ: $1 binshɛli lala yuli kani.",
-	"pageexchange-nocontentsremote": "Lahibali ka yaɣili ŋɔ ni."
+	"pageexchange-nocontentslocal": "Yɛltɔɣa shɛli kani polo o ni",
+	"pageexchange-nocontentsremote": "Lahibali ka yaɣili ŋɔ ni.",
+	"pageexchange-packagenotexists": "Tuubu: ID \"$1\" ka kɔlugu din biɛni",
+	"pageexchange-packagealreadyinstalled": "\"$1\" kpaligu din pun kpahi"
 }
