@@ -20,7 +20,7 @@ class PXPage {
 	private $mLink;
 	private $mLocalLink;
 
-	public static function newFromData( $packagePageData ) {
+	public static function newFromData( $packagePageData, $baseURL ) {
 		$page = new PXPage();
 		$page->mName = $packagePageData->name;
 		if ( property_exists( $packagePageData, 'namespace' ) ) {
@@ -39,7 +39,11 @@ class PXPage {
 			$page->mLocalTitleExists = $page->mLocalTitle->exists();
 			$pageFullName = $page->mLocalTitle->getFullText();
 			if ( $page->mNamespace == NS_FILE ) {
-				$page->mFileURL = $packagePageData->fileURL;
+				if ( $packagePageData->fileURL ) {
+					$page->mFileURL = $packagePageData->fileURL;
+				} elseif ( $packagePageData->fileURLPath ) {
+					$page->mFileURL = $baseURL . $packagePageData->fileURLPath;
+				}
 				if ( substr( $page->mFileURL, 0, 4 ) !== 'http' ) {
 					return null;
 				}
@@ -52,7 +56,11 @@ class PXPage {
 			$pageFullName = $page->mNamespace . ':' . $page->mName;
 			$page->mLocalLink = $pageFullName;
 		}
-		$page->mURL = $packagePageData->url;
+		if ( property_exists( $packagePageData, 'url' ) ) {
+			$page->mURL = $packagePageData->url;
+		} elseif ( property_exists( $packagePageData, 'urlPath' ) ) {
+			$page->mURL = $baseURL . $packagePageData->urlPath;
+		}
 		if ( substr( $page->mURL, 0, 4 ) !== 'http' ) {
 			return null;
 		}

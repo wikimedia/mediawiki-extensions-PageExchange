@@ -28,10 +28,11 @@ abstract class PXPackage {
 	protected $mUser;
 
 	public function populateWithData( $fileData, $packageData ) {
+		$baseURL = self::getPackageField( 'baseURL', $fileData, $packageData );
 		$pagesData = self::getPackageField( 'pages', $fileData, $packageData, false );
 		if ( $pagesData !== null ) {
 			foreach ( $pagesData as $pageData ) {
-				$page = PXPage::newFromData( $pageData );
+				$page = PXPage::newFromData( $pageData, $baseURL );
 				if ( $page === null ) {
 					continue;
 				}
