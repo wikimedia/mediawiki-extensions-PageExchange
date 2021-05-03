@@ -81,6 +81,9 @@
 	"config": {
 		"PageExchangePackageFiles": {
 			"value": []
+		},
+		"PageExchangeFileDirectories": {
+			"value": []
 		}
 	},
 	"APIModules": {

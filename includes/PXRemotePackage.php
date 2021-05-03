@@ -8,16 +8,18 @@
 
 class PXRemotePackage extends PXPackage {
 
+	private $mDirectoryNum;
 	private $mFileNum;
 	private $mMissingExtensions = [];
 	private $mMissingPackages = [];
 	private $mUninstallableReasons = [];
 	private $mIsMatch = true;
 
-	public static function newFromData( $fileNum, $fileData, $packageName, $packageData, $installedExtensions, $installedPackages, $user ) {
+	public static function newFromData( $directoryNum, $fileNum, $fileData, $packageName, $packageData, $installedExtensions, $installedPackages, $user ) {
 		$package = new PXRemotePackage();
 
 		$package->mName = $packageName;
+		$package->mDirectoryNum = $directoryNum;
 		$package->mFileNum = $fileNum;
 		$package->mUser = $user;
 		$package->populateWithData( $fileData, $packageData );
@@ -174,7 +176,7 @@ END;
 		if ( count( $this->mUninstallableReasons ) == 0 ) {
 			$packageLink = $this->getPackageLink(
 				wfMessage( 'pageexchange-package-install' )->parse(),
-				[ 'name' => $this->mName, 'fileNum' => $this->mFileNum ]
+				[ 'name' => $this->mName, 'directoryNum' => $this->mDirectoryNum, 'fileNum' => $this->mFileNum ]
 			);
 			$packageHTML .= Html::rawElement( 'p', [ 'class' => 'pageExchangeCardBottomLink' ], $packageLink );
 		}

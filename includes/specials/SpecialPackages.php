@@ -30,12 +30,13 @@ class SpecialPackages extends SpecialPage {
 		$out->addModuleStyles( [ 'oojs-ui.styles.icons-alerts' ] );
 		$this->mInstalledExtensions = PXUtils::getInstalledExtensions( $this->getConfig() );
 		$packageName = $request->getVal( 'name' );
+		$directoryNum = $request->getVal( 'directoryNum' );
 		$fileNum = $request->getVal( 'fileNum' );
 
 		if ( $packageName !== null && $fileNum !== null ) {
 			$out->setPageTitle( $this->msg( 'packages' )->parse() . ': ' . $packageName );
 			$this->addBreadcrumb();
-			$package = $this->getRemotePackage( $fileNum, $packageName );
+			$package = $this->getRemotePackage( $directoryNum, $fileNum, $packageName );
 			if ( $package == null ) {
 				$out->addHTML( '<span class="error">' . $this->msg( 'pageexchange-noremotepackage', $packageName )->parse() . '</span>' );
 				return;
@@ -80,20 +81,37 @@ class SpecialPackages extends SpecialPage {
 	}
 
 	private function loadAllFiles() {
+		$packageFiles = [];
 		$installedPackageIDs = [];
 		foreach ( $this->mInstalledPackages as $installedPackage ) {
 			$installedPackageIDs[] = $installedPackage->getGlobalID();
 		}
 
-		$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
-		foreach ( $packageFiles as $i => $url ) {
+		$fileDirectories = $this->getConfig()->get( 'PageExchangeFileDirectories' );
+		foreach ( $fileDirectories as $dirNum => $fileDirectoryURL ) {
+			$curPackageFiles = PXUtils::readFileDirectory( $fileDirectoryURL );
+			foreach ( $curPackageFiles as $fileNum => $packageURL ) {
+				try {
+					$packageFiles[] = PXPackageFile::init( $packageURL, $dirNum + 1, $fileNum + 1, $this->mInstalledExtensions, $installedPackageIDs );
+				} catch ( MWException $e ) {
+					$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ], $e->getMessage() ) );
+					continue;
+				}
+			}
+		}
+
+		$packageFileURLs = $this->getConfig()->get( 'PageExchangePackageFiles' );
+		foreach ( $packageFileURLs as $i => $url ) {
 			try {
-				$pxFile = PXPackageFile::init( $url, $i + 1, $this->mInstalledExtensions, $installedPackageIDs );
+				$packageFiles[] = PXPackageFile::init( $url, null, $i + 1, $this->mInstalledExtensions, $installedPackageIDs );
 			} catch ( MWException $e ) {
 				$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ], $e->getMessage() ) );
 				continue;
 			}
-			$packages = $pxFile->getAllPackages( $this->getUser() );
+		}
+
+		foreach ( $packageFiles as $packageFile ) {
+			$packages = $packageFile->getAllPackages( $this->getUser() );
 			foreach ( $packages as $remotePackage ) {
 				$this->loadRemotePackage( $remotePackage );
 			}
@@ -121,8 +139,17 @@ class SpecialPackages extends SpecialPage {
 		}
 	}
 
-	private function getRemotePackage( $fileNum, $packageName ) {
-		$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
+	private function getRemotePackage( $directoryNum, $fileNum, $packageName ) {
+		if ( $directoryNum == null ) {
+			$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
+		} else {
+			$fileDirectories = $this->getConfig()->get( 'PageExchangeFileDirectories' );
+			if ( count( $fileDirectories ) < $directoryNum ) {
+				return null;
+			}
+			$packageFiles = PXUtils::readFileDirectory( $fileDirectories[$directoryNum - 1] );
+		}
+
 		if ( count( $packageFiles ) < $fileNum ) {
 			return null;
 		}
@@ -139,7 +166,7 @@ class SpecialPackages extends SpecialPage {
 			$installedPackageIDs[] = $row[0];
 		}
 
-		$pxFile = PXPackageFile::init( $fileURL, $fileNum, $this->mInstalledExtensions, $installedPackageIDs );
+		$pxFile = PXPackageFile::init( $fileURL, $directoryNum, $fileNum, $this->mInstalledExtensions, $installedPackageIDs );
 
 		return $pxFile->getPackage( $packageName, $this->getUser() );
 	}

@@ -64,4 +64,22 @@ class PXUtils {
 
 		return $contents;
 	}
+
+	public static function readFileDirectory( $fileDirectoryURL ) {
+		$packageFiles = [];
+		$fileDirectoryContents = self::getWebPageContents( $fileDirectoryURL );
+		$fileDirectoryLines = explode( "\n", $fileDirectoryContents );
+		foreach ( $fileDirectoryLines as $fileDirectoryLine ) {
+			// Allow blank lines, and comments.
+			if ( $fileDirectoryLine == '' ) {
+				continue;
+			}
+			$firstChar = $fileDirectoryLine[0];
+			if ( in_array( $firstChar, [ ';', '#', '/' ] ) ) {
+				continue;
+			}
+			$packageFiles[] = $fileDirectoryLine;
+		}
+		return $packageFiles;
+	}
 }

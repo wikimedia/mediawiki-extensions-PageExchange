@@ -9,11 +9,12 @@
 class PXPackageFile {
 
 	private $mData;
+	private $mDirectoryNum;
 	private $mFileNum;
 	private $mInstalledExtensions;
 	private $mInstalledPackages;
 
-	public static function init( $url, $fileNum, $installedExtensions, $installedPackages ) {
+	public static function init( $url, $directoryNum, $fileNum, $installedExtensions, $installedPackages ) {
 		$json = PXUtils::getWebPageContents( $url );
 		if ( $json === null ) {
 			throw new MWException( 'Error: no file found at ' . $url );
@@ -25,6 +26,7 @@ class PXPackageFile {
 
 		$packageFile = new PXPackageFile();
 		$packageFile->mData = $fileData;
+		$packageFile->mDirectoryNum = $directoryNum;
 		$packageFile->mFileNum = $fileNum;
 		$packageFile->mInstalledExtensions = $installedExtensions;
 		$packageFile->mInstalledPackages = $installedPackages;
@@ -35,6 +37,7 @@ class PXPackageFile {
 	public function getPackage( $packageName, $user ) {
 		$packageData = $this->mData->packages->$packageName;
 		return PXRemotePackage::newFromData(
+			$this->mDirectoryNum,
 			$this->mFileNum,
 			$this->mData,
 			$packageName,
@@ -49,6 +52,7 @@ class PXPackageFile {
 		$packages = [];
 		foreach ( $this->mData->packages as $name => $packageData ) {
 			$packages[] = PXRemotePackage::newFromData(
+				$this->mDirectoryNum,
 				$this->mFileNum,
 				$this->mData,
 				$name,
