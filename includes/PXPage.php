@@ -114,6 +114,16 @@ class PXPage {
 		if ( $this->mNamespace !== NS_MEDIAWIKI ) {
 			return null;
 		}
+		// Ignore any pages named "Gadget-...", or "gadget-...",
+		// in the MediaWiki namespace - these are presumably
+		// meant to be handled by the Gadgets extension, and
+		// thus have a separate loading mechanism.
+		if (
+			substr( $this->mName, 0, 7 ) == 'Gadget-'
+			|| substr( $this->mName, 0, 7 ) == 'gadget-'
+		) {
+			return null;
+		}
 		if ( substr( $this->mName, -3 ) == '.js' ) {
 			return 'JavaScript';
 		}
