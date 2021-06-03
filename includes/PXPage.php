@@ -39,9 +39,9 @@ class PXPage {
 			$page->mLocalTitleExists = $page->mLocalTitle->exists();
 			$pageFullName = $page->mLocalTitle->getFullText();
 			if ( $page->mNamespace == NS_FILE ) {
-				if ( $packagePageData->fileURL ) {
+				if ( property_exists( $packagePageData, 'fileURL' ) ) {
 					$page->mFileURL = $packagePageData->fileURL;
-				} elseif ( $packagePageData->fileURLPath ) {
+				} elseif ( property_exists( $packagePageData, 'fileURLPath' ) ) {
 					$page->mFileURL = $baseURL . $packagePageData->fileURLPath;
 				}
 				if ( substr( $page->mFileURL, 0, 4 ) !== 'http' ) {

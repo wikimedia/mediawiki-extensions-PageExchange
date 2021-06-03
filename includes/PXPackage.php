@@ -39,6 +39,13 @@ abstract class PXPackage {
 				$this->mPages[] = $page;
 			}
 		}
+		$directoryStructureData = self::getPackageField( 'directoryStructure', null, $packageData );
+		if ( $directoryStructureData != null && property_exists( $directoryStructureData, 'service' ) ) {
+			$directoryStructureService = $directoryStructureData->service;
+			if ( $directoryStructureService == 'GitHub' ) {
+				self::addToPagesFromGitHubData( $directoryStructureData );
+			}
+		}
 		$this->processPages();
 		$this->mVersion = self::getPackageField( 'version', null, $packageData );
 		$this->mGlobalID = self::getPackageField( 'globalID', null, $packageData );
@@ -85,6 +92,9 @@ abstract class PXPackage {
 			return $parser->parse( $value, $packagesTitle, ParserOptions::newFromAnon(), false )->getText();
 		}
 		if ( !$escapeHTML ) {
+			return $value;
+		}
+		if ( is_object( $value ) ) {
 			return $value;
 		}
 		if ( is_array( $value ) ) {
@@ -240,6 +250,65 @@ END;
 END;
 
 		return $text;
+	}
+
+	protected function addToPagesFromGitHubData( $gitHubData ) {
+		if (
+			!property_exists( $gitHubData, 'accountName' ) ||
+			!property_exists( $gitHubData, 'repositoryName' ) ||
+			!property_exists( $gitHubData, 'namespaceSettings' )
+		) {
+			return;
+		}
+		$accountName = $gitHubData->accountName;
+		$repositoryName = $gitHubData->repositoryName;
+		$namespaceSettings = $gitHubData->namespaceSettings;
+		$allGitHubPages = [];
+		$gitHubAPIURL = "https://api.github.com/repos/$accountName/$repositoryName/git/trees/master?recursive=1";
+		$gitHubPagesJSON = PXUtils::getWebPageContents( $gitHubAPIURL );
+		$gitHubPagesData = json_decode( $gitHubPagesJSON );
+		$gitHubPageNames = [];
+		foreach ( $gitHubPagesData->tree as $gitHubPageData ) {
+			$gitHubPageNames[] = $gitHubPageData->path;
+		}
+		foreach ( $gitHubPageNames as $gitHubPageName ) {
+			$pageName = $gitHubPageName;
+			foreach ( $namespaceSettings as $settings ) {
+				if ( property_exists( $settings, 'fileNamePrefix' ) ) {
+					$fileNamePrefix = $settings->fileNamePrefix;
+					if ( strpos( $pageName, $fileNamePrefix ) === 0 ) {
+						$pageName = substr_replace( $pageName, '', 0, strlen( $fileNamePrefix ) );
+					} else {
+						continue;
+					}
+				}
+				if ( property_exists( $settings, 'fileNameSuffix' ) ) {
+					$fileNameSuffix = $settings->fileNameSuffix;
+					$suffixLen = strlen( $fileNameSuffix );
+					if ( substr_compare( $pageName, $fileNameSuffix, -$suffixLen ) === 0 ) {
+						$pageName = substr_replace( $pageName, '', -$suffixLen, $suffixLen );
+					} else {
+						continue;
+					}
+				}
+				$pageURL = "https://raw.githubusercontent.com/$accountName/$repositoryName/master/" .
+					rawurlencode( $gitHubPageName );
+				$pageData = (object)[
+					'name' => $pageName,
+					'namespace' => $settings->namespace,
+					'url' => $pageURL
+				];
+				if ( $settings->namespace == 'NS_FILE' ) {
+					$actualFileName = $settings->actualFileNamePrefix .
+						$pageName . $settings->actualFileNameSuffix;
+					if ( in_array( $actualFileName, $gitHubPageNames ) ) {
+						$pageData->fileURL = "https://raw.githubusercontent.com/$accountName/$repositoryName/master/" .
+							rawurlencode( $actualFileName );
+					}
+				}
+				$this->mPages[] = PXPage::newFromData( $pageData, null );
+			}
+		}
 	}
 
 	abstract public function processPages();
