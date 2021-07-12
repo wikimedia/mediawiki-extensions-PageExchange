@@ -45,7 +45,15 @@ class PXCreatePageJob extends Job {
 		} else {
 			$newContent = new WikitextContent( $pageText );
 		}
-		$user = User::newFromId( $this->params['user_id'] );
+		$userID = $this->params['user_id'];
+		if ( class_exists( 'MediaWiki\User\UserFactory' ) ) {
+			// MW 1.35+
+			$user = MediaWikiServices::getInstance()
+				->getUserFactory()
+				->newFromId( (int)$userID );
+		} else {
+			$user = User::newFromId( (int)$userID );
+		}
 		$editSummary = $this->params['edit_summary'];
 		$flags = 0;
 
