@@ -8,6 +8,7 @@
  */
 class PXPackageFile {
 
+	private $mURL;
 	private $mData;
 	private $mDirectoryNum;
 	private $mFileNum;
@@ -25,6 +26,7 @@ class PXPackageFile {
 		}
 
 		$packageFile = new PXPackageFile();
+		$packageFile->mURL = $url;
 		$packageFile->mData = $fileData;
 		$packageFile->mDirectoryNum = $directoryNum;
 		$packageFile->mFileNum = $fileNum;
@@ -63,6 +65,10 @@ class PXPackageFile {
 			);
 		}
 		return $packages;
+	}
+
+	function getURL() {
+		return $this->mURL;
 	}
 
 }

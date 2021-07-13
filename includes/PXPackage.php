@@ -266,6 +266,9 @@ END;
 		$allGitHubPages = [];
 		$gitHubAPIURL = "https://api.github.com/repos/$accountName/$repositoryName/git/trees/master?recursive=1";
 		$gitHubPagesJSON = PXUtils::getWebPageContents( $gitHubAPIURL );
+		if ( $gitHubPagesJSON == '' ) {
+			throw new MWException( "No data found at https://github.com/$accountName/$repositoryName" );
+		}
 		$gitHubPagesData = json_decode( $gitHubPagesJSON );
 		$gitHubPageNames = [];
 		foreach ( $gitHubPagesData->tree as $gitHubPageData ) {

@@ -111,7 +111,14 @@ class SpecialPackages extends SpecialPage {
 		}
 
 		foreach ( $packageFiles as $packageFile ) {
-			$packages = $packageFile->getAllPackages( $this->getUser() );
+			try {
+				$packages = $packageFile->getAllPackages( $this->getUser() );
+			} catch ( MWException $e ) {
+				$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ],
+					"Error in file {$packageFile->getURL()}: " . $e->getMessage() )
+				);
+				continue;
+			}
 			foreach ( $packages as $remotePackage ) {
 				$this->loadRemotePackage( $remotePackage );
 			}
