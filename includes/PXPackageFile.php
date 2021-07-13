@@ -65,9 +65,4 @@ class PXPackageFile {
 		return $packages;
 	}
 
-	/**
-	 * Utility function. This should really go into a "PXUtils" class,
-	 * but it seemed silly to create a class just for this one function.
-	 */
-
 }
