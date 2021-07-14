@@ -66,6 +66,16 @@ class PXCreatePageJob extends Job {
 			$wikiPage->doEditContent( $newContent, $editSummary, $flags, false, $user );
 		}
 
+		// If this is a template, and Cargo is installed, tell Cargo
+		// to automatically generate the table declared in this
+		// template, if there is one.
+		// @TODO - add a checkbox to the "install" page, to let the
+		// user choose whether to create the table?
+		if ( $this->title->getNamespace() == NS_TEMPLATE && class_exists( 'CargoDeclare' ) ) {
+			CargoDeclare::$settings['createData'] = true;
+			CargoDeclare::$settings['userID'] = $userID;
+		}
+
 		if ( !array_key_exists( 'file_url', $this->params ) ) {
 			return true;
 		}
