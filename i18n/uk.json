@@ -1,11 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Ата"
 		]
 	},
 	"pageexchange-desc": "Дозволяє встановлювати «пакунки» попередньо визначених вікісторінок",
 	"packages": "Пакунки",
+	"apihelp-pxinstallpackage-summary": "Встановіть пакет за допомогою розширення Page Exchange",
+	"apihelp-pxinstallpackage-param-packageid": "Глобальний ідентифікатор пакета",
+	"apihelp-pxupdatepackage-summary": "Оновіть пакет за допомогою розширення Page Exchange",
+	"apihelp-pxupdatepackage-param-packageid": "Глобальний ідентифікатор пакета",
+	"apihelp-pxuninstallpackage-summary": "Видаліть пакет за допомогою розширення Page Exchange",
+	"apihelp-pxuninstallpackage-param-packageid": "Глобальний ідентифікатор пакета",
+	"apihelp-pxuninstallpackage-param-deletepages": "Чи потрібно видаляти сторінки вікі, пов'язані з цим пакетом.",
 	"right-pageexchange": "Запуск дій обміну сторінками",
 	"action-pageexchange": "запуск дій обміну сторінками",
 	"pageexchange-logname": "Журнал обміну сторінками",
@@ -24,6 +32,7 @@
 	"pageexchange-package-version": "Версія:",
 	"pageexchange-package-pages": "Сторінки:",
 	"pageexchange-package-language": "Мова:",
+	"pageexchange-package-license": "Ліцензія:",
 	"pageexchange-package-requiredextensions": "Необхідні розширення:",
 	"pageexchange-package-requiredpackages": "Необхідні пакунки:",
 	"pageexchange-package-morerecent": "Існує свіжіша версія цього пакунку, ніж та, що зараз встановлена у цій вікі.",
@@ -35,7 +44,15 @@
 	"pageexchange-latestvalue": "(найсвіжіше значення: $1)",
 	"pageexchange-uninstallablepackage": "Цей пакунок не можна встановити з таких причин:",
 	"pageexchange-inappropriatepackage": "Цей пакунок може не бути відповідним вашій вікі; див. нижче.",
+	"pageexchange-nolocalpackage": "Помилка: Не встановлено жодного пакета з назвою \"$1\".",
+	"pageexchange-noremotepackage": "Помилка: не знайдено пакет з назвою \"$1\".",
+	"pageexchange-overwrite": "Завантаження цього пакета перезапише деякі сторінки у вашій вікі.",
+	"pageexchange-nocontentslocal": "У зовнішній версії цієї сторінки вмісту не знайдено!",
+	"pageexchange-nocontentsremote": "На цій сторінці вмісту не знайдено!",
 	"pageexchange-packageinstalled": "Цей пакунок було встановлено.",
 	"pageexchange-packageuninstalled": "Цей пакунок було деінстальовано.",
-	"pageexchange-packageupdated": "Цей пакунок було оновлено."
+	"pageexchange-packageupdated": "Цей пакунок було оновлено.",
+	"pageexchange-packageidnull": "Помилка: packageid не може бути null",
+	"pageexchange-packagenotexists": "Помилка: Пакет з ідентифікатором \"$1\" не існує.",
+	"pageexchange-packagealreadyinstalled": "Пакет з ідентифікатором \"$1\" вже встановлено"
 }
