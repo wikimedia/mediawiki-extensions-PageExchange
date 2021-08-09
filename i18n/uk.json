@@ -5,6 +5,7 @@
 			"Ата"
 		]
 	},
+	"pageexchange-extensionname": "Обмін сторінками",
 	"pageexchange-desc": "Дозволяє встановлювати «пакунки» попередньо визначених вікісторінок",
 	"packages": "Пакунки",
 	"apihelp-pxinstallpackage-summary": "Встановіть пакет за допомогою розширення Page Exchange",
