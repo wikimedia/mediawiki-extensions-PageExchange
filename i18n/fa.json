@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"FarsiNevis"
+			"FarsiNevis",
+			"Jeeputer"
 		]
 	},
 	"pageexchange-installed": "نصب‌شده",
@@ -12,6 +13,7 @@
 	"pageexchange-package-version": "نسخه:",
 	"pageexchange-package-pages": "صفحه‌ها:",
 	"pageexchange-package-language": "زبان:",
+	"pageexchange-package-license": "مجوز:",
 	"pageexchange-package-requiredextensions": "افزونه‌های مورد نیاز:",
 	"pageexchange-package-install": "نصب",
 	"pageexchange-package-update": "روزآمدسازی"
