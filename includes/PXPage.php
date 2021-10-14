@@ -8,6 +8,8 @@
  * @ingroup PX
  */
 
+use MediaWiki\MediaWikiServices;
+
 class PXPage {
 
 	private $mName;
@@ -192,7 +194,13 @@ class PXPage {
 			throw new MWException( $error );
 		}
 		if ( $this->mNamespace == NS_FILE ) {
-			$file = wfLocalFile( $this->mLocalTitle );
+			$mwServices = MediaWikiServices::getInstance();
+			if ( method_exists( $mwServices, 'getRepoGroup' ) ) {
+				// MW 1.34+
+				$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->mLocalTitle );
+			} else {
+				$file = wfLocalFile( $this->mLocalTitle );
+			}
 			$file->delete( $editSummary );
 		}
 	}
