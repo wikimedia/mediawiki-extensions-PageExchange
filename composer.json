@@ -1,4 +1,8 @@
 {
+	"require": {
+		"ext-zip": "*",
+		"estahn/phpunit-json-assertions": "^4.0"
+	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "44.0.0",
 		"mediawiki/minus-x": "1.1.3",

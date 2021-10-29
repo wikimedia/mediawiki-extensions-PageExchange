@@ -61,6 +61,7 @@
 		"PXPackage": "includes/PXPackage.php",
 		"PXRemotePackage": "includes/PXRemotePackage.php",
 		"PXInstalledPackage": "includes/PXInstalledPackage.php",
+		"PXExportPackage": "includes/PXExportPackage.php",
 		"PXPage": "includes/PXPage.php",
 		"PXCreatePageJob": "includes/PXCreatePageJob.php",
 		"PXUtils": "includes/PXUtils.php",
