@@ -66,15 +66,11 @@ abstract class PXPackage {
 		$this->mRequiredPackages = self::getPackageField( 'requiredPackages', $fileData, $packageData );
 	}
 
-	public static function getSpecialPage( $pageName ) {
-		if ( class_exists( 'MediaWiki\Special\SpecialPageFactory' ) ) {
-			// MW 1.32+
-			return MediaWikiServices::getInstance()
-				->getSpecialPageFactory()
-				->getPage( $pageName );
-		} else {
-			return SpecialPageFactory::getPage( $pageName );
-		}
+	public static function getSpecialPageTitle( $pageName ) {
+		return MediaWikiServices::getInstance()
+			->getSpecialPageFactory()
+			->getPage( $pageName )
+			->getPageTitle();
 	}
 
 	public static function getPackageField( $fieldName, $fileData, $packageData, $escapeHTML = true, $isWikitext = false ) {
@@ -88,7 +84,7 @@ abstract class PXPackage {
 		if ( $isWikitext ) {
 			$mwServices = MediaWikiServices::getInstance();
 			$parser = $mwServices->getParser();
-			$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
+			$packagesTitle = self::getSpecialPageTitle( 'Packages' );
 			return $parser->parse( $value, $packagesTitle, ParserOptions::newFromAnon(), false )->getText();
 		}
 		if ( !$escapeHTML ) {
@@ -319,7 +315,7 @@ END;
 	abstract public function getFullHTML();
 
 	public function getPackageLink( $linkText, $query ) {
-		$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
+		$packagesTitle = self::getSpecialPageTitle( 'Packages' );
 		$packageURL = $packagesTitle->getLocalURL( $query );
 		return Html::element( 'a', [ 'href' => $packageURL ], $linkText );
 	}
@@ -327,7 +323,7 @@ END;
 	public function logAction( $actionName, User $user ) {
 		$log = new LogPage( 'pageexchange', false );
 
-		$packagesTitle = self::getSpecialPage( 'Packages' )->getPageTitle();
+		$packagesTitle = self::getSpecialPageTitle( 'Packages' );
 		$logParams = [
 			$this->mName,
 			$this->mPublisher

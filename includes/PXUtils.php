@@ -54,19 +54,9 @@ class PXUtils {
 			return $contents;
 		}
 
-		if ( method_exists( AtEase::class, 'suppressWarnings' ) ) {
-			// MW >= 1.33
-			AtEase::suppressWarnings();
-		} else {
-			\MediaWiki\suppressWarnings();
-		}
+		AtEase::suppressWarnings();
 		$contents = file_get_contents( $url );
-		if ( method_exists( AtEase::class, 'restoreWarnings' ) ) {
-			// MW >= 1.33
-			AtEase::restoreWarnings();
-		} else {
-			\MediaWiki\restoreWarnings();
-		}
+		AtEase::restoreWarnings();
 
 		return $contents;
 	}

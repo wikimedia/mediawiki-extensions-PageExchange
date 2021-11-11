@@ -57,14 +57,9 @@ class PXCreatePageJob extends Job {
 		$editSummary = $this->params['edit_summary'];
 		$flags = 0;
 
-		if ( class_exists( 'PageUpdater' ) ) {
-			// MW 1.32+
-			$updater = $wikiPage->newPageUpdater( $user );
-			$updater->setContent( MediaWiki\Revision\SlotRecord::MAIN, $newContent );
-			$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
-		} else {
-			$wikiPage->doEditContent( $newContent, $editSummary, $flags, false, $user );
-		}
+		$updater = $wikiPage->newPageUpdater( $user );
+		$updater->setContent( MediaWiki\Revision\SlotRecord::MAIN, $newContent );
+		$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
 
 		// If this is a template, and Cargo is installed, tell Cargo
 		// to automatically generate the table declared in this
