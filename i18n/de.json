@@ -5,7 +5,8 @@
 			"FF-11",
 			"Gebu",
 			"Killarnee",
-			"Umherirrender"
+			"Umherirrender",
+			"Umlaut"
 		]
 	},
 	"packages": "Pakete",
@@ -16,6 +17,9 @@
 	"apihelp-pxuninstallpackage-param-packageid": "Globale ID eines Pakets",
 	"pageexchange-installed": "Eingerichtet",
 	"pageexchange-available": "Verfügbar",
+	"pageexchange-installpackage": "Package installieren: $1",
+	"pageexchange-updatepackage": "Package aktualisieren: $1",
+	"pageexchange-uninstallpackage": "Package deinstallieren: $1",
 	"pageexchange-package-website": "Website:",
 	"pageexchange-package-publisher": "Herausgeber:",
 	"pageexchange-package-author": "Autor:",
@@ -28,10 +32,14 @@
 	"pageexchange-package-install": "Installieren",
 	"pageexchange-package-update": "Aktualisieren",
 	"pageexchange-package-uninstall": "Deinstallieren",
+	"pageexchange-latestvalue": "(letzter Wert: $1)",
 	"pageexchange-noremotepackage": "Fehler: Kein Paket mit dem Namen „$1“ wurde gefunden.",
 	"pageexchange-overwrite": "Das herunterladen dieses Pakets würde einige Seiten auf deinem Wiki überschreiben.",
 	"pageexchange-nocontentslocal": "In der externen Version dieser Seite wurden keine Inhalte gefunden!",
 	"pageexchange-nocontentsremote": "Auf dieser Seite wurden keine Inhalte gefunden!",
+	"pageexchange-packageinstalled": "Das Package wurde installiert.",
+	"pageexchange-packageuninstalled": "Das Package wurde deinstalliert.",
+	"pageexchange-packageupdated": "Das Package wurde aktualisiert.",
 	"pageexchange-packageidnull": "Fehler: packageid kann nicht null sein",
 	"pageexchange-packagenotexists": "Fehler: Es existiert kein Paket mit der ID: '$1'.",
 	"pageexchange-packagealreadyinstalled": "Das Paket mit der ID: '$1' ist bereits installiert"

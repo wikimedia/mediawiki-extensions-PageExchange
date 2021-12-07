@@ -2,10 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Alhassan Peter",
-			"Hasslaebetch"
+			"Hasslaebetch",
+			"Chirifo",
+			"Ruky Wunpini"
 		]
 	},
+	"pageexchange-nolocalpackage": "Dalimbu shali be zaŋ pahi",
 	"pageexchange-noremotepackage": "Chiriŋ: $1 binshɛli lala yuli kani.",
+	"pageexchange-overwrite": "A yi waai packagi ŋɔ din chɛ ka a yi yaɣa shɛŋa a wiki",
 	"pageexchange-nocontentslocal": "Yɛltɔɣa shɛli kani polo o ni",
 	"pageexchange-nocontentsremote": "Lahibali ka yaɣili ŋɔ ni.",
 	"pageexchange-packagenotexists": "Tuubu: ID \"$1\" ka kɔlugu din biɛni",

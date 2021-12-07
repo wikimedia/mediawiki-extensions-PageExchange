@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"pageexchange-package-website": "Situ web:",
+	"pageexchange-package-author": "Auturi:",
+	"pageexchange-package-version": "Virsioni:",
+	"pageexchange-package-pages": "Pàggini:",
+	"pageexchange-package-language": "Lingua:",
+	"pageexchange-package-license": "Licenza:"
+}
