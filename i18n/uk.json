@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ата"
+			"Ата",
+			"DDPAT"
 		]
 	},
+	"pageexchange-extensionname": "Обмін сторінками",
 	"pageexchange-desc": "Дозволяє встановлювати «пакунки» попередньо визначених вікісторінок",
 	"packages": "Пакунки",
 	"right-pageexchange": "Запуск дій обміну сторінками",

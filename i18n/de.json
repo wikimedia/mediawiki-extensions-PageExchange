@@ -1,20 +1,33 @@
 {
 	"@metadata": {
 		"authors": [
-			"Killarnee"
+			"Killarnee",
+			"Anna7321",
+			"FF-11",
+			"Gebu",
+			"Umherirrender",
+			"Umlaut"
 		]
 	},
 	"packages": "Pakete",
 	"pageexchange-installed": "Eingerichtet",
 	"pageexchange-available": "Verfügbar",
+	"pageexchange-installpackage": "Package installieren: $1",
+	"pageexchange-updatepackage": "Package aktualisieren: $1",
+	"pageexchange-uninstallpackage": "Package deinstallieren: $1",
 	"pageexchange-package-website": "Website:",
 	"pageexchange-package-publisher": "Herausgeber:",
 	"pageexchange-package-author": "Autor:",
 	"pageexchange-package-version": "Version:",
+	"pageexchange-package-pages": "Seiten:",
 	"pageexchange-package-language": "Sprache:",
 	"pageexchange-package-requiredextensions": "Erforderliche Erweiterungen:",
 	"pageexchange-package-requiredpackages": "Erforderliche Pakete:",
 	"pageexchange-package-install": "Installieren",
 	"pageexchange-package-update": "Aktualisieren",
-	"pageexchange-package-uninstall": "Deinstallieren"
+	"pageexchange-package-uninstall": "Deinstallieren",
+	"pageexchange-latestvalue": "(letzter Wert: $1)",
+	"pageexchange-packageinstalled": "Das Package wurde installiert.",
+	"pageexchange-packageuninstalled": "Das Package wurde deinstalliert.",
+	"pageexchange-packageupdated": "Das Package wurde aktualisiert."
 }

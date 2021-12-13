@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"Winston Sung"
 		]
 	},
 	"pageexchange-desc": "允許安裝預先定義 wiki 頁面的套件",
@@ -24,7 +25,7 @@
 	"pageexchange-package-version": "版本：",
 	"pageexchange-package-pages": "頁面：",
 	"pageexchange-package-language": "語言：",
-	"pageexchange-package-requiredextensions": "所需擴充：",
+	"pageexchange-package-requiredextensions": "所需擴充功能：",
 	"pageexchange-package-requiredpackages": "所需套件：",
 	"pageexchange-package-morerecent": "此套件現在有比安裝在此 wiki 上還要新的版本。",
 	"pageexchange-package-install": "安裝",
