@@ -174,7 +174,12 @@ class PXPage {
 			$params['file_url'] = $this->mFileURL;
 		}
 		$jobs[] = new PXCreatePageJob( $this->mLocalTitle, $params );
-		JobQueueGroup::singleton()->push( $jobs );
+		if ( method_exists( MediaWikiServices::class, 'getJobQueueGroup' ) ) {
+			// MW 1.37+
+			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
+		} else {
+			JobQueueGroup::singleton()->push( $jobs );
+		}
 	}
 
 	/**
