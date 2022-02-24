@@ -6,6 +6,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\AtEase\AtEase;
 
 /**
  * Background job to create a new page.
@@ -101,7 +102,7 @@ class PXCreatePageJob extends Job {
 		$publishOptions = [];
 		$handler = MediaHandler::getHandler( $props['mime'] );
 		if ( $handler ) {
-			$metadata = Wikimedia\quietCall( 'unserialize', $props['metadata'] );
+			$metadata = AtEase::quietCall( 'unserialize', $props['metadata'] );
 			$publishOptions['headers'] = $handler->getContentHeaders( $metadata );
 		} else {
 			$publishOptions['headers'] = [];
