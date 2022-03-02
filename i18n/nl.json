@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Romaine"
 		]
 	},
 	"pageexchange-desc": "Voegt de mogelijkheid toe voor het installeren van \"pakketten\" van voorgedefinieerde wikipagina's",
@@ -20,6 +21,7 @@
 	"pageexchange-package-version": "Versie:",
 	"pageexchange-package-pages": "Pagina's:",
 	"pageexchange-package-language": "Taal:",
+	"pageexchange-package-license": "Licentie:",
 	"pageexchange-package-requiredextensions": "Vereiste extensies:",
 	"pageexchange-package-requiredpackages": "Vereiste pakketten:",
 	"pageexchange-package-morerecent": "Er is een nieuwere versie van dit pakket beschikbaar dan de versie die momenteel op de wiki is geïnstalleerd.",
