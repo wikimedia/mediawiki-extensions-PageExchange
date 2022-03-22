@@ -260,8 +260,15 @@ END;
 		$repositoryName = $gitHubData->repositoryName;
 		$namespaceSettings = $gitHubData->namespaceSettings;
 		$allGitHubPages = [];
-		$gitHubAPIURL = "https://api.github.com/repos/$accountName/$repositoryName/git/trees/master?recursive=1";
+		$defaultBranch = 'main';
+		$gitHubAPIURL = "https://api.github.com/repos/$accountName/$repositoryName/git/trees/main?recursive=1";
 		$gitHubPagesJSON = PXUtils::getWebPageContents( $gitHubAPIURL );
+		// GitHub changed the default branch for new repos from "master" to "main" in 2020.
+		if ( $gitHubPagesJSON == '' ) {
+			$defaultBranch = 'master';
+			$gitHubAPIURL = "https://api.github.com/repos/$accountName/$repositoryName/git/trees/master?recursive=1";
+			$gitHubPagesJSON = PXUtils::getWebPageContents( $gitHubAPIURL );
+		}
 		if ( $gitHubPagesJSON == '' ) {
 			throw new MWException( "No data found at https://github.com/$accountName/$repositoryName" );
 		}
@@ -290,7 +297,7 @@ END;
 						continue;
 					}
 				}
-				$pageURL = "https://raw.githubusercontent.com/$accountName/$repositoryName/master/" .
+				$pageURL = "https://raw.githubusercontent.com/$accountName/$repositoryName/$defaultBranch/" .
 					rawurlencode( $gitHubPageName );
 				$pageData = (object)[
 					'name' => $pageName,
@@ -301,7 +308,7 @@ END;
 					$actualFileName = $settings->actualFileNamePrefix .
 						$pageName . $settings->actualFileNameSuffix;
 					if ( in_array( $actualFileName, $gitHubPageNames ) ) {
-						$pageData->fileURL = "https://raw.githubusercontent.com/$accountName/$repositoryName/master/" .
+						$pageData->fileURL = "https://raw.githubusercontent.com/$accountName/$repositoryName/$defaultBranch/" .
 							rawurlencode( $actualFileName );
 					}
 				}
