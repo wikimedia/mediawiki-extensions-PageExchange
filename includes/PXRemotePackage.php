@@ -298,9 +298,9 @@ END;
 				} else {
 					$pagesString .= ' - there is a local copy of this page that differs from the external version.';
 				}
-			}
-			if ( $page->getNamespace() == NS_FILE ) {
-				$pagesString .= ' (It is unknown whether the local copy of the file itself matches the external version.)';
+				if ( $page->getNamespace() == NS_FILE ) {
+					$pagesString .= ' (It is unknown whether the local copy of the file itself matches the external version.)';
+				}
 			}
 		}
 		$pagesString .= "</ul>\n";
