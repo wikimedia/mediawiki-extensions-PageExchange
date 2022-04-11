@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"FarsiNevis"
+			"FarsiNevis",
+			"Beginneruser",
+			"Jeeputer"
 		]
 	},
 	"pageexchange-installed": "نصب‌شده",
@@ -14,5 +16,5 @@
 	"pageexchange-package-language": "زبان:",
 	"pageexchange-package-requiredextensions": "افزونه‌های مورد نیاز:",
 	"pageexchange-package-install": "نصب",
-	"pageexchange-package-update": "روزآمدسازی"
+	"pageexchange-package-update": "به‌روزرسانی"
 }
