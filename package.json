@@ -1,4 +1,5 @@
 {
+	"name": "PageExchange",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
