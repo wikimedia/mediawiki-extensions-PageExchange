@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"DiegoAmbrocio",
+			"Fitoschido"
+		]
+	},
+	"packages": "Paquetes",
+	"pageexchange-installed": "Instalado",
+	"pageexchange-available": "Disponible",
+	"pageexchange-installpackage": "Instalar paquete: $1",
+	"pageexchange-updatepackage": "Actualizar el paquete: $1",
+	"pageexchange-uninstallpackage": "Desinstalar paquete: $1",
+	"pageexchange-installpackagelog": "instaló el paquete $2, por $3",
+	"pageexchange-package-website": "Sitio web:",
+	"pageexchange-package-publisher": "Editor:",
+	"pageexchange-package-author": "Autor:",
+	"pageexchange-package-version": "Versión:",
+	"pageexchange-package-pages": "Páginas:",
+	"pageexchange-package-language": "Idioma:",
+	"pageexchange-package-requiredextensions": "Extensiones necesarias:",
+	"pageexchange-package-requiredpackages": "Paquetes necesarios:",
+	"pageexchange-package-morerecent": "Existe una versión más reciente de este paquete que la instalada actualmente en este wiki.",
+	"pageexchange-package-install": "Instalar",
+	"pageexchange-package-update": "Actualizar",
+	"pageexchange-package-uninstall": "Desinstalar",
+	"pageexchange-package-deleteallpages": "Eliminar todas las páginas asociadas de la wiki",
+	"pageexchange-pagehaschanged": "la última versión de esta página difiere de la copia local.",
+	"pageexchange-latestvalue": "(último valor: 1$)",
+	"pageexchange-uninstallablepackage": "Este paquete no puede ser instalado, por las siguientes razones:",
+	"pageexchange-inappropriatepackage": "Este paquete puede no ser adecuado para su wiki; véase más abajo.",
+	"pageexchange-packageinstalled": "Este paquete fue instalado.",
+	"pageexchange-packageuninstalled": "Este paquete fue desinstalado.",
+	"pageexchange-packageupdated": "Este paquete fue actualizado."
+}
