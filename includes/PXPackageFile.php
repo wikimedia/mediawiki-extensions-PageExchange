@@ -17,7 +17,7 @@ class PXPackageFile {
 
 	public static function init( $url, $directoryNum, $fileNum, $installedExtensions, $installedPackages ) {
 		$json = PXUtils::getWebPageContents( $url );
-		if ( $json === null ) {
+		if ( $json === null || $json === '' ) {
 			throw new MWException( 'Error: no file found at ' . $url );
 		}
 		$fileData = json_decode( $json );
