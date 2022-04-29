@@ -200,12 +200,7 @@ class PXPage {
 		}
 		if ( $this->mNamespace == NS_FILE ) {
 			$mwServices = MediaWikiServices::getInstance();
-			if ( method_exists( $mwServices, 'getRepoGroup' ) ) {
-				// MW 1.34+
-				$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->mLocalTitle );
-			} else {
-				$file = wfLocalFile( $this->mLocalTitle );
-			}
+			$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->mLocalTitle );
 			$file->delete( $editSummary );
 		}
 	}

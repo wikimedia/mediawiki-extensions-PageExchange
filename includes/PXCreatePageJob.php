@@ -89,12 +89,7 @@ class PXCreatePageJob extends Job {
 		fwrite( $tempFile, $fileContents );
 		$tempFilePath = stream_get_meta_data( $tempFile )['uri'];
 		$mwServices = MediaWikiServices::getInstance();
-		if ( method_exists( $mwServices, 'getRepoGroup' ) ) {
-			// MW 1.34+
-			$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->title );
-		} else {
-			$file = wfLocalFile( $this->title );
-		}
+		$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->title );
 
 		$mwProps = new MWFileProps( $mwServices->getMimeAnalyzer() );
 		$props = $mwProps->getPropsFromPath( $tempFilePath, true );
