@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alhassan Mohammed Awal",
 			"Alhassan Peter",
 			"Chirifo",
 			"Hasslaebetch",
 			"Ruky Wunpini"
 		]
 	},
-	"pageexchange-nolocalpackage": "Dalimbu shali be zaŋ pahi",
+	"pageexchange-nolocalpackage": "Chiriŋ: Package shɛli bi zaŋ-kpɛhi ka di yili nyɛ \"$1\".",
 	"pageexchange-noremotepackage": "Chiriŋ: $1 binshɛli lala yuli kani.",
 	"pageexchange-overwrite": "A yi waai packagi ŋɔ din chɛ ka a yi yaɣa shɛŋa a wiki",
 	"pageexchange-nocontentslocal": "Yɛltɔɣa shɛli kani polo o ni",
