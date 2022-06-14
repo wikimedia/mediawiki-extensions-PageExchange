@@ -112,27 +112,27 @@ class PXPage {
 		return $this->mFileURL;
 	}
 
-	public function getContentType() {
-		if ( $this->mNamespace !== NS_MEDIAWIKI ) {
-			return null;
-		}
+	public function isGadget() {
 		// Ignore any pages named "Gadget-...", or "gadget-...",
 		// in the MediaWiki namespace - these are presumably
 		// meant to be handled by the Gadgets extension, and
 		// thus have a separate loading mechanism.
-		if (
-			substr( $this->mName, 0, 7 ) == 'Gadget-'
+		return $this->mNamespace == NS_MEDIAWIKI &&
+			( substr( $this->mName, 0, 7 ) == 'Gadget-'
 			|| substr( $this->mName, 0, 7 ) == 'gadget-'
-		) {
-			return null;
-		}
-		if ( substr( $this->mName, -3 ) == '.js' ) {
-			return 'JavaScript';
-		}
-		if ( substr( $this->mName, -4 ) == '.css' ) {
-			return 'CSS';
-		}
-		return null;
+			);
+	}
+
+	public function isJavaScript() {
+		return $this->mNamespace == NS_MEDIAWIKI &&
+			!$this->isGadget() &&
+			substr( $this->mName, -3 ) == '.js';
+	}
+
+	public function isCSS() {
+		return $this->mNamespace == NS_MEDIAWIKI &&
+			!$this->isGadget() &&
+			substr( $this->mName, -4 ) == '.css';
 	}
 
 	public function getRemoteContents() {
@@ -167,8 +167,7 @@ class PXPage {
 		$params = [
 			'page_url' => $this->mURL,
 			'user_id' => $user->getID(),
-			'edit_summary' => $editSummary,
-			'content_type' => $this->getContentType()
+			'edit_summary' => $editSummary
 		];
 		if ( $this->mNamespace == NS_FILE ) {
 			$params['file_url'] = $this->mFileURL;

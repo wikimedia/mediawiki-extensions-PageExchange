@@ -38,14 +38,7 @@ class PXCreatePageJob extends Job {
 		}
 
 		$pageText = PXUtils::getWebPageContents( $this->params['page_url'] );
-		$contentType = $this->params['content_type'];
-		if ( $contentType == 'JavaScript' ) {
-			$newContent = new JavaScriptContent( $pageText );
-		} elseif ( $contentType == 'CSS' ) {
-			$newContent = new CSSContent( $pageText );
-		} else {
-			$newContent = new WikitextContent( $pageText );
-		}
+		$newContent = ContentHandler::makeContent( $pageText, $this->title );
 		$userID = $this->params['user_id'];
 		if ( class_exists( 'MediaWiki\User\UserFactory' ) ) {
 			// MW 1.35+

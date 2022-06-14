@@ -54,10 +54,9 @@ class PXRemotePackage extends PXPackage {
 			if ( $page->getLocalTitle() == null && !in_array( 'bad-namespace', $this->mUninstallableReasons ) ) {
 				$this->mUninstallableReasons[] = 'bad-namespace';
 			}
-			$contentType = $page->getContentType();
-			if ( $contentType == 'JavaScript' && !$userCanEditJS ) {
+			if ( $page->isJavaScript() && !$userCanEditJS ) {
 				$this->mUninstallableReasons[] = 'cannot-edit-js';
-			} elseif ( $contentType == 'CSS' && !$userCanEditCSS ) {
+			} elseif ( $page->isCSS() && !$userCanEditCSS ) {
 				$this->mUninstallableReasons[] = 'cannot-edit-css';
 			}
 			$pageLink = $page->getLink();
@@ -371,10 +370,9 @@ END;
 		$jsPages = [];
 		$cssPages = [];
 		foreach ( $this->mPages as $page ) {
-			$contentType = $page->getContentType();
-			if ( $contentType == 'JavaScript' ) {
+			if ( $page->isJavaScript() ) {
 				$jsPages[] = $page->getName();
-			} elseif ( $contentType == 'CSS' ) {
+			} elseif ( $page->isCSS() ) {
 				$cssPages[] = $page->getName();
 			}
 		}
