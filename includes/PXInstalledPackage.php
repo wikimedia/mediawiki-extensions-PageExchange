@@ -113,11 +113,10 @@ class PXInstalledPackage extends PXPackage {
 				$userCanEditCSS = $this->mUser->isAllowed( 'editinterface' ) && $this->mUser->isAllowed( 'editsitecss' );
 
 		foreach ( $this->mPages as $page ) {
-			$contentType = $page->getContentType();
-			if ( $contentType == 'JavaScript' && !$userCanEditJS ) {
+			if ( $page->isJavaScript() && !$userCanEditJS ) {
 				return false;
 			}
-			if ( $contentType == 'CSS' && !$userCanEditCSS ) {
+			if ( $page->isCSS() && !$userCanEditCSS ) {
 				return false;
 			}
 		}
