@@ -26,8 +26,6 @@ class PXInstallPackageAPI extends ApiBase {
 	}
 
 	private function getRemotePackage( $packageID ) {
-		$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
-
 		$dbr = wfGetDb( DB_REPLICA );
 		$res = $dbr->select(
 			'px_packages',
@@ -41,12 +39,27 @@ class PXInstallPackageAPI extends ApiBase {
 			}
 		}
 
-		foreach ( $packageFiles as $url ) {
-			$pxFile = PXPackageFile::init( $url, -1, $this->mInstalledExtensions, $installedPackageIDs );
+		$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
+		foreach ( $packageFiles as $fileNum => $url ) {
+			$pxFile = PXPackageFile::init( $url, -1, $fileNum + 1, $this->mInstalledExtensions, $installedPackageIDs );
 			$packages = $pxFile->getAllPackages( $this->getUser() );
 			foreach ( $packages as $package ) {
 				if ( $package->getGlobalID() == $packageID ) {
 					return $pxFile->getPackage( $package->getName(), $this->getUser() );
+				}
+			}
+		}
+
+		$fileDirectories = $this->getConfig()->get( 'PageExchangeFileDirectories' );
+		foreach ( $fileDirectories as $dirNum => $fileDirectoryURL ) {
+			$curPackageFiles = PXUtils::readFileDirectory( $fileDirectoryURL );
+			foreach ( $curPackageFiles as $fileNum => $packageURL ) {
+				$pxFile = PXPackageFile::init( $packageURL, $dirNum + 1, $fileNum + 1, $this->mInstalledExtensions, $installedPackageIDs );
+				$packages = $pxFile->getAllPackages( $this->getUser() );
+				foreach ( $packages as $package ) {
+					if ( $package->getGlobalID() == $packageID ) {
+						return $pxFile->getPackage( $package->getName(), $this->getUser() );
+					}
 				}
 			}
 		}

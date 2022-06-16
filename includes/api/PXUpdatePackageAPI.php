@@ -35,18 +35,26 @@ class PXUpdatePackageAPI extends ApiBase {
 	}
 
 	private function loadAllFiles() {
+		$pxFiles = [];
 		$installedPackageIDs = [];
 		foreach ( $this->mInstalledPackages as $installedPackage ) {
 			$installedPackageIDs[] = $installedPackage->getGlobalID();
 		}
 
-		$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
-		foreach ( $packageFiles as $i => $url ) {
-			try {
-				$pxFile = PXPackageFile::init( $url, $i + 1, $this->mInstalledExtensions, $installedPackageIDs );
-			} catch ( MWException $e ) {
-				throw $e;
+		$packageFileURLs = $this->getConfig()->get( 'PageExchangePackageFiles' );
+		foreach ( $packageFileURLs as $i => $url ) {
+			$pxFiles[] = PXPackageFile::init( $url, -1, $i + 1, $this->mInstalledExtensions, $installedPackageIDs );
+		}
+
+		$fileDirectories = $this->getConfig()->get( 'PageExchangeFileDirectories' );
+		foreach ( $fileDirectories as $dirNum => $fileDirectoryURL ) {
+			$curPackageFiles = PXUtils::readFileDirectory( $fileDirectoryURL );
+			foreach ( $curPackageFiles as $fileNum => $packageURL ) {
+				$pxFiles[] = PXPackageFile::init( $packageURL, $dirNum + 1, $fileNum + 1, $this->mInstalledExtensions, $installedPackageIDs );
 			}
+		}
+
+		foreach ( $pxFiles as $pxFile ) {
 			$packages = $pxFile->getAllPackages( $this->getUser() );
 			foreach ( $packages as $remotePackage ) {
 				$this->loadRemotePackage( $remotePackage );
