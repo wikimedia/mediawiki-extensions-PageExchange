@@ -144,7 +144,12 @@ class PXPage {
 			return null;
 		}
 
-		$wikiPage = new WikiPage( $this->mLocalTitle );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->mLocalTitle );
+		} else {
+			$wikiPage = new WikiPage( $this->mLocalTitle );
+		}
 		$content = $wikiPage->getContent();
 		if ( $content !== null ) {
 			return $content->getNativeData();
@@ -185,7 +190,12 @@ class PXPage {
 	 * Delete a wiki page, and its associated file, if there is one.
 	 */
 	public function deleteWikiPage( $user, $packageName, $isUninstall ) {
-		$wikiPage = new WikiPage( $this->mLocalTitle );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->mLocalTitle );
+		} else {
+			$wikiPage = new WikiPage( $this->mLocalTitle );
+		}
 		$editSummaryMsg = $isUninstall ? 'pageexchange-uninstallpackage' : 'pageexchange-updatepackage';
 		$editSummary = wfMessage( $editSummaryMsg )->rawParams( $packageName )->inContentLanguage()->parse();
 		$error = '';
