@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"DiegoAmbrocio"
+			"DiegoAmbrocio",
+			"Francodiaz7"
 		]
 	},
 	"packages": "Paquetes",
@@ -30,7 +31,7 @@
 	"pageexchange-package-uninstall": "Desinstalar",
 	"pageexchange-package-deleteallpages": "Eliminar todas las páginas asociadas de la wiki",
 	"pageexchange-pagehaschanged": "la última versión de esta página difiere de la copia local.",
-	"pageexchange-latestvalue": "(último valor: 1$)",
+	"pageexchange-latestvalue": "(último valor: $1)",
 	"pageexchange-uninstallablepackage": "Este paquete no puede ser instalado, por las siguientes razones:",
 	"pageexchange-inappropriatepackage": "Este paquete puede no ser adecuado para su wiki; véase más abajo.",
 	"pageexchange-nolocalpackage": "Error: No se ha instalado ningún paquete llamado \"$1\".",
