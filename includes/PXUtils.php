@@ -49,6 +49,8 @@ class PXUtils {
 			$contents = curl_exec( $ch );
 			$httpCode = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
 			if ( $httpCode !== 200 ) {
+				// @todo - return/throw $contents['message']?
+				// It may contain useful information.
 				return '';
 			}
 			return $contents;
