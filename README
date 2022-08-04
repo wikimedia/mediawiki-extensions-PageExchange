@@ -1,6 +1,6 @@
 Page Exchange extension
 
-        Version 0.4.1
+        Version 0.5
         Yaron Koren
 
 This is free software licensed under the GNU General Public License. Please
@@ -21,7 +21,7 @@ https://www.mediawiki.org/wiki/Extension:Page_Exchange
 
 == Requirements ==
 
-This version of the Page Exchange extension requires MediaWiki 1.33 or higher.
+This version of the Page Exchange extension requires MediaWiki 1.34 or higher.
 
 == Installation ==
 
