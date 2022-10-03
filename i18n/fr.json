@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Thibaut120094",
 			"Wladek92",
-			"Verdy p"
+			"Verdy p",
+			"McDutchie"
 		]
 	},
 	"pageexchange-extensionname": "Page Exchange",
@@ -19,9 +20,9 @@
 	"pageexchange-installpackage": "Installer le paquet : $1",
 	"pageexchange-updatepackage": "Mettre à jour le paquet : $1",
 	"pageexchange-uninstallpackage": "Désinstaller le paquet : $1",
-	"pageexchange-installpackagelog": "paquet $2 installé par $3",
-	"pageexchange-updatepackagelog": "paquet $2 mis à jour par $3",
-	"pageexchange-uninstallpackagelog": "paquet $2 désinstallé par $3",
+	"pageexchange-installpackagelog": "a installé le paquet $2, par $3",
+	"pageexchange-updatepackagelog": "a mis à jour le paquet $2, par $3",
+	"pageexchange-uninstallpackagelog": "a désinstallé le paquet $2, par $3",
 	"pageexchange-package-website": "Site web :",
 	"pageexchange-package-publisher": "Éditeur :",
 	"pageexchange-package-author": "Auteur :",

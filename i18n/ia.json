@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"pageexchange-desc": "Permitte installar \"pacchettos\" de paginas wiki predefinite",
+	"packages": "Pacchettos",
+	"right-pageexchange": "Executar actiones Page Exchange",
+	"action-pageexchange": "executar actiones Page Exchange",
+	"pageexchange-logname": "Registro de Page Exchange",
+	"pageexchange-logdesc": "Isto es le registro de actiones associate al extension Page Exchange.",
+	"pageexchange-installed": "Installate",
+	"pageexchange-available": "Disponibile",
+	"pageexchange-installpackage": "Installation del pacchetto: $1",
+	"pageexchange-updatepackage": "Actualisation del pacchetto: $1",
+	"pageexchange-uninstallpackage": "Disinstallation del pacchetto: $1",
+	"pageexchange-installpackagelog": "ha installate le pacchetto $2, per $3",
+	"pageexchange-updatepackagelog": "ha actualisate le pacchetto $2, per $3",
+	"pageexchange-uninstallpackagelog": "ha disinstallate le pacchetto $2, per $3",
+	"pageexchange-package-website": "Sito web:",
+	"pageexchange-package-publisher": "Editor:",
+	"pageexchange-package-author": "Autor:",
+	"pageexchange-package-version": "Version:",
+	"pageexchange-package-pages": "Paginas:",
+	"pageexchange-package-language": "Lingua:",
+	"pageexchange-package-requiredextensions": "Extensiones necessari:",
+	"pageexchange-package-requiredpackages": "Pacchettos necessari:",
+	"pageexchange-package-morerecent": "Existe un version de iste pacchetto que es plus recente que illo actualmente installate sur iste wiki.",
+	"pageexchange-package-install": "Installar",
+	"pageexchange-package-update": "Actualisar",
+	"pageexchange-package-uninstall": "Disinstallar",
+	"pageexchange-package-deleteallpages": "Deler tote le paginas wiki associate",
+	"pageexchange-pagehaschanged": "Le ultime version de iste pagina differe del copia local.",
+	"pageexchange-latestvalue": "(ultime valor: $1)",
+	"pageexchange-uninstallablepackage": "Iste pacchetto non pote esser installate, pro le sequente rationes:",
+	"pageexchange-inappropriatepackage": "Iste pacchetto pote esser inappropriate pro tu wiki; vide hic infra.",
+	"pageexchange-packageinstalled": "Iste pacchetto ha essite installate.",
+	"pageexchange-packageuninstalled": "Iste pacchetto ha essite disinstallate.",
+	"pageexchange-packageupdated": "Iste pacchetto ha essite actualisate."
+}

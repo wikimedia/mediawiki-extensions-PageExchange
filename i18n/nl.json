@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie",
+			"Romaine"
 		]
 	},
 	"pageexchange-desc": "Voegt de mogelijkheid toe voor het installeren van \"pakketten\" van voorgedefinieerde wikipagina's",
@@ -11,9 +13,9 @@
 	"pageexchange-installpackage": "Installeer pakket: $1",
 	"pageexchange-updatepackage": "Pakket bijgewerkt: $1",
 	"pageexchange-uninstallpackage": "Verwijder pakket: $1",
-	"pageexchange-installpackagelog": "pakket $2 geïnstalleerd door $3",
-	"pageexchange-updatepackagelog": "pakket $2 bijgewerkt door $3",
-	"pageexchange-uninstallpackagelog": "pakket $2 verwijderd door $3",
+	"pageexchange-installpackagelog": "heeft het pakket $2 van $3 geïnstalleerd",
+	"pageexchange-updatepackagelog": "heeft het pakket $2 van $3 bijgewerkt",
+	"pageexchange-uninstallpackagelog": "heeft het pakket $2 van $3 verwijderd",
 	"pageexchange-package-website": "Website:",
 	"pageexchange-package-publisher": "Uitgever:",
 	"pageexchange-package-author": "Auteur:",
