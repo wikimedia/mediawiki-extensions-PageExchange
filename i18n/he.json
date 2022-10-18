@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"ישראל קלר"
+			"ישראל קלר",
+			"Amire80"
 		]
 	},
+	"pageexchange-package-publisher": "מפרסם:",
 	"pageexchange-package-license": "רישיון:"
 }
