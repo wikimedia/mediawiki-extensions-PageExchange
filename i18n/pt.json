@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Kareyac"
+		]
+	},
+	"pageexchange-desc": "Permite a instalação de \"pacotes\" de páginas wiki pré-definidas",
+	"packages": "Pacotes",
+	"right-pageexchange": "Executar operações da extensão Troca de Páginas",
+	"action-pageexchange": "executar operações da extensão Troca de Páginas",
+	"pageexchange-logname": "Registo da extensão Troca de Páginas",
+	"pageexchange-logdesc": "Este registo é das operações relacionadas com a extensão Troca de Páginas.",
+	"pageexchange-installed": "Instalado",
+	"pageexchange-available": "Disponível",
+	"pageexchange-installpackage": "Instalação do pacote: $1",
+	"pageexchange-updatepackage": "Atualização do pacote: $1",
+	"pageexchange-uninstallpackage": "Desinstalação do pacote: $1",
+	"pageexchange-installpackagelog": "instalação do pacote $2, de $3",
+	"pageexchange-updatepackagelog": "atualização do pacote $2, de $3",
+	"pageexchange-uninstallpackagelog": "desinstalação do pacote $2, de $3",
+	"pageexchange-package-website": "Website:",
+	"pageexchange-package-publisher": "Publicado por:",
+	"pageexchange-package-author": "Autor:",
+	"pageexchange-package-version": "Versão:",
+	"pageexchange-package-pages": "Páginas:",
+	"pageexchange-package-language": "Língua:",
+	"pageexchange-package-requiredextensions": "Extensões necessárias:",
+	"pageexchange-package-requiredpackages": "Pacotes necessários:",
+	"pageexchange-package-morerecent": "Existe uma versão mais recente deste pacote do que aquela que está instalada nesta wiki.",
+	"pageexchange-package-install": "Instalar",
+	"pageexchange-package-update": "Atualizar",
+	"pageexchange-package-uninstall": "Desinstalar",
+	"pageexchange-package-deleteallpages": "Eliminar todas as páginas wiki associadas",
+	"pageexchange-pagehaschanged": "a versão mais recente desta página difere da cópia local.",
+	"pageexchange-latestvalue": "(último valor: $1)",
+	"pageexchange-uninstallablepackage": "Este pacote não pode ser instalado pelos seguintes motivos:",
+	"pageexchange-inappropriatepackage": "Este pacote pode não ser apropriado para a sua wiki; ver abaixo.",
+	"pageexchange-packageinstalled": "Este pacote foi instalado.",
+	"pageexchange-packageuninstalled": "Este pacote foi desinstalado.",
+	"pageexchange-packageupdated": "Este pacote foi atualizado."
+}
