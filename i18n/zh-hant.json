@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"Winston Sung"
+			"Winston Sung",
+			"捍粵者"
 		]
 	},
 	"pageexchange-desc": "允許安裝預先定義 wiki 頁面的套件",
 	"packages": "套件",
-	"right-pageexchange": "執行 Page Exchange 操作",
-	"action-pageexchange": "執行 Page Exchange 操作",
+	"right-pageexchange": "交換頁面",
+	"action-pageexchange": "交換頁面",
 	"pageexchange-logname": "Page Exchange 日誌",
 	"pageexchange-logdesc": "此為與 Page Exchange 擴充相關的操作日誌。",
 	"pageexchange-installed": "已安裝",
