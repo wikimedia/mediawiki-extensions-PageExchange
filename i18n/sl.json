@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"pageexchange-installpackage": "Namesti paket: $1",
+	"pageexchange-updatepackage": "Posodobi paket: $1",
+	"pageexchange-uninstallpackage": "Odnamesti paket: $1",
+	"pageexchange-package-language": "Jezik:",
+	"pageexchange-packageinstalled": "Ta paket je nameščen.",
+	"pageexchange-packageuninstalled": "Ta paket je odnameščen.",
+	"pageexchange-packageupdated": "Ta paket je posodobljen."
+}
