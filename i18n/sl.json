@@ -4,9 +4,11 @@
 			"Eleassar"
 		]
 	},
+	"pageexchange-extensionname": "Page Exchange",
 	"pageexchange-installpackage": "Namesti paket: $1",
 	"pageexchange-updatepackage": "Posodobi paket: $1",
 	"pageexchange-uninstallpackage": "Odnamesti paket: $1",
+	"pageexchange-package-website": "Spletno mesto:",
 	"pageexchange-package-language": "Jezik:",
 	"pageexchange-package-uninstall": "Odmesti",
 	"pageexchange-packageinstalled": "Ta paket je nameščen.",
