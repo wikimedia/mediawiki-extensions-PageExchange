@@ -13,5 +13,6 @@
 	"pageexchange-package-uninstall": "Odmesti",
 	"pageexchange-packageinstalled": "Ta paket je nameščen.",
 	"pageexchange-packageuninstalled": "Ta paket je odnameščen.",
-	"pageexchange-packageupdated": "Ta paket je posodobljen."
+	"pageexchange-packageupdated": "Ta paket je posodobljen.",
+	"pageexchange-packageidnull": "Napaka: »packageid« ne more biti ničeln."
 }
