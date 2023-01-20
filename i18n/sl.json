@@ -12,6 +12,7 @@
 	"pageexchange-package-language": "Jezik:",
 	"pageexchange-package-uninstall": "Odmesti",
 	"pageexchange-uninstallablepackage": "Tega paketa iz naslednjih razlogov ni mogoče namestiti:",
+	"pageexchange-overwrite": "Prenos tega paketa bi prepisal nekatere strani v vašem vikiju.",
 	"pageexchange-nocontentsremote": "Na tej strani ni bila najdena nobena vsebina!",
 	"pageexchange-packageinstalled": "Ta paket je nameščen.",
 	"pageexchange-packageuninstalled": "Ta paket je odnameščen.",
