@@ -5,6 +5,7 @@
 		]
 	},
 	"pageexchange-extensionname": "Page Exchange",
+	"pageexchange-logname": "Dnevnik izmenjave strani",
 	"pageexchange-installpackage": "Namesti paket: $1",
 	"pageexchange-updatepackage": "Posodobi paket: $1",
 	"pageexchange-uninstallpackage": "Odnamesti paket: $1",
