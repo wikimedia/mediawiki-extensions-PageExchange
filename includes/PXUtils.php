@@ -12,8 +12,8 @@ class PXUtils {
 			$installedExtensions[] = $extensionName;
 		}
 
-		// For MW 1.35+, this only gets extensions that are loaded the
-		// old way, via include_once() or require_once().
+		// This only gets extensions that are loaded the old way,
+		// via include_once() or require_once().
 		$extensionCredits = $config->get( 'ExtensionCredits' );
 		foreach ( $extensionCredits as $group => $exts ) {
 			foreach ( $exts as $ext ) {

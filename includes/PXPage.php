@@ -199,11 +199,7 @@ class PXPage {
 		$editSummaryMsg = $isUninstall ? 'pageexchange-uninstallpackage' : 'pageexchange-updatepackage';
 		$editSummary = wfMessage( $editSummaryMsg )->rawParams( $packageName )->inContentLanguage()->parse();
 		$error = '';
-		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
-			$wikiPage->doDeleteArticle( $editSummary, false, null, null, $error, $user );
-		} else {
-			$wikiPage->doDeleteArticleReal( $editSummary, $user, false, null, $error );
-		}
+		$wikiPage->doDeleteArticleReal( $editSummary, $user, false, null, $error );
 		if ( $error != '' ) {
 			throw new MWException( $error );
 		}

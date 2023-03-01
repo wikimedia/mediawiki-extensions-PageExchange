@@ -42,17 +42,14 @@ class PXCreatePageJob extends Job {
 			return false;
 		}
 
+		// @todo - is all this necessary, or is passing in $pageText to
+		// File::recordUpload3() below enough?
 		$pageText = PXUtils::getWebPageContents( $this->params['page_url'] );
 		$newContent = ContentHandler::makeContent( $pageText, $this->title );
 		$userID = $this->params['user_id'];
-		if ( class_exists( 'MediaWiki\User\UserFactory' ) ) {
-			// MW 1.35+
-			$user = MediaWikiServices::getInstance()
-				->getUserFactory()
-				->newFromId( (int)$userID );
-		} else {
-			$user = User::newFromId( (int)$userID );
-		}
+		$user = MediaWikiServices::getInstance()
+			->getUserFactory()
+			->newFromId( (int)$userID );
 		$editSummary = $this->params['edit_summary'];
 		$flags = 0;
 
@@ -75,12 +72,12 @@ class PXCreatePageJob extends Job {
 		}
 
 		$fileURL = $this->params['file_url'];
-		$this->createOrUpdateFile( $user, $editSummary, $fileURL );
+		$this->createOrUpdateFile( $user, $editSummary, $pageText, $fileURL );
 
 		return true;
 	}
 
-	public function createOrUpdateFile( $user, $editSummary, $fileURL ) {
+	public function createOrUpdateFile( $user, $editSummary, $pageText, $fileURL ) {
 		// Code copied largely from /maintenance/importImages.php.
 		$fileContents = PXUtils::getWebPageContents( $fileURL );
 		$tempFile = tmpfile();
@@ -101,25 +98,13 @@ class PXCreatePageJob extends Job {
 			$publishOptions['headers'] = [];
 		}
 		$archive = $file->publish( $tempFilePath, $flags, $publishOptions );
-		if ( is_callable( [ $file, 'recordUpload3' ] ) ) {
-			// MW 1.35+
-			$file->recordUpload3(
-				$archive->value,
-				$editSummary,
-				$editSummary, // What does this get used for?
-				$user,
-				$props
-			);
-		} else {
-			$file->recordUpload2(
-				$archive->value,
-				$editSummary,
-				$editSummary, // What does this get used for?
-				$props,
-				$timestamp = false,
-				$user
-			);
-		}
+		$file->recordUpload3(
+			$archive->value,
+			$editSummary,
+			$pageText,
+			$user,
+			$props
+		);
 	}
 
 }
