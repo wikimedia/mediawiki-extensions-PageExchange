@@ -6,6 +6,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\AtEase\AtEase;
 
 /**
@@ -42,10 +43,22 @@ class PXCreatePageJob extends Job {
 			return false;
 		}
 
-		// @todo - is all this necessary, or is passing in $pageText to
-		// File::recordUpload3() below enough?
-		$pageText = PXUtils::getWebPageContents( $this->params['page_url'] );
-		$newContent = ContentHandler::makeContent( $pageText, $this->title );
+		$newPageText = PXUtils::getWebPageContents( $this->params['page_url'] );
+		if ( array_key_exists( 'file_url', $this->params ) ) {
+			$fileURL = $this->params['file_url'];
+			$this->createOrUpdateFile( $user, $editSummary, $newPageText, $fileURL );
+		}
+
+		// If the new text is the same as the current text, we can exit now.
+		// (We call the file stuff no matter what, because the file may be different.)
+		$currentPageText = $wikiPage->getContent( RevisionRecord::RAW )->getText();
+		if ( trim( $newPageText ) == trim( $currentPageText ) ) {
+			return false;
+		}
+
+		// @todo - is all this necessary for pages where createOrUpdateFile()
+		// was already called?
+		$newContent = ContentHandler::makeContent( $newPageText, $this->title );
 		$userID = $this->params['user_id'];
 		$user = MediaWikiServices::getInstance()
 			->getUserFactory()
@@ -67,17 +80,10 @@ class PXCreatePageJob extends Job {
 			CargoDeclare::$settings['userID'] = $userID;
 		}
 
-		if ( !array_key_exists( 'file_url', $this->params ) ) {
-			return true;
-		}
-
-		$fileURL = $this->params['file_url'];
-		$this->createOrUpdateFile( $user, $editSummary, $pageText, $fileURL );
-
 		return true;
 	}
 
-	public function createOrUpdateFile( $user, $editSummary, $pageText, $fileURL ) {
+	public function createOrUpdateFile( $user, $editSummary, $newPageText, $fileURL ) {
 		// Code copied largely from /maintenance/importImages.php.
 		$fileContents = PXUtils::getWebPageContents( $fileURL );
 		$tempFile = tmpfile();
@@ -101,7 +107,7 @@ class PXCreatePageJob extends Job {
 		$file->recordUpload3(
 			$archive->value,
 			$editSummary,
-			$pageText,
+			$newPageText,
 			$user,
 			$props
 		);
