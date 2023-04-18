@@ -51,9 +51,12 @@ class PXCreatePageJob extends Job {
 
 		// If the new text is the same as the current text, we can exit now.
 		// (We call the file stuff no matter what, because the file may be different.)
-		$currentPageText = $wikiPage->getContent( RevisionRecord::RAW )->getText();
-		if ( trim( $newPageText ) == trim( $currentPageText ) ) {
-			return false;
+		$currentPageContent = $wikiPage->getContent( RevisionRecord::RAW );
+		if ( $currentPageContent !== null ) {
+			$currentPageText = $currentPageContent->getText();
+			if ( trim( $newPageText ) == trim( $currentPageText ) ) {
+				return false;
+			}
 		}
 
 		// @todo - is all this necessary for pages where createOrUpdateFile()
