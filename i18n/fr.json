@@ -24,7 +24,7 @@
 	"pageexchange-updatepackagelog": "a mis à jour le paquet $2, par $3",
 	"pageexchange-uninstallpackagelog": "a désinstallé le paquet $2, par $3",
 	"pageexchange-package-website": "Site web :",
-	"pageexchange-package-publisher": "Éditeur :",
+	"pageexchange-package-publisher": "Éditeur de publication :",
 	"pageexchange-package-author": "Auteur :",
 	"pageexchange-package-version": "Version :",
 	"pageexchange-package-pages": "Pages :",
