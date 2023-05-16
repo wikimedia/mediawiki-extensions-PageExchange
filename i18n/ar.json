@@ -1,12 +1,46 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alshamiri1",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"packages": "الحزم",
+	"pageexchange-installed": "المثبتة",
+	"pageexchange-available": "متاح",
+	"pageexchange-installpackage": "تثبيت الحزمة: $1",
+	"pageexchange-updatepackage": "حزمة التحديث: $1",
+	"pageexchange-uninstallpackage": "حزمة الإزالة: $1",
+	"pageexchange-installpackagelog": "تثبيت الحزمة $2 ، $3",
+	"pageexchange-updatepackagelog": "تحديث الحزمة $2 ، بمقدار $3",
+	"pageexchange-uninstallpackagelog": "ألغيت تثبيت الحزمة $2 ، بمقدار $3",
 	"pageexchange-package-website": "موقع الويب:",
+	"pageexchange-package-publisher": "النّاشر:",
+	"pageexchange-package-author": "مؤلف:",
 	"pageexchange-package-version": "الإصدار:",
+	"pageexchange-package-pages": "الصفحات:",
 	"pageexchange-package-language": "اللغة:",
-	"pageexchange-package-license": "الترخيص:"
+	"pageexchange-package-license": "الترخيص:",
+	"pageexchange-package-requiredextensions": "الامتدادات المطلوبة:",
+	"pageexchange-package-requiredpackages": "الحزم المطلوبة:",
+	"pageexchange-package-morerecent": "يوجد إصدار أحدث من هذه الحزمة من الإصدار المثبت حاليًا على هذا الويكي.",
+	"pageexchange-package-install": "تنصيب",
+	"pageexchange-package-update": "تحديث",
+	"pageexchange-package-uninstall": "إلغاء التثبيت",
+	"pageexchange-package-deleteallpages": "احذف جميع صفحات wiki المرتبطة",
+	"pageexchange-pagehaschanged": "يختلف أحدث إصدار من هذه الصفحة عن النسخة المحلية.",
+	"pageexchange-latestvalue": "(أحدث قيمة: $1 )",
+	"pageexchange-uninstallablepackage": "لا يمكن تثبيت هذه الحزمة للأسباب التالية:",
+	"pageexchange-inappropriatepackage": "قد لا تكون هذه الحزمة مناسبة لموقع wiki الخاص بك ؛ انظر أدناه.",
+	"pageexchange-nolocalpackage": "خطأ: لم يتم تثبيت حزمة باسم \" $1 \".",
+	"pageexchange-noremotepackage": "خطأ: لم يتم العثور على حزمة باسم \" $1 \".",
+	"pageexchange-overwrite": "سيؤدي تنزيل هذه الحزمة إلى الكتابة فوق بعض الصفحات في الويكي الخاص بك.",
+	"pageexchange-nocontentslocal": "لا توجد محتويات موجودة في النسخة الخارجية من هذه الصفحة!",
+	"pageexchange-nocontentsremote": "لا توجد محتويات في هذه الصفحة!",
+	"pageexchange-packageinstalled": "تم تثبيت هذه الحزمة.",
+	"pageexchange-packageuninstalled": "تم إلغاء تثبيت هذه الحزمة.",
+	"pageexchange-packageupdated": "تم تحديث هذه الحزمة.",
+	"pageexchange-packageidnull": "خطأ: لا يمكن أن يكون معرف الحزمة فارغًا",
+	"pageexchange-packagenotexists": "خطأ: لا توجد حزمة بالمعرف \" $1 \".",
+	"pageexchange-packagealreadyinstalled": "الحزمة التي تحمل المعرف \" $1 \" مثبتة بالفعل"
 }
