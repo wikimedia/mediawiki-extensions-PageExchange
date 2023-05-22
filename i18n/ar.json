@@ -1,11 +1,37 @@
 {
 	"@metadata": {
 		"authors": [
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Alshamiri1"
 		]
 	},
 	"packages": "الحزم",
+	"pageexchange-installed": "المثبتة",
+	"pageexchange-available": "متاح",
+	"pageexchange-installpackage": "تثبيت الحزمة: $1",
+	"pageexchange-updatepackage": "حزمة التحديث: $1",
+	"pageexchange-uninstallpackage": "حزمة الإزالة: $1",
+	"pageexchange-installpackagelog": "تثبيت الحزمة $2 ، $3",
+	"pageexchange-updatepackagelog": "تحديث الحزمة $2 ، بمقدار $3",
+	"pageexchange-uninstallpackagelog": "ألغيت تثبيت الحزمة $2 ، بمقدار $3",
 	"pageexchange-package-website": "موقع الويب:",
+	"pageexchange-package-publisher": "النّاشر:",
+	"pageexchange-package-author": "مؤلف:",
 	"pageexchange-package-version": "الإصدار:",
-	"pageexchange-package-language": "اللغة:"
+	"pageexchange-package-pages": "الصفحات:",
+	"pageexchange-package-language": "اللغة:",
+	"pageexchange-package-requiredextensions": "الامتدادات المطلوبة:",
+	"pageexchange-package-requiredpackages": "الحزم المطلوبة:",
+	"pageexchange-package-morerecent": "يوجد إصدار أحدث من هذه الحزمة من الإصدار المثبت حاليًا على هذا الويكي.",
+	"pageexchange-package-install": "تنصيب",
+	"pageexchange-package-update": "تحديث",
+	"pageexchange-package-uninstall": "إلغاء التثبيت",
+	"pageexchange-package-deleteallpages": "احذف جميع صفحات wiki المرتبطة",
+	"pageexchange-pagehaschanged": "يختلف أحدث إصدار من هذه الصفحة عن النسخة المحلية.",
+	"pageexchange-latestvalue": "(أحدث قيمة: $1 )",
+	"pageexchange-uninstallablepackage": "لا يمكن تثبيت هذه الحزمة للأسباب التالية:",
+	"pageexchange-inappropriatepackage": "قد لا تكون هذه الحزمة مناسبة لموقع wiki الخاص بك ؛ انظر أدناه.",
+	"pageexchange-packageinstalled": "تم تثبيت هذه الحزمة.",
+	"pageexchange-packageuninstalled": "تم إلغاء تثبيت هذه الحزمة.",
+	"pageexchange-packageupdated": "تم تحديث هذه الحزمة."
 }
