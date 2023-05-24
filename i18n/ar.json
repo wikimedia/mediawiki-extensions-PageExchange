@@ -6,6 +6,12 @@
 		]
 	},
 	"packages": "الحزم",
+	"apihelp-pxuninstallpackage-param-packageid": "المعرف العالمي للحزمة",
+	"apihelp-pxuninstallpackage-param-deletepages": "ما إذا كان سيتم حذف صفحات wiki المرتبطة بهذه الحزمة أم لا.",
+	"right-pageexchange": "قم بتشغيل إجراءات تبادل الصفحة",
+	"action-pageexchange": "تشغيل إجراءات تبادل الصفحة",
+	"pageexchange-logname": "سجل تبادل الصفحة",
+	"pageexchange-logdesc": "هذا هو سجل الإجراءات المتعلقة بملحق Page Exchange.",
 	"pageexchange-installed": "المثبتة",
 	"pageexchange-available": "متاح",
 	"pageexchange-installpackage": "تثبيت الحزمة: $1",
