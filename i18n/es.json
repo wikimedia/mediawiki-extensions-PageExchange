@@ -3,10 +3,13 @@
 		"authors": [
 			"DiegoAmbrocio",
 			"Fitoschido",
-			"Francodiaz7"
+			"Francodiaz7",
+			"No se"
 		]
 	},
 	"packages": "Paquetes",
+	"pageexchange-logname": "Registro de intercambio de páginas",
+	"pageexchange-logdesc": "Este es el registro de acciones relacionadas con la extensión Page Exchange.",
 	"pageexchange-installed": "Instalado",
 	"pageexchange-available": "Disponible",
 	"pageexchange-installpackage": "Instalar paquete: $1",

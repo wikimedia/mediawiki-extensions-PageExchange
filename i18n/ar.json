@@ -6,6 +6,10 @@
 		]
 	},
 	"packages": "الحزم",
+	"right-pageexchange": "قم بتشغيل إجراءات تبادل الصفحة",
+	"action-pageexchange": "تشغيل إجراءات تبادل الصفحة",
+	"pageexchange-logname": "سجل تبادل الصفحة",
+	"pageexchange-logdesc": "هذا هو سجل الإجراءات المتعلقة بملحق Page Exchange.",
 	"pageexchange-installed": "المثبتة",
 	"pageexchange-available": "متاح",
 	"pageexchange-installpackage": "تثبيت الحزمة: $1",
