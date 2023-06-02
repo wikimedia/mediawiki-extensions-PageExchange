@@ -152,7 +152,7 @@ class PXPage {
 		}
 		$content = $wikiPage->getContent();
 		if ( $content !== null ) {
-			return $content->getNativeData();
+			return $content->getText();
 		} else {
 			return null;
 		}
