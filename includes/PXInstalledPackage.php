@@ -287,6 +287,9 @@ END;
 		$dbw = wfGetDB( DB_MASTER );
 
 		$remotePackage = $this->mAssociatedRemotePackage;
+		if ( $remotePackage == null ) {
+			return;
+		}
 		$updateValues = [
 			'pxp_name' => $remotePackage->mName,
 			'pxp_package_data' => json_encode( $remotePackage->getPackageData() )
