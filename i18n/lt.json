@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"pageexchange-desc": "Leidžia įdiegti iš anksto nustatytų viki puslapių „paketus“",
+	"packages": "Paketai",
+	"right-pageexchange": "Vykdyti „Page Exchange“ veiksmus",
+	"action-pageexchange": "vykdyti „Page Exchange“ veiksmus",
+	"pageexchange-logname": "Puslapių mainų žurnalas",
+	"pageexchange-logdesc": "Tai veiksmų, susijusių su „Page Exchange“ plėtiniu, žurnalas.",
+	"pageexchange-installed": "Įdiegta",
+	"pageexchange-available": "Prieinama",
+	"pageexchange-installpackage": "Įdiegtas paketas: $1",
+	"pageexchange-updatepackage": "Atnaujintas paketas: $1",
+	"pageexchange-uninstallpackage": "Išinstaluotas paketas: $1",
+	"pageexchange-installpackagelog": "įdiegtas paketas $2, sukurtas $3",
+	"pageexchange-updatepackagelog": "atnaujintas paketas $2, sukurtas $3",
+	"pageexchange-uninstallpackagelog": "išinstaliuotas paketas $2, sukurtas $3",
+	"pageexchange-package-website": "Tinklalapis:",
+	"pageexchange-package-publisher": "Leidėjai:",
+	"pageexchange-package-author": "Autorius:",
+	"pageexchange-package-version": "Versija:",
+	"pageexchange-package-pages": "Puslapiai:",
+	"pageexchange-package-language": "Kalba:",
+	"pageexchange-package-requiredextensions": "Reikalingi plėtiniai:",
+	"pageexchange-package-requiredpackages": "Reikalingi paketai:",
+	"pageexchange-package-morerecent": "Yra naujesnė šio paketo versija nei šiuo metu įdiegta šiame viki.",
+	"pageexchange-package-install": "Įdiegti",
+	"pageexchange-package-update": "Atnaujinti",
+	"pageexchange-package-uninstall": "Išinstaluoti",
+	"pageexchange-package-deleteallpages": "Ištrinti visus susijusius viki puslapius",
+	"pageexchange-pagehaschanged": "naujausia šio puslapio versija skiriasi nuo vietinės kopijos.",
+	"pageexchange-latestvalue": "(naujausia vertė: $1)",
+	"pageexchange-uninstallablepackage": "Šis paketas negali būti įdiegtas dėl šių priežasčių:",
+	"pageexchange-inappropriatepackage": "Šis paketas gali netikti jūsų viki; žr. žemiau.",
+	"pageexchange-packageinstalled": "Šis paketas įdiegtas.",
+	"pageexchange-packageuninstalled": "Šis paketas išinstaliuotas.",
+	"pageexchange-packageupdated": "Šis paketas atnaujintas."
+}
