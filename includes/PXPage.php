@@ -163,7 +163,6 @@ class PXPage {
 		$editSummaryMsg = $isInstall ? 'pageexchange-installpackage' : 'pageexchange-updatepackage';
 		$editSummary = wfMessage( $editSummaryMsg )->rawParams( $packageName )->inContentLanguage()->parse();
 
-		$jobs = [];
 		$params = [
 			'page_url' => $this->mURL,
 			'user_id' => $user->getID(),
@@ -172,8 +171,8 @@ class PXPage {
 		if ( $this->mNamespace == NS_FILE ) {
 			$params['file_url'] = $this->mFileURL;
 		}
-		$jobs[] = new PXCreatePageJob( $this->mLocalTitle, $params );
-		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
+		$job = new PXCreatePageJob( $this->mLocalTitle, $params );
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );
 	}
 
 	/**
