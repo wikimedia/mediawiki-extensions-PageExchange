@@ -144,12 +144,7 @@ class PXPage {
 			return null;
 		}
 
-		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-			// MW 1.36+
-			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->mLocalTitle );
-		} else {
-			$wikiPage = new WikiPage( $this->mLocalTitle );
-		}
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->mLocalTitle );
 		$content = $wikiPage->getContent();
 		if ( $content !== null ) {
 			return $content->getText();
@@ -178,24 +173,15 @@ class PXPage {
 			$params['file_url'] = $this->mFileURL;
 		}
 		$jobs[] = new PXCreatePageJob( $this->mLocalTitle, $params );
-		if ( method_exists( MediaWikiServices::class, 'getJobQueueGroup' ) ) {
-			// MW 1.37+
-			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
-		} else {
-			JobQueueGroup::singleton()->push( $jobs );
-		}
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
 	}
 
 	/**
 	 * Delete a wiki page, and its associated file, if there is one.
 	 */
 	public function deleteWikiPage( $user, $packageName, $isUninstall ) {
-		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-			// MW 1.36+
-			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->mLocalTitle );
-		} else {
-			$wikiPage = new WikiPage( $this->mLocalTitle );
-		}
+		$mwServices = MediaWikiServices::getInstance();
+		$wikiPage = $mwServices->getWikiPageFactory()->newFromTitle( $this->mLocalTitle );
 		$editSummaryMsg = $isUninstall ? 'pageexchange-uninstallpackage' : 'pageexchange-updatepackage';
 		$editSummary = wfMessage( $editSummaryMsg )->rawParams( $packageName )->inContentLanguage()->parse();
 		$error = '';
@@ -204,7 +190,6 @@ class PXPage {
 			throw new MWException( $error );
 		}
 		if ( $this->mNamespace == NS_FILE ) {
-			$mwServices = MediaWikiServices::getInstance();
 			$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->mLocalTitle );
 			$file->delete( $editSummary );
 		}
