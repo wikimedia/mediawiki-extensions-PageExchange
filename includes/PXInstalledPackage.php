@@ -284,7 +284,7 @@ END;
 	}
 
 	public function update( $user ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = PXUtils::getWriteDB();
 
 		$remotePackage = $this->mAssociatedRemotePackage;
 		if ( $remotePackage == null ) {
@@ -317,7 +317,7 @@ END;
 	}
 
 	public function uninstall( $user, $deleteAll ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = PXUtils::getWriteDB();
 
 		if ( $deleteAll ) {
 			foreach ( $this->mPages as $page ) {

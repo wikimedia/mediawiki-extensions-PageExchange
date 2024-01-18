@@ -16,7 +16,7 @@ class PXHooks {
 	public static function loadJSPages( $skin, &$pages ) {
 		$jsPages = [];
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = PXUtils::getReadDB();
 		$res = $dbr->select( 'px_packages', 'pxp_js_pages', 'pxp_js_pages IS NOT NULL', __METHOD__ );
 		while ( $row = $res->fetchRow() ) {
 			$curJSPages = explode( ',', $row[0] );
@@ -37,7 +37,7 @@ class PXHooks {
 	public static function loadCSSPages( $skin, &$pages ) {
 		$cssPages = [];
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = PXUtils::getReadDB();
 		$res = $dbr->select( 'px_packages', 'pxp_css_pages', 'pxp_css_pages IS NOT NULL', __METHOD__ );
 		while ( $row = $res->fetchRow() ) {
 			$curCSSPages = explode( ',', $row[0] );

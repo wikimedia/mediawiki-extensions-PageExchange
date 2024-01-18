@@ -163,7 +163,7 @@ class SpecialPackages extends SpecialPage {
 
 		$fileURL = $packageFiles[$fileNum - 1];
 
-		$dbr = wfGetDb( DB_REPLICA );
+		$dbr = PXUtils::getReadDB();
 		$res = $dbr->select(
 			'px_packages',
 			'pxp_global_id'
