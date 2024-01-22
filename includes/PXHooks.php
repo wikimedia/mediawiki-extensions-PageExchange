@@ -21,6 +21,10 @@ class PXHooks {
 		while ( $row = $res->fetchRow() ) {
 			$curJSPages = explode( ',', $row[0] );
 			foreach ( $curJSPages as $curJSPage ) {
+				// Ignore "Group-" pages - these have their own loading mechanism.
+				if ( ucfirst( substr( $curJSPage, 0, 6 ) ) === 'Group-' ) {
+					continue;
+				}
 				$jsPages[] = $curJSPage;
 			}
 		}
@@ -42,6 +46,10 @@ class PXHooks {
 		while ( $row = $res->fetchRow() ) {
 			$curCSSPages = explode( ',', $row[0] );
 			foreach ( $curCSSPages as $curCSSPage ) {
+				// Ignore "Group-" pages - these have their own loading mechanism.
+				if ( ucfirst( substr( $curCSSPage, 0, 6 ) ) === 'Group-' ) {
+					continue;
+				}
 				$cssPages[] = $curCSSPage;
 			}
 		}
