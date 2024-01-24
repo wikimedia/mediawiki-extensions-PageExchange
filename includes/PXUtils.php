@@ -93,7 +93,7 @@ class PXUtils {
 			// MW 1.40+
 			return $lbFactory->getReplicaDatabase();
 		} else {
-			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_REPLICA );
+			return $lbFactory->getMainLB()->getConnection( DB_REPLICA );
 		}
 	}
 
@@ -108,7 +108,7 @@ class PXUtils {
 			// MW 1.40+
 			return $lbFactory->getPrimaryDatabase();
 		} else {
-			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_PRIMARY );
+			return $lbFactory->getMainLB()->getConnection( DB_PRIMARY );
 		}
 	}
 }
