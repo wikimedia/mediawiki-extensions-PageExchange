@@ -193,7 +193,13 @@ END;
 		if ( $this->mURL == null ) {
 			return '';
 		}
-		$linkText = $showURL ? $this->mURL : 'Link';
+		// Validate the URL using FILTER_VALIDATE_URL.
+		if ( !filter_var( $this->mURL, FILTER_VALIDATE_URL ) ) {
+			// If the URL is not a valid URL, display it as a text string
+			return $this->displayAttribute( 'pageexchange-package-website', $this->mURL );
+		}
+		// Determine the link text based on whether to show the full URL or just the host.
+		$linkText = $showURL ? $this->mURL : parse_url( $this->mURL )[ 'host' ];
 		$link = Html::element( 'a', [ 'href' => $this->mURL ], $linkText );
 		return $this->displayAttribute( 'pageexchange-package-website', $link );
 	}
