@@ -47,8 +47,6 @@
 	"pageexchange-inappropriatepackage": "이 패키지는 당신의 위키에 적절하지 않을 수 있습니다. 아래를 참고하십시오.",
 	"pageexchange-nolocalpackage": "오류: \"$1\" 이름으로 설치된 패키지가 없습니다.",
 	"pageexchange-noremotepackage": "오류: \"$1\" 패키지를 찾지 못했습니다.",
-	"pageexchange-overwrite": "이 패키지를 받으면 몇몇 위키의 페이지를 받아쓰게 될 거야.",
-	"pageexchange-nocontentslocal": "이페 페이지의 외부 버전에 아무 내용도 찾지 못함!",
 	"pageexchange-nocontentsremote": "이 페이지에 내용이 없습니다!",
 	"pageexchange-packageinstalled": "이 패키지를 설치했습니다.",
 	"pageexchange-packageuninstalled": "이 패키지를 제거하였습니다.",
