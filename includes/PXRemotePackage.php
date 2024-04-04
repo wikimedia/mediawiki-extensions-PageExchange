@@ -124,7 +124,7 @@ END;
 				// Possibly installed already
 				return '#fc3';
 			} elseif ( $this->mPagesStatus == 'partial' ) {
-				return '#d33';
+				return '#d73333';
 			} else {
 				return '#c8ccd1';
 			}
