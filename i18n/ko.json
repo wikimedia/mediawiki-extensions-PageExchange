@@ -3,7 +3,8 @@
 		"authors": [
 			"Codenstory",
 			"Dr1t jg",
-			"Ykhwong"
+			"Ykhwong",
+			"Suleiman the Magnificent Television"
 		]
 	},
 	"pageexchange-desc": "미리 정의된 위키 문서의 \"패키지\" 설치 허용",
@@ -47,6 +48,8 @@
 	"pageexchange-inappropriatepackage": "이 패키지는 당신의 위키에 적절하지 않을 수 있습니다. 아래를 참고하십시오.",
 	"pageexchange-nolocalpackage": "오류: \"$1\" 이름으로 설치된 패키지가 없습니다.",
 	"pageexchange-noremotepackage": "오류: \"$1\" 패키지를 찾지 못했습니다.",
+	"pageexchange-overwrite": "이 패키지를 다운로드하면 위키의 일부 페이지를 덮어쓰게 됩니다.",
+	"pageexchange-nocontentslocal": "이 페이지의 외부 버전에서는 내용이 발견되지 않았습니다!",
 	"pageexchange-nocontentsremote": "이 페이지에 내용이 없습니다!",
 	"pageexchange-packageinstalled": "이 패키지를 설치했습니다.",
 	"pageexchange-packageuninstalled": "이 패키지를 제거하였습니다.",
