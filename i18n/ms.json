@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
+			"Hakimi97",
 			"Tofeiku"
 		]
 	},
+	"pageexchange-package-author": "Pengarang:",
 	"pageexchange-package-language": "Bahasa:",
 	"pageexchange-noremotepackage": "Ralat: Tiada pakej dijumpai yang bernama \"$1\".",
 	"pageexchange-nocontentslocal": "Tiada kandungan dijumpai di versi luaran laman ini!",
