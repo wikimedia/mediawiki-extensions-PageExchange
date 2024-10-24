@@ -240,7 +240,6 @@ END;
 
 	private function addBreadcrumb() {
 		$linkRenderer = $this->getLinkRenderer();
-		$packagesPage = $this;
 		$mainPageLink =
 			$linkRenderer->makeLink( $this->getPageTitle(),
 				htmlspecialchars( $this->getDescription() ) );
