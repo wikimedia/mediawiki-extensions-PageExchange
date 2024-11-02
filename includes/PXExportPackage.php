@@ -16,15 +16,15 @@ class PXExportPackage extends PXPackage {
 	protected ?string $mGithubRepo = null;
 
 	function __construct(
-		string $packageName = null,
+		?string $packageName = null,
 		string $packageDesc = '',
-		string $githubRepo = null,
-		string $url = null,
-		string $version = null,
-		string $author = null,
-		string $publisher = null,
-		array $dependencies = null,
-		array $extensions = null
+		?string $githubRepo = null,
+		?string $url = null,
+		?string $version = null,
+		?string $author = null,
+		?string $publisher = null,
+		?array $dependencies = null,
+		?array $extensions = null
 	) {
 		global $wgLanguageCode;
 
