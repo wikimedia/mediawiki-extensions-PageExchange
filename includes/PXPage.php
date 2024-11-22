@@ -25,25 +25,14 @@ class PXPage {
 	public static function newFromData( $packagePageData, $baseURL ) {
 		$page = new PXPage();
 		$page->mName = $packagePageData->name;
-		$namespaceInfo = MediaWikiServices::getNamespaceInfo();
 		if ( property_exists( $packagePageData, 'namespace' ) ) {
 			$page->mNamespaceConstant = $packagePageData->namespace;
 		} else {
 			// NS_MAIN is the default.
 			$page->mNamespaceConstant = 'NS_MAIN';
 		}
-		// Try to accept PHP-define, integer key, or namespace name
 		if ( defined( $page->mNamespaceConstant ) ) {
 			$page->mNamespace = constant( $page->mNamespaceConstant );
-		// phpcs:ignore Generic.CodeAnalysis.AssignmentInCondition.Found
-		} elseif ( $nsIndex = $namespaceInfo->getCanonicalIndex( $page->mNamespaceConstant ) ) {
-			$page->mNamespace = $nsIndex;
-		} elseif ( $namespace === (string)(int)$namespace
-				&& $namespaceInfo->getCanonicalName( $page->mNamespaceConstant ) ) {
-			$page->mNamespace = (int)$namespace;
-		}
-
-		if ( $page->mNamespace ) {
 			$page->mLocalTitle = Title::makeTitleSafe( $page->mNamespace, $page->mName );
 			if ( $page->mLocalTitle == null ) {
 				return null;
