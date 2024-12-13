@@ -20,9 +20,9 @@ class PXExportPackage extends PXPackage {
 		string $packageDesc = '',
 		?string $githubRepo = null,
 		?string $url = null,
-		?string $version = null,
-		?string $author = null,
-		?string $publisher = null,
+		?string $version = '',
+		?string $author = '',
+		?string $publisher = '',
 		?array $dependencies = null,
 		?array $extensions = null
 	) {
@@ -157,15 +157,15 @@ class PXExportPackage extends PXPackage {
 		}
 
 		$json = [
-			'publisher' => $this->mPublisher ?? 'PagePort',
-			'author' => $this->mAuthor ?? 'PagePort',
+			'publisher' => $this->mPublisher,
+			'author' => $this->mAuthor,
 			'language' => $this->mLanguage,
 			"url" => $this->mURL,
 			"packages" => [
 				$this->mName => [
 					"globalID" => str_replace( ' ', '.', $this->mName ),
 					"description" => $this->mDescription,
-					"version" => $this->mVersion ?? '0.1',
+					"version" => $this->mVersion,
 					"pages" => [],
 					"requiredExtensions" => $this->mRequiredExtensions ?? [],
 					"requiredPackages" => $this->mRequiredPackages ?? [],
