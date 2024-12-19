@@ -115,8 +115,8 @@ class SpecialPackages extends SpecialPage {
 				$packages = $packageFile->getAllPackages( $this->getUser() );
 			} catch ( MWException $e ) {
 				$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ],
-					"Error in file {$packageFile->getURL()}: " . $e->getMessage() )
-				);
+					wfMessage( 'pageexchange-jsonfileerror', $packageFile->getURL(), $e->getMessage() )->text()
+				) );
 				continue;
 			}
 			foreach ( $packages as $remotePackage ) {
@@ -179,6 +179,7 @@ class SpecialPackages extends SpecialPage {
 	}
 
 	private function displayAll() {
+		$clearBothTag = '<br style="clear: both;" />';
 		$text = '';
 		$installedPackagesText = '';
 		foreach ( $this->mInstalledPackages as $package ) {
@@ -186,12 +187,8 @@ class SpecialPackages extends SpecialPage {
 		}
 
 		if ( $installedPackagesText != '' ) {
-			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-installed' )->parse() ) . "\n";
-			$text .= <<<END
-$installedPackagesText
-<br style="clear: both;" />
-
-END;
+			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-installed' )->text() ) . "\n";
+			$text .= $installedPackagesText . "\n" . $clearBothTag . "\n";
 		}
 
 		$matchingPackagesText = '';
@@ -199,13 +196,9 @@ END;
 			$matchingPackagesText .= $package->displayCard();
 		}
 		if ( $matchingPackagesText != '' ) {
-			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-available' )->parse() ) . "\n";
-			$text .= <<<END
-<p>Page names in <em>italics</em> already exist on this wiki.</p>
-$matchingPackagesText
-<br style="clear: both;" />
-
-END;
+			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-available' )->text() ) . "\n";
+			$text .= Html::rawElement( 'p', null, wfMessage( 'pageexchange-alreadyexist' )->parse() ) . "\n";
+			$text .= $matchingPackagesText . "\n" . $clearBothTag . "\n";
 		}
 
 		$nonMatchingPackagesText = '';
@@ -213,13 +206,9 @@ END;
 			$nonMatchingPackagesText .= $package->displayCard();
 		}
 		if ( $nonMatchingPackagesText != '' ) {
-			$text .= <<<END
-<h2>Non-matching</h2>
-<p>Page names in <em>italics</em> already exist on this wiki.</p>
-$nonMatchingPackagesText
-<br style="clear: both;" />
-
-END;
+			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-nonmatching' )->text() ) . "\n";
+			$text .= Html::rawElement( 'p', null, wfMessage( 'pageexchange-alreadyexist' )->parse() ) . "\n";
+			$text .= $nonMatchingPackagesText . "\n" . $clearBothTag . "\n";
 		}
 
 		$unusablePackagesText = '';
@@ -227,12 +216,8 @@ END;
 			$unusablePackagesText .= $package->displayCard();
 		}
 		if ( $unusablePackagesText !== '' ) {
-			$text .= <<<END
-<h2>Unusable</h2>
-$unusablePackagesText
-<br style="clear: both;" />
-
-END;
+			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-unusable' )->text() ) . "\n";
+			$text .= $unusablePackagesText . "\n" . $clearBothTag . "\n";
 		}
 
 		return $text;

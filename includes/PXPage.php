@@ -68,7 +68,7 @@ class PXPage {
 		}
 		if ( $page->mNamespace == NS_FILE ) {
 			$page->mLink = Html::element( 'a', [ 'href' => $page->mFileURL ], $pageFullName ) . ' (' .
-				Html::element( 'a', [ 'href' => $page->mURL ], 'text contents' ) . ')';
+				Html::element( 'a', [ 'href' => $page->mURL ], wfMessage( 'pageexchange-textcontents' )->text() ) . ')';
 		} else {
 			$page->mLink = Html::element( 'a', [ 'href' => $page->mURL ], $pageFullName );
 		}

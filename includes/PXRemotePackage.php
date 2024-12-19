@@ -293,12 +293,12 @@ END;
 			} else {
 				$localContents = $page->getLocalContents();
 				if ( $localContents == $remoteContents ) {
-					$pagesString .= ' - there is a local copy of this page that matches the external version.';
+					$pagesString .= ' - ' . wfMessage( 'pageexchange-localcopymatches' )->escaped();
 				} else {
-					$pagesString .= ' - there is a local copy of this page that differs from the external version.';
+					$pagesString .= ' - ' . wfMessage( 'pageexchange-localcopydiffers' )->escaped();
 				}
 				if ( $page->getNamespace() == NS_FILE ) {
-					$pagesString .= ' (It is unknown whether the local copy of the file itself matches the external version.)';
+					$pagesString .= ' ' . wfMessage( 'pageexchange-localfileunknown' )->escaped();
 				}
 			}
 		}

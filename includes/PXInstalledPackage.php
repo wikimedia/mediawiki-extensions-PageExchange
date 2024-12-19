@@ -138,6 +138,9 @@ class PXInstalledPackage extends PXPackage {
 		$packageHTML .= $this->displayInstalledAttribute( 'pageexchange-package-publisher', 'mPublisher' );
 		$packageHTML .= $this->displayInstalledAttribute( 'pageexchange-package-version', 'mVersion' );
 
+		$externalTextString = wfMessage( 'pageexchange-package-externaltext' )->escaped();
+		$externalFileString = wfMessage( 'pageexchange-package-externalfile' )->escaped();
+
 		$pagesString = "<ul>\n";
 		foreach ( $this->mPages as $page ) {
 			$pagesString .= "<li>" . $page->getLocalLink();
@@ -152,17 +155,17 @@ class PXInstalledPackage extends PXPackage {
 				$pagesString .= ' - <span class="error">This page no longer exists in the latest version of this package.</span>';
 				$remoteDiffersFromInstalled = true;
 			} elseif ( $remoteContents == null ) {
-				$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
+				$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], $externalTextString ) . ')';
 				$pagesString .= ' - <span class="error">' . wfMessage( 'pageexchange-nocontentslocal' )->parse() . '</span>';
 			} elseif ( !$page->localTitleExists() ) {
 				// Seems impossible that this would happen.
 				$remoteDiffersFromInstalled = true;
 			} else {
 				if ( $page->getNamespace() == NS_FILE ) {
-					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external text' ) . ', ' .
-						Html::element( 'a', [ 'href' => $page->getFileURL() ], 'external file' ) . ')';
+					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], $externalTextString ) . ', ' .
+						Html::element( 'a', [ 'href' => $page->getFileURL() ], $externalFileString ) . ')';
 				} else {
-					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], 'external' ) . ')';
+					$pagesString .= ' (' . Html::element( 'a', [ 'href' => $page->getURL() ], $externalTextString ) . ')';
 				}
 				$localContents = $page->getLocalContents();
 				// Ignore newlines or spaces at the end of the
@@ -180,7 +183,7 @@ class PXInstalledPackage extends PXPackage {
 		}
 		foreach ( $this->mUnmatchedRemotePages as $unmatchedRemotePage ) {
 			$pagesString .= "<li>" . $unmatchedRemotePage->getLocalLink() .
-				' (' . Html::element( 'a', [ 'href' => $unmatchedRemotePage->getURL() ], 'external' ) .
+				' (' . Html::element( 'a', [ 'href' => $unmatchedRemotePage->getURL() ], $externalTextString ) .
 				') - this page does not exist locally.';
 			$remoteContents = $page->getRemoteContents();
 			if ( $remoteContents == null ) {
