@@ -40,7 +40,7 @@
 	"pageexchange-packageinstalled": "Das Package wurde installiert.",
 	"pageexchange-packageuninstalled": "Das Package wurde deinstalliert.",
 	"pageexchange-packageupdated": "Das Package wurde aktualisiert.",
-	"pageexchange-packageidnull": "Fehler: packageid kann nicht null sein",
+	"pageexchange-packageidnull": "Fehler: package ID kann nicht null sein",
 	"pageexchange-packagenotexists": "Fehler: Es existiert kein Paket mit der ID: '$1'.",
 	"pageexchange-packagealreadyinstalled": "Das Paket mit der ID: '$1' ist bereits installiert"
 }
