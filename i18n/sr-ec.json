@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"pageexchange-unusable": "Неупотребљиво",
+	"pageexchange-alreadyexist": "Имена страница у ''курзиву'' већ постоје на овом викију.",
+	"pageexchange-jsonfileerror": "Грешка у датотеци $1: $2",
+	"pageexchange-package-externalfile": "екстерна датотека",
+	"pageexchange-localcopydiffers": "Постоји локална копија ове странице која се разликује од спољашње верзије."
+}

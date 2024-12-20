@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alshamiri1",
+			"Meno25",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
@@ -46,7 +47,7 @@
 	"pageexchange-packageinstalled": "تم تثبيت هذه الحزمة.",
 	"pageexchange-packageuninstalled": "تم إلغاء تثبيت هذه الحزمة.",
 	"pageexchange-packageupdated": "تم تحديث هذه الحزمة.",
-	"pageexchange-packageidnull": "خطأ: لا يمكن أن يكون معرف الحزمة فارغًا",
+	"pageexchange-packageidnull": "خطأ: لا يمكن أن يكون معرف الحزمة فارغا",
 	"pageexchange-packagenotexists": "خطأ: لا توجد حزمة بالمعرف \" $1 \".",
 	"pageexchange-packagealreadyinstalled": "الحزمة التي تحمل المعرف \" $1 \" مثبتة بالفعل"
 }
