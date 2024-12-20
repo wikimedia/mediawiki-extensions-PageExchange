@@ -66,6 +66,32 @@ class PXCreatePageJob extends Job {
 
 		$updater = $wikiPage->newPageUpdater( $user );
 		$updater->setContent( MediaWiki\Revision\SlotRecord::MAIN, $newContent );
+
+		if ( array_key_exists( 'slots', $this->params ) ) {
+			$oldRevisionRecord = $wikiPage->getRevisionRecord();
+			$slotRoleRegistry = MediaWikiServices::getInstance()->getSlotRoleRegistry();
+
+			foreach ( $this->params['slots'] as $slotName => $slot ) {
+				// We first try to get the model ID from the slot itself, if
+				// possible, in case the slot type is used but undefined.
+				if ( $oldRevisionRecord !== null && $oldRevisionRecord->hasSlot( $slotName ) ) {
+					$modelId = $oldRevisionRecord
+						->getSlot( $slotName )
+						->getContent()
+						->getContentHandler()
+						->getModelID();
+				} else {
+					$modelId = $slotRoleRegistry
+						->getRoleHandler( $slotName )
+						->getDefaultModel( $this->title );
+				}
+
+				$slotText = PXUtils::getWebPageContents( $slot->mURL );
+				$newSlotContent = ContentHandler::makeContent( $slotText, $this->title, $modelId );
+				$updater->setContent( $slotName, $newSlotContent );
+			}
+		}
+
 		$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
 
 		// If this is a template, and Cargo is installed, tell Cargo

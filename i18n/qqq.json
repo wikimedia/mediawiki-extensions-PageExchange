@@ -38,6 +38,7 @@
 	"pageexchange-package-author": "A label in a display",
 	"pageexchange-package-version": "A label in a display\n{{identical|Version}}",
 	"pageexchange-package-pages": "A label in a display",
+	"pageexchange-package-additionalslots": "A label in a display; \"slots\" refers to MediaWiki's [https://www.mediawiki.org/wiki/Manual:Slot multi-content revisions slots]",
 	"pageexchange-package-language": "A label in a display\n{{identical|language}}",
 	"pageexchange-package-license": "A label in a display\n{{identical|version-ext-license}}",
 	"pageexchange-package-requiredextensions": "A label for the list of MediaWiki extensions required for this package to work",

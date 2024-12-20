@@ -176,6 +176,15 @@ class PXInstalledPackage extends PXPackage {
 					$pagesString .= ' - ' . wfMessage( 'pageexchange-pagehaschanged' )->parse();
 					$remoteDiffersFromInstalled = true;
 				}
+
+				if ( count( $remotePage->getSlots() ) > 0 ) {
+					$pagesString .= '<fieldset><legend>' . wfMessage( 'pageexchange-package-additionalslots' )->escaped() . '</legend><ul>';
+					foreach ( $remotePage->getSlots() as $slotName => $slot ) {
+						$pagesString .= '<li>' . $slotName;
+						$pagesString .= ' (' . Html::element( 'a', [ 'href' => $slot->mURL ], $externalTextString ) . ')';
+					}
+					$pagesString .= '</ul></fieldset>';
+				}
 			}
 			if ( $page->getNamespace() == NS_FILE && $remotePackage !== null ) {
 				$pagesString .= ' (It is unknown whether the latest version of the file matches the local copy.)';

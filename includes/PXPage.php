@@ -21,6 +21,7 @@ class PXPage {
 	private $mLocalTitleExists;
 	private $mLink;
 	private $mLocalLink;
+	private $mSlots = [];
 
 	public static function newFromData( $packagePageData, $baseURL ) {
 		$page = new PXPage();
@@ -73,6 +74,23 @@ class PXPage {
 			$page->mLink = Html::element( 'a', [ 'href' => $page->mURL ], $pageFullName );
 		}
 
+		if ( property_exists( $packagePageData, 'slots' ) ) {
+			foreach ( $packagePageData->slots as $slotName => $slot ) {
+				if ( property_exists( $slot, 'url' ) ) {
+					if ( substr( $slot->url, 0, 4 ) !== 'http' ) {
+						continue;
+					}
+					$slotContentsURL = $slot->url;
+				} elseif ( property_exists( $slot, 'urlPath' ) ) {
+					$slotContentsURL = $baseURL . $slot->urlPath;
+				} else {
+					continue;
+				}
+				$page->mSlots[$slotName] = new stdClass();
+				$page->mSlots[$slotName]->mURL = $slotContentsURL;
+			}
+		}
+
 		return $page;
 	}
 
@@ -110,6 +128,10 @@ class PXPage {
 
 	public function getFileURL() {
 		return $this->mFileURL;
+	}
+
+	public function getSlots() {
+		return $this->mSlots;
 	}
 
 	public function isGadget() {
@@ -170,6 +192,9 @@ class PXPage {
 		];
 		if ( $this->mNamespace == NS_FILE ) {
 			$params['file_url'] = $this->mFileURL;
+		}
+		if ( count( $this->mSlots ) > 0 ) {
+			$params['slots'] = $this->mSlots;
 		}
 		$job = new PXCreatePageJob( $this->mLocalTitle, $params );
 		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );

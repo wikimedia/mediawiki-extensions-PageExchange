@@ -35,6 +35,7 @@
 	"pageexchange-package-author": "Author:",
 	"pageexchange-package-version": "Version:",
 	"pageexchange-package-pages": "Pages:",
+	"pageexchange-package-additionalslots": "Additional slots",
 	"pageexchange-package-language": "Language:",
 	"pageexchange-package-license": "License:",
 	"pageexchange-package-requiredextensions": "Required extensions:",

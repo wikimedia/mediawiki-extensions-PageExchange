@@ -301,6 +301,15 @@ END;
 					$pagesString .= ' ' . wfMessage( 'pageexchange-localfileunknown' )->escaped();
 				}
 			}
+
+			if ( count( $page->getSlots() ) > 0 ) {
+				$pagesString .= '<fieldset><legend>' . wfMessage( 'pageexchange-package-additionalslots' )->escaped() . '</legend><ul>';
+				foreach ( $page->getSlots() as $slotName => $slot ) {
+					$pagesString .= '<li>';
+					$pagesString .= Html::element( 'a', [ 'href' => $slot->mURL ], $slotName );
+				}
+				$pagesString .= '</ul></fieldset>';
+			}
 		}
 		$pagesString .= "</ul>\n";
 		$packageHTML .= $this->displayAttribute( 'pageexchange-package-pages', $pagesString );
