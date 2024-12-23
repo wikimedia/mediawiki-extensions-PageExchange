@@ -36,7 +36,12 @@ class SpecialPackages extends SpecialPage {
 		if ( $packageName !== null && $fileNum !== null ) {
 			$out->setPageTitle( $this->msg( 'packages' )->parse() . ': ' . $packageName );
 			$this->addBreadcrumb();
-			$package = $this->getRemotePackage( $directoryNum, $fileNum, $packageName );
+			try {
+				$package = $this->getRemotePackage( $directoryNum, $fileNum, $packageName );
+			} catch ( MWException $e ) {
+				$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ], $e->getMessage() ) );
+				return;
+			}
 			if ( $package == null ) {
 				$out->addHTML( '<span class="error">' . $this->msg( 'pageexchange-noremotepackage', $packageName )->parse() . '</span>' );
 				return;

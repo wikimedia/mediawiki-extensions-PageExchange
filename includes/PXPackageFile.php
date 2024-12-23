@@ -37,6 +37,12 @@ class PXPackageFile {
 	}
 
 	public function getPackage( $packageName, $user ) {
+		if ( !property_exists( $this->mData, 'packages' ) ) {
+			throw new MWException( 'Error: no packages found in file' );
+		}
+		if ( !property_exists( $this->mData, 'packages' ) ) {
+			throw new MWException( "Error: no package found named $packageName" );
+		}
 		$packageData = $this->mData->packages->$packageName;
 		return PXRemotePackage::newFromData(
 			$this->mDirectoryNum,
@@ -51,6 +57,9 @@ class PXPackageFile {
 	}
 
 	public function getAllPackages( $user ) {
+		if ( !property_exists( $this->mData, 'packages' ) ) {
+			throw new MWException( 'Error: no packages found in file' );
+		}
 		$packages = [];
 		foreach ( $this->mData->packages as $name => $packageData ) {
 			$packages[] = PXRemotePackage::newFromData(
