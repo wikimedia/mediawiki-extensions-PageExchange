@@ -4,6 +4,7 @@
 			"Milicevic01"
 		]
 	},
+	"pageexchange-nonmatching": "Непоклапање",
 	"pageexchange-unusable": "Неупотребљиво",
 	"pageexchange-alreadyexist": "Имена страница у ''курзиву'' већ постоје на овом викију.",
 	"pageexchange-jsonfileerror": "Грешка у датотеци $1: $2",

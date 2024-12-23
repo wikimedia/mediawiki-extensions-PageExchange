@@ -53,7 +53,7 @@
 	"pageexchange-packageinstalled": "החבילה הזאת הותקנה.",
 	"pageexchange-packageuninstalled": "החבילה הזאת הוסרה.",
 	"pageexchange-packageupdated": "החבילה הזאת עודכנה.",
-	"pageexchange-packageidnull": "שגיאה: packageid לא יכול להיות null",
+	"pageexchange-packageidnull": "שגיאה: מזהה החבילה אינו יכול להיות null",
 	"pageexchange-packagenotexists": "שגיאה: לא קיימת חבילה עם המזהה \"$1\".",
 	"pageexchange-packagealreadyinstalled": "חבילה עם המזהה \"$1\" כבר מותקנת"
 }

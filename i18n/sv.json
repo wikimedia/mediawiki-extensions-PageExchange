@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
 	"packages": "Paket",
 	"pageexchange-installed": "Installerad",
 	"pageexchange-available": "Tillgänglig",
+	"pageexchange-alreadyexist": "Det finns redan ett sidnamn i ''snedstil'' på den här wikin.",
 	"pageexchange-installpackage": "Installera paket: $1",
 	"pageexchange-updatepackage": "Uppdatera paket: $1",
 	"pageexchange-uninstallpackage": "Avinstallera paket: $1",
@@ -18,6 +20,7 @@
 	"pageexchange-package-author": "Författare:",
 	"pageexchange-package-version": "Version:",
 	"pageexchange-package-pages": "Sidor:",
+	"pageexchange-package-additionalslots": "Ytterligare spår",
 	"pageexchange-package-language": "Språk:",
 	"pageexchange-package-license": "Licens:",
 	"pageexchange-package-requiredpackages": "Nödvändiga paket:",
@@ -25,6 +28,7 @@
 	"pageexchange-package-update": "Uppdatera",
 	"pageexchange-package-uninstall": "Avinstallera",
 	"pageexchange-pagehaschanged": "den senaste versionen av denna sida skiljer sig från den lokala kopian",
+	"pageexchange-localcopydiffers": "Det finns en lokal kopia av den här sidan som skiljer sig från den externa versionen.",
 	"pageexchange-nocontentsremote": "Inget innehåll hittades på denna sida!",
 	"pageexchange-packageinstalled": "Paketet installerades.",
 	"pageexchange-packageuninstalled": "Detta paket avinstallerades.",

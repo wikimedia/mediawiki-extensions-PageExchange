@@ -37,6 +37,7 @@
 	"pageexchange-package-license": "Лицензия:",
 	"pageexchange-package-requiredextensions": "Требуемые расширения:",
 	"pageexchange-package-requiredpackages": "Требуемые пакеты:",
+	"pageexchange-package-externalfile": "внешний файл",
 	"pageexchange-package-morerecent": "Существует более свежая, чем установленная на этой вики, версия этого пакета.",
 	"pageexchange-package-install": "Установить",
 	"pageexchange-package-update": "Обновить",

@@ -38,6 +38,7 @@
 	"pageexchange-package-author": "Autor:",
 	"pageexchange-package-version": "Version:",
 	"pageexchange-package-pages": "Seiten:",
+	"pageexchange-package-additionalslots": "Zusätzliche Slots",
 	"pageexchange-package-language": "Sprache:",
 	"pageexchange-package-license": "Lizenz:",
 	"pageexchange-package-requiredextensions": "Erforderliche Erweiterungen:",
