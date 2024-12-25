@@ -6,6 +6,7 @@
 	},
 	"pageexchange-unusable": "ਵਰਤੋਂ ਯੋਗ ਨਹੀਂ",
 	"pageexchange-jsonfileerror": "ਫਾਇਲ $1 ਵਿੱਚ ਗਲਤੀ: $2",
+	"pageexchange-package-pages": "ਸਫ਼ੇ:",
 	"pageexchange-package-externaltext": "ਬਾਹਰੀ ਲਿਖਤ",
 	"pageexchange-package-externalfile": "ਬਾਹਰੀ ਫਾਇਲ"
 }
