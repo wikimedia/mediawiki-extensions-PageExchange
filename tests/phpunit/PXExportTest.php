@@ -106,7 +106,7 @@ class PXExportTest extends MediaWikiIntegrationTestCase {
 			'page contents with wiki templates are exported correctly'
 		);
 		$this->assertEquals(
-			'testRoot/Main/Page4Test|SubPage1Test.mediawiki',
+			'testRoot/Main/Page4Test#SubPage1Test.mediawiki',
 			array_keys( $result )[3],
 			'file root for subpages is calculated correctly'
 		);
@@ -131,7 +131,7 @@ class PXExportTest extends MediaWikiIntegrationTestCase {
 			'file root for pages with extra namespace is calculated correctly'
 		);
 		$this->assertEquals(
-			'testRoot/CustomNamespace|With|Slashes/Page8Test.mediawiki',
+			'testRoot/CustomNamespace#With#Slashes/Page8Test.mediawiki',
 			array_keys( $result )[8],
 			'file root for pages with extra namespace with slashes is calculated correctly'
 		);

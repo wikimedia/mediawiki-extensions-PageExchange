@@ -81,7 +81,7 @@ class PXExportPackage extends PXPackage {
 				continue;
 			}
 			if ( strpos( $namespaceName, '/' ) !== false ) {
-				$namespaceName = str_replace( '/', '|', $namespaceName );
+				$namespaceName = str_replace( '/', '#', $namespaceName );
 			}
 			$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
 			$content = $wikiPageFactory->newFromTitle( $title )->getContent()->getWikitextForTransclusion();
@@ -89,7 +89,7 @@ class PXExportPackage extends PXPackage {
 				mkdir( $root . '/' . $namespaceName );
 			}
 			if ( strpos( $filename, '/' ) !== false ) {
-				$filename = str_replace( '/', '|', $filename );
+				$filename = str_replace( '/', '#', $filename );
 			}
 			$targetFileName = $root . '/' . $namespaceName . '/' . $filename . '.mediawiki';
 			if ( $save ) {
