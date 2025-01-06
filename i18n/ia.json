@@ -51,7 +51,7 @@
 	"pageexchange-packageinstalled": "Iste pacchetto ha essite installate.",
 	"pageexchange-packageuninstalled": "Iste pacchetto ha essite disinstallate.",
 	"pageexchange-packageupdated": "Iste pacchetto ha essite actualisate.",
-	"pageexchange-packageidnull": "Error: packageid non pote esser nulle",
+	"pageexchange-packageidnull": "Error: le ID del pacchetto non pote esser nulle",
 	"pageexchange-packagenotexists": "Error: Nulle pacchetto con ID \"$1\" existe.",
 	"pageexchange-packagealreadyinstalled": "Le pacchetto con ID \"$1\" es ja installate."
 }
