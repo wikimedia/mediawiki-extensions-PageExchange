@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Seipinne"
+			"Seipinne",
+			"Yupik"
 		]
 	},
 	"pageexchange-package-pages": "Siijđoh:",
-	"pageexchange-package-language": "Kielâ:"
+	"pageexchange-package-language": "Kielâ:",
+	"pageexchange-package-license": "Liiseens:"
 }
