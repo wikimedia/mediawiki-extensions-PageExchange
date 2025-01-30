@@ -54,7 +54,7 @@
 	"pageexchange-packageinstalled": "Цей пакунок було встановлено.",
 	"pageexchange-packageuninstalled": "Цей пакунок було деінстальовано.",
 	"pageexchange-packageupdated": "Цей пакунок було оновлено.",
-	"pageexchange-packageidnull": "Помилка: packageid не може бути null",
+	"pageexchange-packageidnull": "Помилка: ідентифікатор пакету не може бути null",
 	"pageexchange-packagenotexists": "Помилка: Пакет з ідентифікатором \"$1\" не існує.",
 	"pageexchange-packagealreadyinstalled": "Пакет з ідентифікатором \"$1\" вже встановлено"
 }
