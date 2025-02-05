@@ -4,6 +4,7 @@
 			"Alex Mashin",
 			"Diman Russkov",
 			"Kareyac",
+			"Okras",
 			"VoxelJ"
 		]
 	},
@@ -55,7 +56,7 @@
 	"pageexchange-packageinstalled": "Этот пакет был установлен.",
 	"pageexchange-packageuninstalled": "Этот пакет был удален.",
 	"pageexchange-packageupdated": "Этот пакет был обновлен.",
-	"pageexchange-packageidnull": "Ошибка: packageid не может быть пустым",
+	"pageexchange-packageidnull": "Ошибка: идентификатор пакета не может быть пустым",
 	"pageexchange-packagenotexists": "Ошибка: пакета с идентификатором \"$1\" не существует.",
 	"pageexchange-packagealreadyinstalled": "Пакет с идентификатором \"$1\" уже установлен"
 }
