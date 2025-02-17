@@ -35,6 +35,8 @@
 	"pageexchange-package-license": "Licenca:",
 	"pageexchange-package-requiredextensions": "Potrebne razširitve:",
 	"pageexchange-package-requiredpackages": "Potrebni paketi:",
+	"pageexchange-package-externaltext": "zunanje besedilo",
+	"pageexchange-package-externalfile": "zunanja datoteka",
 	"pageexchange-package-morerecent": "Obstaja novejša različica tega paketa od tiste, ki je trenutno nameščena v tem vikiju.",
 	"pageexchange-package-install": "Namesti",
 	"pageexchange-package-update": "Posodobi",
