@@ -1,7 +1,7 @@
 {
 	"name": "Page Exchange",
 	"namemsg": "pageexchange-extensionname",
-	"version": "0.8",
+	"version": "0.9-alpha",
 	"author": [
 		"Yaron Koren"
 	],
@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.39"
+		"MediaWiki": ">= 1.40"
 	},
 	"AvailableRights": [
 		"pageexchange"

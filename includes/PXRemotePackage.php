@@ -6,6 +6,8 @@
  * @ingroup PX
  */
 
+use MediaWiki\Html\Html;
+
 class PXRemotePackage extends PXPackage {
 
 	private $mDirectoryNum;

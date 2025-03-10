@@ -6,6 +6,8 @@
  * @ingroup PX
  */
 
+use MediaWiki\Html\Html;
+
 class PXInstalledPackage extends PXPackage {
 
 	private $mID;

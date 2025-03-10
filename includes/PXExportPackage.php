@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /*
  * Mostly copied from the files PF_Utils.php and PF_ValuesUtils.php in the Page Forms extension

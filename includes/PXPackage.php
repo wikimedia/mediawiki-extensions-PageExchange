@@ -6,6 +6,7 @@
  * @ingroup PX
  */
 
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 
 abstract class PXPackage {
