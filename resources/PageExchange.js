@@ -3,7 +3,7 @@
 $( '.pageExchangeAdditionalPages' ).hide();
 
 $( '.pageExchangeToggle' ).on( 'click', function () {
-	var $toggleLink = $( this );
+	const $toggleLink = $( this );
 	$toggleLink.siblings( '.pageExchangeAdditionalPages' ).each( function () {
 		if ( $( this ).is( ':hidden' ) ) {
 			$( this ).show();
