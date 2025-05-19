@@ -4,5 +4,11 @@
 			"Kareyac"
 		]
 	},
-	"pageexchange-package-license": "Licenca:"
+	"pageexchange-nonmatching": "Nepoklapanje",
+	"pageexchange-unusable": "Neupotrebljivo",
+	"pageexchange-alreadyexist": "Imena stranica u ''kurzivu'' već postoje na ovom vikiju.",
+	"pageexchange-jsonfileerror": "Greška u datoteci $1: $2",
+	"pageexchange-package-license": "Licenca:",
+	"pageexchange-package-externalfile": "eksterna datoteka",
+	"pageexchange-localcopydiffers": "Postoji lokalna kopija ove stranice koja se razlikuje od spoljašnje verzije."
 }
