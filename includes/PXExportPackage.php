@@ -240,6 +240,7 @@ class PXExportPackage extends PXPackage {
 		// TODO: test with displaytitle overrides!!
 		$pages = $this->getAllPagesForCategory( $category, $levels, $substring, $inclusive );
 		$this->addPages( $pages );
+		return true;
 	}
 
 	public function getPages(): array {

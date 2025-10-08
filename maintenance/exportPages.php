@@ -140,7 +140,7 @@ class ExportPages extends Maintenance {
 			$this->fatalError( $e->getMessage() );
 		}
 
-		$this->output( "Done!" );
+		$this->output( "Done!\n" );
 	}
 
 }
