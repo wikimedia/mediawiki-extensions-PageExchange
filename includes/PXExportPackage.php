@@ -279,6 +279,10 @@ class PXExportPackage extends PXPackage {
 		global $wgPageFormsMaxAutocompleteValues;
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+
+		// true for MW 1.45+
+		$useTargetID = !$dbr->fieldExists( 'categorylinks', 'cl_to' );
+
 		$top_category = str_replace( ' ', '_', $top_category );
 		$categories = [ $top_category ];
 		$checkcategories = [ $top_category ];
@@ -288,12 +292,23 @@ class PXExportPackage extends PXPackage {
 			$newcategories = [];
 			foreach ( $checkcategories as $category ) {
 				$tables = [ 'categorylinks', 'page' ];
+				if ( $useTargetID ) {
+					$tables[] = 'linktarget';
+				}
 				$columns = [ 'page_title', 'page_namespace' ];
 				$conditions = [];
-				$conditions[] = 'cl_from = page_id';
-				$conditions['cl_to'] = $category;
+				if ( $useTargetID ) {
+					$conditions['lt_title'] = $category;
+				} else {
+					$conditions['cl_to'] = $category;
+				}
 
 				$join = [];
+				$join['categorylinks'] = [ 'JOIN', 'page_id = cl_from' ];
+				if ( $useTargetID ) {
+					$join['linktarget'] = [ 'JOIN', 'cl_target_id = lt_id' ];
+				}
+
 				if ( $substring != null ) {
 					$conditions[] = $this->getSQLConditionForAutocompleteInColumn(
 							'page_title',
