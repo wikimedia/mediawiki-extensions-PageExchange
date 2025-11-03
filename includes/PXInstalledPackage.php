@@ -7,6 +7,7 @@
  */
 
 use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
 
 class PXInstalledPackage extends PXPackage {
 

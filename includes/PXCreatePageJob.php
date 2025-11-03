@@ -5,8 +5,10 @@
  * @ingroup PX
  */
 
+use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Title\Title;
 use Wikimedia\AtEase\AtEase;
 
 /**

@@ -5,6 +5,8 @@
  * @author Yaron Koren
  */
 
+use MediaWiki\Html\Html;
+
 class SpecialPackages extends SpecialPage {
 
 	private $mInstalledExtensions = [];
