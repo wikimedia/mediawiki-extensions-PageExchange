@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"बडा काजी"
+		]
+	},
+	"pageexchange-extensionname": "पृष्ठ आदानप्रदान",
+	"pageexchange-desc": "पूर्व-परिभाषित विकी पृष्ठहरूको \"प्याकेजहरू\" स्थापना गर्न अनुमति दिन्छ।",
+	"packages": "प्याकेजहरू",
+	"pageexchange-package-website": "वेबसाइटः",
+	"pageexchange-package-publisher": "प्रकाशक",
+	"pageexchange-package-author": "लेखक:",
+	"pageexchange-package-version": "संस्करण:",
+	"pageexchange-package-pages": "पृष्ठहरू:",
+	"pageexchange-package-language": "भाषा:",
+	"pageexchange-package-license": "इजाजतपत्र",
+	"pageexchange-package-update": "अद्यावधिक गर्नुहोस्"
+}
