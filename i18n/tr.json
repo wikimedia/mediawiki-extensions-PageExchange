@@ -3,7 +3,8 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Joseph",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"SaldırganSincap"
 		]
 	},
 	"pageexchange-desc": "Önceden tanımlanmış viki sayfalarının \"paketlerini\" yüklemeye izin verir",
@@ -53,7 +54,7 @@
 	"pageexchange-packageinstalled": "Bu paket kuruldu.",
 	"pageexchange-packageuninstalled": "Bu paket kaldırıldı.",
 	"pageexchange-packageupdated": "Bu paket güncellendi.",
-	"pageexchange-packageidnull": "Hata: packageid boş olamaz",
+	"pageexchange-packageidnull": "Hata: paket kimliği boş olamaz",
 	"pageexchange-packagenotexists": "Hata: '$1' ID'sine sahip bir paket yok.",
 	"pageexchange-packagealreadyinstalled": "'$1' ID'sine sahip paket zaten yüklü."
 }
