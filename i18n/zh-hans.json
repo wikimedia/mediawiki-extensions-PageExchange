@@ -2,10 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"SomeyaMako",
-			"列维劳德"
+			"列维劳德",
+			"Peterxy12"
 		]
 	},
 	"packages": "程序包",
+	"apihelp-pxinstallpackage-param-packageid": "套件的全域ID",
+	"apihelp-pxupdatepackage-param-packageid": "套件的全域ID",
+	"apihelp-pxuninstallpackage-param-packageid": "套件的全域ID",
+	"right-pageexchange": "交换页面",
+	"action-pageexchange": "交换页面",
+	"pageexchange-logname": "Page Exchange日志",
 	"pageexchange-logdesc": "这是与 Page Exchange 扩展相关的操作日志。",
 	"pageexchange-installed": "已安装",
 	"pageexchange-available": "可用",
@@ -21,6 +28,7 @@
 	"pageexchange-package-version": "版本：",
 	"pageexchange-package-pages": "页面：",
 	"pageexchange-package-language": "语言：",
+	"pageexchange-package-license": "许可协议：",
 	"pageexchange-package-requiredextensions": "必需的扩展：",
 	"pageexchange-package-requiredpackages": "必需的程序包有：",
 	"pageexchange-package-morerecent": "此Wiki上安装的此程序包存在一个更新。",
