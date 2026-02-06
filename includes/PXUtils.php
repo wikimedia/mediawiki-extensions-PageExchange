@@ -1,6 +1,5 @@
 <?php
 use MediaWiki\MediaWikiServices;
-use Wikimedia\AtEase\AtEase;
 
 class PXUtils {
 	public static function getInstalledExtensions( $config ) {
@@ -57,9 +56,8 @@ class PXUtils {
 			return $contents;
 		}
 
-		AtEase::suppressWarnings();
-		$contents = file_get_contents( $url );
-		AtEase::restoreWarnings();
+		// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+		$contents = @file_get_contents( $url );
 
 		return $contents;
 	}

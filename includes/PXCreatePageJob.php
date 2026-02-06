@@ -9,7 +9,6 @@ use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
-use Wikimedia\AtEase\AtEase;
 
 /**
  * Background job to create a new page.
@@ -124,7 +123,8 @@ class PXCreatePageJob extends Job {
 		$publishOptions = [];
 		$handler = MediaHandler::getHandler( $props['mime'] );
 		if ( $handler ) {
-			$metadata = AtEase::quietCall( 'unserialize', $props['metadata'] );
+			// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+			$metadata = @unserialize( $props['metadata'] );
 			$publishOptions['headers'] = $handler->getContentHeaders( $metadata );
 		} else {
 			$publishOptions['headers'] = [];
