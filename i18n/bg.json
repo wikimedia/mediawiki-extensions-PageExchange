@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"StanProg"
 		]
 	},
+	"pageexchange-package-pages": "Страници:",
+	"pageexchange-package-language": "Език:",
 	"pageexchange-package-license": "Лиценз:"
 }
