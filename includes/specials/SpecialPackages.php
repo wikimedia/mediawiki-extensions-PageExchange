@@ -16,11 +16,14 @@ class SpecialPackages extends SpecialPage {
 	private $mUnusablePackages = [];
 
 	public function __construct() {
-		parent::__construct( 'Packages', 'pageexchange' );
+		parent::__construct( 'Packages' );
 	}
 
 	public function execute( $query ) {
-		$this->checkPermissions();
+		// Check permissions.
+		if ( !$this->getUser()->isAllowed( 'pageexchange' ) ) {
+			$this->displayRestrictionError();
+		}
 
 		$out = $this->getOutput();
 		$request = $this->getRequest();
