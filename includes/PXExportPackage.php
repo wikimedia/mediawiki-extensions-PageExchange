@@ -46,7 +46,7 @@ class PXExportPackage extends PXPackage {
 	public function getAllPages(): array {
 		$pages = [];
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		$res = $dbr->select( 'page', [ 'page_title', 'page_namespace' ] );
+		$res = $dbr->select( 'page', [ 'page_title', 'page_namespace' ], '', __METHOD__ );
 		if ( $res ) {
 			foreach ( $res as $row ) {
 				$cur_title = Title::makeTitleSafe( $row['page_namespace'], $row['page_title'] );
@@ -66,11 +66,10 @@ class PXExportPackage extends PXPackage {
 	 *
 	 * @return array|bool
 	 * @throws MWException
-	 * @throws Exception
 	 */
 	public function exportToDirectory( string $root, bool $save = true ) {
 		if ( $save && ( !is_dir( $root ) || !is_writable( $root ) ) ) {
-			throw new Exception( 'Output directory does not exist or you have no write permissions' );
+			throw new MWException( 'Output directory does not exist or you have no write permissions' );
 		}
 		$contents = [];
 		foreach ( $this->mPages as $page ) {
@@ -122,7 +121,7 @@ class PXExportPackage extends PXPackage {
 	/**
 	 * Returns namespace constant name (NS_MAIN, NS_FILE, etc) by constant value
 	 *
-	 * @param string $value
+	 * @param int $value
 	 *
 	 * @return array|mixed|null
 	 */
@@ -199,7 +198,7 @@ class PXExportPackage extends PXPackage {
 
 		if ( $directoryStructure ) {
 			unset( $json['packages'][$this->mName]['pages'] );
-			$repo = explode( '/', $repo );
+			$repo = explode( '/', $repo ?? '' );
 			$repoName = $repo[1] ?? '';
 			$repoAccount = $repo[0] ?? '';
 
@@ -452,14 +451,21 @@ class PXExportPackage extends PXPackage {
 	}
 
 	/**
-	 *  Fill out the abstract functions that we don't need
+	 * Fill out the abstract functions that we don't need
+	 *
+	 * @return never
+	 * @throws MWException
 	 */
 	public function processPages() {
-		throw new Exception( 'Call export() or exportJSON() instead' );
+		throw new MWException( 'Call export() or exportJSON() instead' );
 	}
 
+	/**
+	 * @return never
+	 * @throws MWException
+	 */
 	public function getFullHTML() {
-		throw new Exception( 'Call export() or exportJSON() instead' );
+		throw new MWException( 'Call export() or exportJSON() instead' );
 	}
 
 }

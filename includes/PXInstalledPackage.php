@@ -173,7 +173,7 @@ class PXInstalledPackage extends PXPackage {
 				$localContents = $page->getLocalContents();
 				// Ignore newlines or spaces at the end of the
 				// page contents.
-				if ( rtrim( $localContents ) == rtrim( $remoteContents ) ) {
+				if ( rtrim( $localContents ?? '' ) == rtrim( $remoteContents ) ) {
 					// Do nothing.
 				} else {
 					$pagesString .= ' - ' . wfMessage( 'pageexchange-pagehaschanged' )->parse();
@@ -309,7 +309,7 @@ END;
 			'pxp_name' => $remotePackage->mName,
 			'pxp_package_data' => json_encode( $remotePackage->getPackageData() )
 		];
-		$dbw->update( 'px_packages', $updateValues, [ 'pxp_id' => $this->mID ] );
+		$dbw->update( 'px_packages', $updateValues, [ 'pxp_id' => $this->mID ], __METHOD__ );
 
 		$deletedPages = [];
 
@@ -340,7 +340,7 @@ END;
 			}
 		}
 
-		$dbw->delete( 'px_packages', [ 'pxp_id' => $this->mID ] );
+		$dbw->delete( 'px_packages', [ 'pxp_id' => $this->mID ], __METHOD__ );
 
 		$this->logAction( 'uninstallpackage', $user );
 	}

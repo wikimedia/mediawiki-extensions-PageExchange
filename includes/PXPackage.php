@@ -28,11 +28,12 @@ abstract class PXPackage {
 	protected $mRequiredPackages = [];
 	protected $mUser;
 
-	public function populateWithData( $fileData, $packageData ) {
+	public function populateWithData( ?object $fileData, object $packageData ) {
 		$baseURL = self::getPackageField( 'baseURL', $fileData, $packageData );
 		$pagesData = self::getPackageField( 'pages', $fileData, $packageData, false );
 		if ( $pagesData !== null ) {
 			foreach ( $pagesData as $pageData ) {
+				// @phan-suppress-next-line PhanTypeMismatchArgument
 				$page = PXPage::newFromData( $pageData, $baseURL );
 				if ( $page === null ) {
 					continue;
@@ -74,7 +75,7 @@ abstract class PXPackage {
 			->getPageTitle();
 	}
 
-	public static function getPackageField( $fieldName, $fileData, $packageData, $escapeHTML = true, $isWikitext = false ) {
+	public static function getPackageField( $fieldName, ?object $fileData, object $packageData, $escapeHTML = true, $isWikitext = false ) {
 		if ( property_exists( $packageData, $fieldName ) ) {
 			$value = $packageData->$fieldName;
 		} elseif ( $fileData !== null && property_exists( $fileData, $fieldName ) ) {
@@ -204,7 +205,7 @@ END;
 			return $this->displayAttribute( 'pageexchange-package-website', $this->mURL );
 		}
 		// Determine the link text based on whether to show the full URL or just the host.
-		$linkText = $showURL ? $this->mURL : parse_url( $this->mURL )[ 'host' ];
+		$linkText = $showURL ? $this->mURL : parse_url( $this->mURL )[ 'host' ] ?? '';
 		$link = Html::element( 'a', [ 'href' => $this->mURL ], $linkText );
 		return $this->displayAttribute( 'pageexchange-package-website', $link );
 	}
@@ -323,7 +324,7 @@ END;
 							rawurlencode( $actualFileName );
 					}
 				}
-				$this->mPages[] = PXPage::newFromData( $pageData, null );
+				$this->mPages[] = PXPage::newFromData( $pageData, '' );
 			}
 		}
 	}

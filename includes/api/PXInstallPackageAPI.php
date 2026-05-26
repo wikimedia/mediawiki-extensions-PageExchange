@@ -27,10 +27,7 @@ class PXInstallPackageAPI extends ApiBase {
 
 	private function getRemotePackage( $packageID ) {
 		$dbr = PXUtils::getReadDB();
-		$res = $dbr->select(
-			'px_packages',
-			'pxp_global_id'
-		);
+		$res = $dbr->select( 'px_packages', 'pxp_global_id', '', __METHOD__ );
 		$installedPackageIDs = [];
 		while ( $row = $res->fetchRow() ) {
 			$installedPackageIDs[] = $row[0];

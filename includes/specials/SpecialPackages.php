@@ -35,14 +35,14 @@ class SpecialPackages extends SpecialPage {
 		$out->addModuleStyles( [ 'oojs-ui.styles.icons-alerts' ] );
 		$this->mInstalledExtensions = PXUtils::getInstalledExtensions( $this->getConfig() );
 		$packageName = $request->getVal( 'name' );
-		$directoryNum = $request->getVal( 'directoryNum' );
+		$directoryNum = $request->getInt( 'directoryNum' );
 		$fileNum = $request->getVal( 'fileNum' );
 
 		if ( $packageName !== null && $fileNum !== null ) {
 			$out->setPageTitle( $this->msg( 'packages' )->parse() . ': ' . $packageName );
 			$this->addBreadcrumb();
 			try {
-				$package = $this->getRemotePackage( $directoryNum, $fileNum, $packageName );
+				$package = $this->getRemotePackage( $directoryNum, intval( $fileNum ), $packageName );
 			} catch ( MWException $e ) {
 				$this->getOutput()->addHtml( Html::element( 'div', [ 'class' => 'error' ], $e->getMessage() ) );
 				return;
@@ -156,7 +156,7 @@ class SpecialPackages extends SpecialPage {
 		}
 	}
 
-	private function getRemotePackage( $directoryNum, $fileNum, $packageName ) {
+	private function getRemotePackage( ?int $directoryNum, int $fileNum, $packageName ) {
 		if ( $directoryNum == null ) {
 			$packageFiles = $this->getConfig()->get( 'PageExchangePackageFiles' );
 		} else {
@@ -174,10 +174,7 @@ class SpecialPackages extends SpecialPage {
 		$fileURL = $packageFiles[$fileNum - 1];
 
 		$dbr = PXUtils::getReadDB();
-		$res = $dbr->select(
-			'px_packages',
-			'pxp_global_id'
-		);
+		$res = $dbr->select( 'px_packages', 'pxp_global_id', '', __METHOD__ );
 		$installedPackageIDs = [];
 		while ( $row = $res->fetchRow() ) {
 			$installedPackageIDs[] = $row[0];
@@ -197,7 +194,7 @@ class SpecialPackages extends SpecialPage {
 		}
 
 		if ( $installedPackagesText != '' ) {
-			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-installed' )->text() ) . "\n";
+			$text .= Html::element( 'h2', [], wfMessage( 'pageexchange-installed' )->text() ) . "\n";
 			$text .= $installedPackagesText . "\n" . $clearBothTag . "\n";
 		}
 
@@ -206,8 +203,8 @@ class SpecialPackages extends SpecialPage {
 			$matchingPackagesText .= $package->displayCard();
 		}
 		if ( $matchingPackagesText != '' ) {
-			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-available' )->text() ) . "\n";
-			$text .= Html::rawElement( 'p', null, wfMessage( 'pageexchange-alreadyexist' )->parse() ) . "\n";
+			$text .= Html::element( 'h2', [], wfMessage( 'pageexchange-available' )->text() ) . "\n";
+			$text .= Html::rawElement( 'p', [], wfMessage( 'pageexchange-alreadyexist' )->parse() ) . "\n";
 			$text .= $matchingPackagesText . "\n" . $clearBothTag . "\n";
 		}
 
@@ -216,8 +213,8 @@ class SpecialPackages extends SpecialPage {
 			$nonMatchingPackagesText .= $package->displayCard();
 		}
 		if ( $nonMatchingPackagesText != '' ) {
-			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-nonmatching' )->text() ) . "\n";
-			$text .= Html::rawElement( 'p', null, wfMessage( 'pageexchange-alreadyexist' )->parse() ) . "\n";
+			$text .= Html::element( 'h2', [], wfMessage( 'pageexchange-nonmatching' )->text() ) . "\n";
+			$text .= Html::rawElement( 'p', [], wfMessage( 'pageexchange-alreadyexist' )->parse() ) . "\n";
 			$text .= $nonMatchingPackagesText . "\n" . $clearBothTag . "\n";
 		}
 
@@ -226,7 +223,7 @@ class SpecialPackages extends SpecialPage {
 			$unusablePackagesText .= $package->displayCard();
 		}
 		if ( $unusablePackagesText !== '' ) {
-			$text .= Html::element( 'h2', null, wfMessage( 'pageexchange-unusable' )->text() ) . "\n";
+			$text .= Html::element( 'h2', [], wfMessage( 'pageexchange-unusable' )->text() ) . "\n";
 			$text .= $unusablePackagesText . "\n" . $clearBothTag . "\n";
 		}
 
@@ -242,13 +239,13 @@ class SpecialPackages extends SpecialPage {
 	}
 
 	private function displaySuccessMessage( $msg ) {
-		$text = Html::element( 'p', null, $msg ) . "\n";
+		$text = Html::element( 'p', [], $msg ) . "\n";
 		$linkRenderer = $this->getLinkRenderer();
 		$mainPageLink = $linkRenderer->makeLink(
 			$this->getPageTitle(),
-			$this->msg( 'returnto' )->rawParams( $this->getDescription() )->parse()
+			$this->msg( 'returnto' )->rawParams( $this->getDescription() )->text()
 		);
-		$text .= Html::rawElement( 'p', null, $mainPageLink );
+		$text .= Html::rawElement( 'p', [], $mainPageLink );
 		return $text;
 	}
 }

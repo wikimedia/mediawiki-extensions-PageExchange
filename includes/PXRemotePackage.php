@@ -373,7 +373,7 @@ END;
 	public function install( $user ) {
 		$dbw = PXUtils::getWriteDB();
 
-		$maxPackageID = $dbw->selectField( 'px_packages', 'MAX(pxp_id)' );
+		$maxPackageID = $dbw->selectField( 'px_packages', 'MAX(pxp_id)', '', __METHOD__ );
 		$packageID = $maxPackageID + 1;
 
 		// We do special storage of MediaWiki:XXX.js and .css pages,
@@ -399,7 +399,7 @@ END;
 			'pxp_css_pages' => $cssPagesString,
 			'pxp_package_data' => json_encode( $this->getPackageData() )
 		];
-		$dbw->insert( 'px_packages', $installValues );
+		$dbw->insert( 'px_packages', $installValues, __METHOD__ );
 
 		foreach ( $this->mPages as $page ) {
 			$page->createOrUpdateWikiPage( $user, $this->mName, true );

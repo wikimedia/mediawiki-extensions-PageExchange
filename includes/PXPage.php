@@ -26,7 +26,7 @@ class PXPage {
 	private $mLocalLink;
 	private $mSlots = [];
 
-	public static function newFromData( $packagePageData, $baseURL ) {
+	public static function newFromData( object $packagePageData, string $baseURL ) {
 		$page = new PXPage();
 		$page->mName = $packagePageData->name;
 		if ( property_exists( $packagePageData, 'namespace' ) ) {

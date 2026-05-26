@@ -30,7 +30,9 @@ class PXUtils {
 		$dbr = self::getReadDB();
 		$res = $dbr->select(
 			'px_packages',
-			[ 'pxp_id', 'pxp_name', 'pxp_package_data' ]
+			[ 'pxp_id', 'pxp_name', 'pxp_package_data' ],
+			'',
+			__METHOD__
 		);
 		while ( $row = $res->fetchRow() ) {
 			$installedPackages[] = PXInstalledPackage::newFromDB( $row, $user );
@@ -83,7 +85,7 @@ class PXUtils {
 	/**
 	 * Provides database for read access
 	 *
-	 * @return Database
+	 * @return \Wikimedia\Rdbms\IReadableDatabase
 	 */
 	public static function getReadDB() {
 		return MediaWikiServices::getInstance()
@@ -94,7 +96,7 @@ class PXUtils {
 	/**
 	 * Provides database for write access
 	 *
-	 * @return Database
+	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	public static function getWriteDB() {
 		return MediaWikiServices::getInstance()

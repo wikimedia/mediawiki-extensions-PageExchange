@@ -34,10 +34,6 @@ class PXCreatePageJob extends Job {
 		}
 
 		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
-		if ( !$wikiPage ) {
-			$this->error = 'pageExchangeCreatePage: Wiki page not found "' . $this->title->getPrefixedDBkey() . '"';
-			return false;
-		}
 
 		$userID = $this->params['user_id'];
 		$user = MediaWikiServices::getInstance()
@@ -109,7 +105,7 @@ class PXCreatePageJob extends Job {
 		return true;
 	}
 
-	public function createOrUpdateFile( $user, $editSummary, $newPageText, $fileURL ) {
+	public function createOrUpdateFile( User $user, string $editSummary, string $newPageText, string $fileURL ) {
 		// Code copied largely from /maintenance/importImages.php.
 		$fileContents = PXUtils::getWebPageContents( $fileURL );
 		$tempFile = tmpfile();
