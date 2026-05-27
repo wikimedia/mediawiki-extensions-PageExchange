@@ -53,7 +53,7 @@ abstract class PXPackage {
 		$this->mDescription = self::getPackageField( 'description', null, $packageData, true, true );
 		$this->mPublisher = self::getPackageField( 'publisher', $fileData, $packageData );
 		$this->mPublisherURL = self::getPackageField( 'publisherURL', $fileData, $packageData );
-		if ( substr( $this->mPublisherURL, 0, 4 ) !== 'http' ) {
+		if ( $this->mPublisherURL && substr( $this->mPublisherURL, 0, 4 ) !== 'http' ) {
 			$this->mPublisherURL = null;
 		}
 		$this->mAuthor = self::getPackageField( 'author', $fileData, $packageData );
@@ -80,6 +80,9 @@ abstract class PXPackage {
 		} elseif ( $fileData !== null && property_exists( $fileData, $fieldName ) ) {
 			$value = $fileData->$fieldName;
 		} else {
+			return null;
+		}
+		if ( $value === null ) {
 			return null;
 		}
 		if ( $isWikitext ) {
