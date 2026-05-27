@@ -218,7 +218,7 @@ class PXPage {
 		}
 		if ( $this->mNamespace == NS_FILE ) {
 			$file = $mwServices->getRepoGroup()->getLocalRepo()->newFile( $this->mLocalTitle );
-			$file->delete( $editSummary );
+			$file->deleteFile( $editSummary, $user );
 		}
 	}
 
