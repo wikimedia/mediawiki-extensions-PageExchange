@@ -197,7 +197,7 @@ class PXInstalledPackage extends PXPackage {
 			$pagesString .= "<li>" . $unmatchedRemotePage->getLocalLink() .
 				' (' . Html::element( 'a', [ 'href' => $unmatchedRemotePage->getURL() ], $externalTextString ) .
 				') - this page does not exist locally.';
-			$remoteContents = $page->getRemoteContents();
+			$remoteContents = $unmatchedRemotePage->getRemoteContents();
 			if ( $remoteContents == null ) {
 				$pagesString .= ' <span class="error">' . wfMessage( 'pageexchange-nocontentslocal' )->parse() . '</span>';
 			}
