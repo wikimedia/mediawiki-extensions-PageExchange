@@ -39,7 +39,13 @@ class PXCreatePageJob extends Job {
 			return false;
 		}
 
+		$userID = $this->params['user_id'];
+		$user = MediaWikiServices::getInstance()
+			->getUserFactory()
+			->newFromId( (int)$userID );
+		$editSummary = $this->params['edit_summary'];
 		$newPageText = PXUtils::getWebPageContents( $this->params['page_url'] );
+
 		if ( array_key_exists( 'file_url', $this->params ) ) {
 			$fileURL = $this->params['file_url'];
 			$this->createOrUpdateFile( $user, $editSummary, $newPageText, $fileURL );
@@ -58,11 +64,6 @@ class PXCreatePageJob extends Job {
 		// @todo - is all this necessary for pages where createOrUpdateFile()
 		// was already called?
 		$newContent = ContentHandler::makeContent( $newPageText, $this->title );
-		$userID = $this->params['user_id'];
-		$user = MediaWikiServices::getInstance()
-			->getUserFactory()
-			->newFromId( (int)$userID );
-		$editSummary = $this->params['edit_summary'];
 		$flags = 0;
 
 		$updater = $wikiPage->newPageUpdater( $user );
