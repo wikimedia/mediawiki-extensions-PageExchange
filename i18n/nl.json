@@ -3,7 +3,8 @@
 		"authors": [
 			"Mainframe98",
 			"McDutchie",
-			"Romaine"
+			"Romaine",
+			"Siebrand"
 		]
 	},
 	"pageexchange-extensionname": "Pagina-uitwisseling",
@@ -40,7 +41,7 @@
 	"pageexchange-package-additionalslots": "Overige segmenten",
 	"pageexchange-package-language": "Taal:",
 	"pageexchange-package-license": "Licentie:",
-	"pageexchange-package-requiredextensions": "Vereiste extensies:",
+	"pageexchange-package-requiredextensions": "Vereiste uitbreidingen:",
 	"pageexchange-package-requiredpackages": "Vereiste pakketten:",
 	"pageexchange-package-externaltext": "externe tekst",
 	"pageexchange-package-externalfile": "extern bestand",
