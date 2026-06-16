@@ -3,7 +3,8 @@
 		"authors": [
 			"Mainframe98",
 			"McDutchie",
-			"Romaine"
+			"Romaine",
+			"Siebrand"
 		]
 	},
 	"pageexchange-extensionname": "Pagina-uitwisseling",
@@ -35,7 +36,7 @@
 	"pageexchange-package-pages": "Pagina’s:",
 	"pageexchange-package-language": "Taal:",
 	"pageexchange-package-license": "Licentie:",
-	"pageexchange-package-requiredextensions": "Vereiste extensies:",
+	"pageexchange-package-requiredextensions": "Vereiste uitbreidingen:",
 	"pageexchange-package-requiredpackages": "Vereiste pakketten:",
 	"pageexchange-package-morerecent": "Er is een nieuwere versie van dit pakket beschikbaar dan de versie die momenteel op de wiki is geïnstalleerd.",
 	"pageexchange-package-install": "Installeren",
