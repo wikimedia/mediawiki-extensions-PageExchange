@@ -243,7 +243,7 @@ class SpecialPackages extends SpecialPage {
 		$linkRenderer = $this->getLinkRenderer();
 		$mainPageLink = $linkRenderer->makeLink(
 			$this->getPageTitle(),
-			$this->msg( 'returnto' )->rawParams( $this->getDescription() )->text()
+			$this->msg( 'returnto', $this->getDescription()->plain() )->text()
 		);
 		$text .= Html::rawElement( 'p', [], $mainPageLink );
 		return $text;
